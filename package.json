@@ -4,7 +4,8 @@
   "description": "company service for BigCo, Inc.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index"
   },
   "repository": {
     "type": "git",
@@ -21,5 +22,8 @@
   "bugs": {
     "url": "https://github.com/api-tool-kit/company/issues"
   },
-  "homepage": "https://github.com/api-tool-kit/company#readme"
+  "homepage": "https://github.com/api-tool-kit/company#readme",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
 }
