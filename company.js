@@ -12,4 +12,8 @@ router.get('/', function (req, res) {
   res.send('{"body" : "company home page"}')
 })
 
+router.get('/:companyId', function(req, res) {
+  res.send('{"companyId" : req.params.companyId}');
+});
+
 module.exports = router

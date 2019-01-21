@@ -1,4 +1,4 @@
-## Company Story at BigCo, Inc.
+# Company Story at BigCo, Inc.
 
 We keep track of companies. Each company has a unique identifier in the system. Right now that is a combination of the first four letters of their company name and date the company was added to the system (in the format YYYYMMDD. We add another digit if adding that does not result in a unique identifier in the system.
 

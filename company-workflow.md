@@ -1,6 +1,6 @@
 # Company Workflow
 
-## Data Elementsi
+## Data Elements
  * companyId
  * companyName
  * streetAddress
