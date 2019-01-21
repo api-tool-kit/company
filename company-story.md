@@ -1,0 +1,7 @@
+## Company Story at BigCo, Inc.
+
+We keep track of companies. Each company has a unique identifier in the system. Right now that is a combination of the first four letters of their company name and date the company was added to the system (in the format YYYYMMDD. We add another digit if adding that does not result in a unique identifier in the system.
+
+Data we include in a company record includes company name, strett address, city, state/province, postal code, country, telephone, and email. Each record has a status value (suspended, active, pending-review). We also track the date/time the record was created and the last date/time it was updated. We keep copies of the records, even after they have been deleted.
+
+Typical work on the company records include creating, updating, deleting (only a supervisor can do this) as well as getting a list of all customers using various filters (status, by country, by state, by company name). 
