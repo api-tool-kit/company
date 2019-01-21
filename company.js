@@ -12,8 +12,12 @@ router.get('/', function (req, res) {
   res.send('{"body" : "company home page"}')
 })
 
+router.get('/filter/', function(req, res) {
+  res.send('{"filter": []}');
+});
+
 router.get('/:companyId', function(req, res) {
-  res.send('{"companyId" : req.params.companyId}');
+  res.send('{"companyId" : "'+ req.params.companyId+'"}');
 });
 
 module.exports = router
