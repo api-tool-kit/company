@@ -1,0 +1,25 @@
+{
+  "name": "company",
+  "version": "1.0.0",
+  "description": "company service for BigCo, Inc.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/api-tool-kit/company.git"
+  },
+  "keywords": [
+    "mamund",
+    "apitoolkit",
+    "bigco",
+    "pragprog"
+  ],
+  "author": "Mike Amundsen (@mamund)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/api-tool-kit/company/issues"
+  },
+  "homepage": "https://github.com/api-tool-kit/company#readme"
+}
