@@ -5,7 +5,7 @@
  * companyName
  * streetAddress
  * city
- * state-province
+ * stateProvince
  * postalCode
  * country
  * telephone
@@ -17,8 +17,13 @@
 ## Action Elements
  
  * create
+   * companyName[R], streetAddress, city, stateProvince, postalCode, country(US), telephone, email[R], status(pending-review)
  * update
+   * companyId[R], companyName[R], streetAddress, city, stateProvince, postalCode, country(US), telephone, email[R], status
  * delete
+   * companyId[R]
  * read
- * filter (status, country, state/province, companyName)
+   * companyId[R]
+ * filter 
+   * status, country, state/province, companyName
 
