@@ -24,7 +24,12 @@ router.get('/', function (req, res) {
 
 // create
 router.post('/', function(req,res) {
-  res.send('{"body" : ' + JSON.stringify(req.body,null,2) + '}\n');
+  //res.send('{"body" : ' + JSON.stringify(req.body,null,2) + '}\n');
+  processRequest(req,res).then(function(body) {
+    res.send('{"body" : ' + JSON.stringify(body,null,2) + '}\n');
+  }).catch(function(err) {
+    res.send('{"body" : ' + JSON.stringify(err,null,2) + '}\n');
+  }); 
 });
 
 // list
@@ -53,3 +58,19 @@ router.delete('/:companyId', function(req, res) {
 });
 
 module.exports = router
+
+
+// promises
+function processRequest(req, res) {
+  return new Promise(function(resolve,reject) {
+    if(req.body) {
+      var body = req.body;
+      body.hatSize="12";
+      resolve(body);
+    }
+    else {
+      reject({error:"invalid body"});
+    }
+  });
+};
+
