@@ -17,6 +17,9 @@ router.use(function timeLog (req, res, next) {
   next()
 })
 
+/***************************************
+ * handle request events
+ ***************************************/
 // home
 router.get('/', function (req, res) {
   res.send('{"body" : "home"}\n');
@@ -24,12 +27,11 @@ router.get('/', function (req, res) {
 
 // create
 router.post('/', function(req,res) {
-  //res.send('{"body" : ' + JSON.stringify(req.body,null,2) + '}\n');
-  processRequest(req,res).then(function(body) {
+  processPost(req,res).then(function(body) {
     res.send('{"body" : ' + JSON.stringify(body,null,2) + '}\n');
   }).catch(function(err) {
     res.send('{"body" : ' + JSON.stringify(err,null,2) + '}\n');
-  }); 
+  });
 });
 
 // list
@@ -60,7 +62,43 @@ router.delete('/:companyId', function(req, res) {
 module.exports = router
 
 
-// promises
+/****************************************
+ * handle processing of request/responses
+ ****************************************/
+
+function processPost(req,res) {
+  return new Promise(function(resolve,reject) {
+    if(req.body) {
+     var body = req.body;
+     resolve(writeCustomer(body));
+    }
+    else {
+      reject(new Error("invalid body"));
+    }
+  });
+};
+
+function writeCustomer(body) {
+  return new Promise(function(resolve,reject) {
+    if(validCustomer(body)) {
+      resolve(writeItem(body));
+    }
+    else {
+      reject({error:"invalid Customer"});
+    }
+  });
+}
+
+function validCustomer(body) {
+  return false;
+}
+
+function writeItem(body) {
+  return new Promise(function(resolve,reject) {
+    resolve(body);
+  });
+}
+
 function processRequest(req, res) {
   return new Promise(function(resolve,reject) {
     if(req.body) {
