@@ -73,7 +73,7 @@ function processPost(req,res) {
      resolve(writeCustomer(body));
     }
     else {
-      reject(new Error("invalid body"));
+      reject({error:"invalid body"});
     }
   });
 };
@@ -90,7 +90,7 @@ function writeCustomer(body) {
 }
 
 function validCustomer(body) {
-  return false;
+  return true;
 }
 
 function writeItem(body) {
@@ -99,6 +99,7 @@ function writeItem(body) {
   });
 }
 
+// generic promise example
 function processRequest(req, res) {
   return new Promise(function(resolve,reject) {
     if(req.body) {
@@ -110,5 +111,4 @@ function processRequest(req, res) {
       reject({error:"invalid body"});
     }
   });
-};
-
+}
