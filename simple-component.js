@@ -46,9 +46,7 @@ function main(args) {
       rtn = utils.cleanList(storage({object:elm, action:'filter', filter:filter}));
       break
     case 'add':
-      console.log('add');
       rtn = addEntry(elm, item, props);
-      console.log(rtn);
       break;
     case 'update':
       rtn = updateEntry(elm, id, item, props);
@@ -100,8 +98,7 @@ function addEntry(elm, entry, props) {
 function updateEntry(elm, id, entry, props) {
   var rtn, check, item, error;
 
-  check = storage({object:elm, action:'item', id:id});
-  console.log(check);  
+  check = storage({object:elm, action:'item', id:id}); 
   if(check===null || (check.type && check.type==="error")) {
     rtn = utils.exception("File Not Found", "No record on file", 404);
   }

@@ -68,7 +68,6 @@ router.get('/:companyId', function(req, res) {
 
 // update
 router.put('/:companyId', function(req, res) {
-  console.log('put');
   processUpdate(req,res).then(function(body){
     res.send('{"customer":' + JSON.stringify(body,null,2) + '}\n');
   }).catch(function(err) {
@@ -137,8 +136,6 @@ function processUpdate(req,res) {
   return new Promise(function(resolve,reject){
     id = req.params.companyId||null;
     body = req.body||null;
-    console.log(id);
-    console.log(body);
     if(id!==null && body!==null) {
        resolve(component(
          {name:'customer',
