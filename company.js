@@ -1,6 +1,7 @@
 var express = require('express')
 var router = express.Router()
 var bodyParser = require('body-parser');
+var component = require('./simple-component');
 
 // set up request body parsing
 router.use(bodyParser.json({type:[
@@ -16,6 +17,10 @@ router.use(function timeLog (req, res, next) {
   console.log('Time: ', Date.now())
   next()
 })
+
+// config customer object
+var props = ['id','name','email','status','hatsize'];
+var reqd = ['email','hatsize'];
 
 /***************************************
  * handle request events
@@ -61,7 +66,6 @@ router.delete('/:companyId', function(req, res) {
 
 module.exports = router
 
-
 /****************************************
  * handle processing of request/responses
  ****************************************/
@@ -70,34 +74,13 @@ function processPost(req,res) {
   return new Promise(function(resolve,reject) {
     if(req.body) {
      var body = req.body;
-     resolve(writeCustomer(body));
+     resolve(component({name:'customer',action:'add',item:body,props:props,reqd:reqd}));
     }
     else {
       reject({error:"invalid body"});
     }
   });
 };
-
-function writeCustomer(body) {
-  return new Promise(function(resolve,reject) {
-    if(validCustomer(body)) {
-      resolve(writeItem(body));
-    }
-    else {
-      reject({error:"invalid Customer"});
-    }
-  });
-}
-
-function validCustomer(body) {
-  return true;
-}
-
-function writeItem(body) {
-  return new Promise(function(resolve,reject) {
-    resolve(body);
-  });
-}
 
 // generic promise example
 function processRequest(req, res) {
