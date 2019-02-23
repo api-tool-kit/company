@@ -54,6 +54,7 @@ function main(args) {
       rtn = updateEntry(elm, id, item, props);
       break;
     case 'remove':
+    case 'delete':
       rtn = removeEntry(elm, id);
       break;
     default:
@@ -145,6 +146,7 @@ function removeEntry(elm, id) {
   }
   else {
     storage({object:elm, action:'remove', id:id});
+    rtn = storage({object:elm,action:'list'});
   }
   
   return rtn;

@@ -19,7 +19,7 @@ router.use(function timeLog (req, res, next) {
 })
 
 // config customer object
-var props = ['id','name','email','status'];
+var props = ['id','name','email','status','dateUpdated','dateCreated'];
 var reqd = ['email'];
 
 /***************************************
@@ -27,13 +27,13 @@ var reqd = ['email'];
  ***************************************/
 // home
 router.get('/', function (req, res) {
-  res.send('{"body" : "home"}\n');
+  res.send('{"home" : "{"name":"list", "href":"/company/list/"}}\n');
 })
 
 // create
 router.post('/', function(req,res) {
   processPost(req,res).then(function(body) {
-    res.send('{"body" : ' + JSON.stringify(body,null,2) + '}\n');
+    res.send('{"customer" : ' + JSON.stringify(body,null,2) + '}\n');
   }).catch(function(err) {
     res.send('{"error" : ' + JSON.stringify(err,null,2) + '}\n');
   });
@@ -42,7 +42,7 @@ router.post('/', function(req,res) {
 // list
 router.get('/list/', function(req, res) {
   processList(req,res).then(function(body) {
-    res.send('{"list":' + JSON.stringify(body,null,2) + '}\n');
+    res.send('{"customer":' + JSON.stringify(body,null,2) + '}\n');
   }).catch(function(err) {
     res.send('{"error" : ' + JSON.stringify(err,null,2) + '}\n');
   });
@@ -55,17 +55,30 @@ router.get('/filter/', function(req, res) {
 
 // read
 router.get('/:companyId', function(req, res) {
-  res.send('{"companyId" : "'+ req.params.companyId + '"}\n');
+  processItem(req,res).then(function(body){
+    res.send('{"customer":' + JSON.stringify(body,null,2) + '}\n');
+  }).catch(function(err) {
+    res.send('{"error" : ' + JSON.stringify(err,null,2) + '}\n');
+  });
 });
 
 // update
 router.put('/:companyId', function(req, res) {
-  res.send('{"body" : ' + JSON.stringify(req.body,null,2) + '}\n');
+  console.log('put');
+  processUpdate(req,res).then(function(body){
+    res.send('{"customer":' + JSON.stringify(body,null,2) + '}\n');
+  }).catch(function(err) {
+    res.send('{"error" : ' + JSON.stringify(err,null,2) + '}\n');
+  });
 });
 
 // delete
 router.delete('/:companyId', function(req, res) {
-  res.send('{"list": []}\n');
+  processDelete(req,res).then(function(body){
+    res.send('{"customer":' + JSON.stringify(body,null,2) + '}\n');
+  }).catch(function(err) {
+    res.send('{"error" : ' + JSON.stringify(err,null,2) + '}\n');
+  });
 });
 
 module.exports = router
@@ -92,6 +105,51 @@ function processList(req,res) {
   });
 }
 
+function processItem(req,res) {
+  return new Promise(function(resolve,reject){
+    if(req.params.companyId && req.params.companyId!==null) {
+      var id = req.params.companyId;
+      resolve(component({name:'customer',action:'item',id:id}));
+    } 
+    else {
+      reject({error:"missing id"});
+    }
+  });
+}
+
+function processUpdate(req,res) {
+  var id,body;
+  return new Promise(function(resolve,reject){
+    id = req.params.companyId||null;
+    body = req.body||null;
+    console.log(id);
+    console.log(body);
+    if(id!==null && body!==null) {
+       resolve(component(
+         {name:'customer',
+          action:'update',
+          id:id,
+          item:body,
+          props:props,
+          reqd:reqd}));
+     }
+     else {
+       reject({error:"missing id and/or body"});
+     }
+  });
+}
+
+function processDelete(req,res) {
+  return new Promise(function(resolve,reject){
+    if(req.params.companyId && req.params.companyId!==null) {
+      var id = req.params.companyId;
+      resolve(component({name:'customer',action:'delete', id:id}));
+    }
+    else {
+      reject({error:"invalid id"});
+    }
+  });
+}
 // generic promise example
 function processRequest(req, res) {
   return new Promise(function(resolve,reject) {
