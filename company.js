@@ -27,7 +27,7 @@ var reqd = ['email'];
  ***************************************/
 // home
 router.get('/', function (req, res) {
-  res.send('{"home" : "{"name":"customer", "rel" : "colletion", href":"/company/list/"}}\n');
+  res.send('{"home" : "{"name":"customer", "rel" : "collection", href":"/company/list/"}}\n');
 })
 
 // create
@@ -159,19 +159,6 @@ function processDelete(req,res) {
     }
     else {
       reject({error:"invalid id"});
-    }
-  });
-}
-// generic promise example
-function processRequest(req, res) {
-  return new Promise(function(resolve,reject) {
-    if(req.body) {
-      var body = req.body;
-      body.hatSize="12";
-      resolve(body);
-    }
-    else {
-      reject({error:"invalid body"});
     }
   });
 }
