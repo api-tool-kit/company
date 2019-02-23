@@ -25,6 +25,7 @@ function main(args) {
   // confirm existence of object storage
   storage({action:'create',object:elm});
 
+  // handle action request
   switch (action) {
     case 'exists':
       rtn = (storage({object:elm, action:'item', id:id})===null?false:true);

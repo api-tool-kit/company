@@ -27,7 +27,7 @@ var reqd = ['email'];
  ***************************************/
 // home
 router.get('/', function (req, res) {
-  res.send('{"home" : "{"name":"list", "href":"/company/list/"}}\n');
+  res.send('{"home" : "{"name":"customer", "rel" : "colletion", href":"/company/list/"}}\n');
 })
 
 // create
