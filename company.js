@@ -50,7 +50,11 @@ router.get('/list/', function(req, res) {
 
 // filter
 router.get('/filter/', function(req, res) {
-  res.send('{"filter": []}\n');
+  processFilter(req,res).then(function(body){
+    res.send('{"customer":' + JSON.stringify(body,null,2) + '}\n');
+  }).catch(function(err) {
+    res.send('{"error" : ' + JSON.stringify(err,null,2) + '}\n');
+  });
 });
 
 // read
@@ -103,6 +107,17 @@ function processList(req,res) {
   return new Promise(function(resolve,reject) {
     resolve(component({name:'customer',action:'list'}));
   });
+}
+
+function processFilter(req,res) {
+  return new Promise(function(resolve,reject){
+    if(req.query && req.query.length!==0) {
+      resolve(component({name:'customer',action:'filter',filter:req.query}));
+    }
+    else {
+      reject({error:"invalid query string"});
+    }
+  })
 }
 
 function processItem(req,res) {

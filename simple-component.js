@@ -100,8 +100,9 @@ function addEntry(elm, entry, props) {
 function updateEntry(elm, id, entry, props) {
   var rtn, check, item, error;
 
-  check = storage({object:elm, action:'item', id:id});  
-  if(check===null) {
+  check = storage({object:elm, action:'item', id:id});
+  console.log(check);  
+  if(check===null || (check.type && check.type==="error")) {
     rtn = utils.exception("File Not Found", "No record on file", 404);
   }
   else {
@@ -118,7 +119,7 @@ function updateEntry(elm, id, entry, props) {
         error += "Missing "+ reqd[i] + " ";
       }
     }
-     
+    
     if(error!=="") {
       rtn = utils.exception(error);
     } 
