@@ -19,8 +19,8 @@ router.use(function timeLog (req, res, next) {
 })
 
 // config customer object
-var props = ['id','name','email','status','hatsize'];
-var reqd = ['email','hatsize'];
+var props = ['id','name','email','status'];
+var reqd = ['email'];
 
 /***************************************
  * handle request events
@@ -35,13 +35,17 @@ router.post('/', function(req,res) {
   processPost(req,res).then(function(body) {
     res.send('{"body" : ' + JSON.stringify(body,null,2) + '}\n');
   }).catch(function(err) {
-    res.send('{"body" : ' + JSON.stringify(err,null,2) + '}\n');
+    res.send('{"error" : ' + JSON.stringify(err,null,2) + '}\n');
   });
 });
 
 // list
 router.get('/list/', function(req, res) {
-  res.send('{"list": []}\n');
+  processList(req,res).then(function(body) {
+    res.send('{"list":' + JSON.stringify(body,null,2) + '}\n');
+  }).catch(function(err) {
+    res.send('{"error" : ' + JSON.stringify(err,null,2) + '}\n');
+  });
 });
 
 // filter
@@ -81,6 +85,12 @@ function processPost(req,res) {
     }
   });
 };
+
+function processList(req,res) {
+  return new Promise(function(resolve,reject) {
+    resolve(component({name:'customer',action:'list'}));
+  });
+}
 
 // generic promise example
 function processRequest(req, res) {
