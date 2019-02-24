@@ -22,8 +22,22 @@ router.use(function timeLog (req, res, next) {
 })
 
 // config customer object
-var props = ['id','name','email','status','dateUpdated','dateCreated'];
-var reqd = ['email'];
+//var props = ['id','name','email','status','dateUpdated','dateCreated'];
+var props = [
+  'id',
+  'companyName',
+  'streetAddress',
+  'city',
+  'stateProvince',
+  'postalCode',
+  'country',
+  'telephone',
+  'email',
+  'status',
+  'dateCreated',
+  'dateUpdated'
+]
+var reqd = ['companyName','email','status'];
 
 /***************************************
  * handle request events

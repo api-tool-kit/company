@@ -1,0 +1,130 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "Onboarding API",
+        "version": "",
+        "description": "Polls is a simple API allowing consumers to view polls and vote in them."
+    },
+    "host": "polls.apiblueprint.org",
+    "basePath": "/",
+    "schemes": [
+        "http"
+    ],
+    "paths": {
+        "/questions": {
+            "get": {
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {},
+                        "examples": {
+                            "application/json": [
+                                {
+                                    "question": "Favourite programming language?",
+                                    "published_at": "2015-08-05T08:40:51.620Z",
+                                    "choices": [
+                                        {
+                                            "choice": "Swift",
+                                            "votes": 2048
+                                        },
+                                        {
+                                            "choice": "Python",
+                                            "votes": 1024
+                                        },
+                                        {
+                                            "choice": "Objective-C",
+                                            "votes": 512
+                                        },
+                                        {
+                                            "choice": "Ruby",
+                                            "votes": 256
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    }
+                },
+                "summary": "List All Questions",
+                "description": "",
+                "tags": [],
+                "parameters": [],
+                "produces": [
+                    "application/json"
+                ]
+            },
+            "post": {
+                "responses": {
+                    "201": {
+                        "description": "Created",
+                        "headers": {},
+                        "examples": {
+                            "application/json": {
+                                "question": "Favourite programming language?",
+                                "published_at": "2015-08-05T08:40:51.620Z",
+                                "choices": [
+                                    {
+                                        "choice": "Swift",
+                                        "votes": 0
+                                    },
+                                    {
+                                        "choice": "Python",
+                                        "votes": 0
+                                    },
+                                    {
+                                        "choice": "Objective-C",
+                                        "votes": 0
+                                    },
+                                    {
+                                        "choice": "Ruby",
+                                        "votes": 0
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                },
+                "summary": "Create a New Question",
+                "description": "You may create your own question using this action. It takes a JSON\nobject containing a question and a collection of answers in the\nform of choices.",
+                "tags": [],
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "question": {
+                                    "type": "string"
+                                },
+                                "choices": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "string"
+                                    }
+                                }
+                            },
+                            "example": {
+                                "question": "Favourite programming language?",
+                                "choices": [
+                                    "Swift",
+                                    "Python",
+                                    "Objective-C",
+                                    "Ruby"
+                                ]
+                            }
+                        }
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ]
+            }
+        }
+    },
+    "definitions": {
+        "Questions Collection": {}
+    },
+    "securityDefinitions": {},
+    "tags": []
+}
