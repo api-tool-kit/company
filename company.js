@@ -3,6 +3,9 @@ var router = express.Router()
 var bodyParser = require('body-parser');
 var component = require('./simple-component');
 
+var ejs = require('ejs');
+var jsonView = '<%= body %>';
+
 // set up request body parsing
 router.use(bodyParser.json({type:[
     "application/json",
