@@ -39,6 +39,14 @@ var props = [
 ]
 var reqd = ['companyName','email','status'];
 
+/*
+status MUST be one of:
+- pending
+- active
+- suspended
+- closed
+*/
+
 /***************************************
  * handle request events
  ***************************************/
