@@ -1,4 +1,4 @@
-# Company Workflow
+# Company Vocabulary
 
 ## Data Elements
  * companyId
@@ -10,7 +10,7 @@
  * country
  * telephone
  * email
- * status (suspended, active, pending-review)
+ * status (suspended, active, pending,closed)
  * dateCreated
  * dateUpdated
 
@@ -18,11 +18,11 @@
  
  * list
  * create
-   * companyName[R], streetAddress, city, stateProvince, postalCode, country(US), telephone, email[R], status(pending-review)
+   * companyName[R], streetAddress, city, stateProvince, postalCode, country(US), telephone, email[R], status(pending)[R]
  * read
    * companyId[R]
  * update
-   * companyId[R], companyName[R], streetAddress, city, stateProvince, postalCode, country(US), telephone, email[R], status
+   * companyId[R], companyName[R], streetAddress, city, stateProvince, postalCode, country(US), telephone, email[R], status[R]
  * delete
    * companyId[R]
  * filter 
