@@ -22,7 +22,6 @@ router.use(function timeLog (req, res, next) {
 })
 
 // config customer object
-//var props = ['id','name','email','status','dateUpdated','dateCreated'];
 var props = [
   'id',
   'companyName',
@@ -52,13 +51,13 @@ status MUST be one of:
  ***************************************/
 // home
 router.get('/', function (req, res) {
-  res.send('{"home" : "{"name":"customer", "rel" : "collection", href":"/company/list/"}}\n');
+  res.send('{"home" : {"name":"company", "rel" : "collection", "href":"/company/list/"}}\n');
 })
 
 // create
 router.post('/', function(req,res) {
   processPost(req,res).then(function(body) {
-    res.send('{"customer" : ' + JSON.stringify(body,null,2) + '}\n');
+    res.send('{"company" : ' + JSON.stringify(body,null,2) + '}\n');
   }).catch(function(err) {
     res.send('{"error" : ' + JSON.stringify(err,null,2) + '}\n');
   });
@@ -67,7 +66,7 @@ router.post('/', function(req,res) {
 // list
 router.get('/list/', function(req, res) {
   processList(req,res).then(function(body) {
-    res.send('{"customer":' + JSON.stringify(body,null,2) + '}\n');
+    res.send('{"company":' + JSON.stringify(body,null,2) + '}\n');
   }).catch(function(err) {
     res.send('{"error" : ' + JSON.stringify(err,null,2) + '}\n');
   });
@@ -76,7 +75,7 @@ router.get('/list/', function(req, res) {
 // filter
 router.get('/filter/', function(req, res) {
   processFilter(req,res).then(function(body){
-    res.send('{"customer":' + JSON.stringify(body,null,2) + '}\n');
+    res.send('{"company":' + JSON.stringify(body,null,2) + '}\n');
   }).catch(function(err) {
     res.send('{"error" : ' + JSON.stringify(err,null,2) + '}\n');
   });
@@ -85,7 +84,7 @@ router.get('/filter/', function(req, res) {
 // read
 router.get('/:companyId', function(req, res) {
   processItem(req,res).then(function(body){
-    res.send('{"customer":' + JSON.stringify(body,null,2) + '}\n');
+    res.send('{"company":' + JSON.stringify(body,null,2) + '}\n');
   }).catch(function(err) {
     res.send('{"error" : ' + JSON.stringify(err,null,2) + '}\n');
   });
@@ -94,7 +93,7 @@ router.get('/:companyId', function(req, res) {
 // update
 router.put('/:companyId', function(req, res) {
   processUpdate(req,res).then(function(body){
-    res.send('{"customer":' + JSON.stringify(body,null,2) + '}\n');
+    res.send('{"company":' + JSON.stringify(body,null,2) + '}\n');
   }).catch(function(err) {
     res.send('{"error" : ' + JSON.stringify(err,null,2) + '}\n');
   });
@@ -103,7 +102,7 @@ router.put('/:companyId', function(req, res) {
 // delete
 router.delete('/:companyId', function(req, res) {
   processDelete(req,res).then(function(body){
-    res.send('{"customer":' + JSON.stringify(body,null,2) + '}\n');
+    res.send('{"company":' + JSON.stringify(body,null,2) + '}\n');
   }).catch(function(err) {
     res.send('{"error" : ' + JSON.stringify(err,null,2) + '}\n');
   });
@@ -119,7 +118,7 @@ function processPost(req,res) {
   return new Promise(function(resolve,reject) {
     if(req.body) {
      var body = req.body;
-     resolve(component({name:'customer',action:'add',item:body,props:props,reqd:reqd}));
+     resolve(component({name:'company',action:'add',item:body,props:props,reqd:reqd}));
     }
     else {
       reject({error:"invalid body"});
@@ -129,14 +128,14 @@ function processPost(req,res) {
 
 function processList(req,res) {
   return new Promise(function(resolve,reject) {
-    resolve(component({name:'customer',action:'list'}));
+    resolve(component({name:'company',action:'list'}));
   });
 }
 
 function processFilter(req,res) {
   return new Promise(function(resolve,reject){
     if(req.query && req.query.length!==0) {
-      resolve(component({name:'customer',action:'filter',filter:req.query}));
+      resolve(component({name:'company',action:'filter',filter:req.query}));
     }
     else {
       reject({error:"invalid query string"});
@@ -148,7 +147,7 @@ function processItem(req,res) {
   return new Promise(function(resolve,reject){
     if(req.params.companyId && req.params.companyId!==null) {
       var id = req.params.companyId;
-      resolve(component({name:'customer',action:'item',id:id}));
+      resolve(component({name:'company',action:'item',id:id}));
     } 
     else {
       reject({error:"missing id"});
@@ -163,7 +162,7 @@ function processUpdate(req,res) {
     body = req.body||null;
     if(id!==null && body!==null) {
        resolve(component(
-         {name:'customer',
+         {name:'company',
           action:'update',
           id:id,
           item:body,
@@ -180,7 +179,7 @@ function processDelete(req,res) {
   return new Promise(function(resolve,reject){
     if(req.params.companyId && req.params.companyId!==null) {
       var id = req.params.companyId;
-      resolve(component({name:'customer',action:'delete', id:id}));
+      resolve(component({name:'company',action:'delete', id:id}));
     }
     else {
       reject({error:"invalid id"});
