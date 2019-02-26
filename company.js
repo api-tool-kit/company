@@ -66,7 +66,10 @@ router.post('/', function(req,res) {
 // list
 router.get('/list/', function(req, res) {
   processList(req,res).then(function(body) {
-    res.send('{"company":' + JSON.stringify(body,null,2) + '}\n');
+    body = itemLinks(body);
+    body = {company:body};
+    body = collectionLinks(body);
+    res.send(JSON.stringify(body,null,2));
   }).catch(function(err) {
     res.send('{"error" : ' + JSON.stringify(err,null,2) + '}\n');
   });
@@ -75,7 +78,10 @@ router.get('/list/', function(req, res) {
 // filter
 router.get('/filter/', function(req, res) {
   processFilter(req,res).then(function(body){
-    res.send('{"company":' + JSON.stringify(body,null,2) + '}\n');
+    body = itemLinks(body);
+    body = {company:body};
+    body = collectionLinks(body);
+    res.send(JSON.stringify(body,null,2));
   }).catch(function(err) {
     res.send('{"error" : ' + JSON.stringify(err,null,2) + '}\n');
   });
@@ -84,7 +90,10 @@ router.get('/filter/', function(req, res) {
 // read
 router.get('/:companyId', function(req, res) {
   processItem(req,res).then(function(body){
-    res.send('{"company":' + JSON.stringify(body,null,2) + '}\n');
+    body = itemLinks(body);
+    body = {company:body};
+    body = collectionLinks(body);
+    res.send(JSON.stringify(body,null,2));
   }).catch(function(err) {
     res.send('{"error" : ' + JSON.stringify(err,null,2) + '}\n');
   });
@@ -93,7 +102,10 @@ router.get('/:companyId', function(req, res) {
 // update
 router.put('/:companyId', function(req, res) {
   processUpdate(req,res).then(function(body){
-    res.send('{"company":' + JSON.stringify(body,null,2) + '}\n');
+    body = itemLinks(body);
+    body = {company:body};
+    body = collectionLinks(body);
+    res.send(JSON.stringify(body,null,2));
   }).catch(function(err) {
     res.send('{"error" : ' + JSON.stringify(err,null,2) + '}\n');
   });
@@ -102,13 +114,37 @@ router.put('/:companyId', function(req, res) {
 // delete
 router.delete('/:companyId', function(req, res) {
   processDelete(req,res).then(function(body){
-    res.send('{"company":' + JSON.stringify(body,null,2) + '}\n');
+    body = itemLinks(body);
+    body = {company:body};
+    body = collectionLinks(body);
+    res.send(JSON.stringify(body,null,2));
   }).catch(function(err) {
     res.send('{"error" : ' + JSON.stringify(err,null,2) + '}\n');
   });
 });
 
 module.exports = router
+
+// handle links for each item
+function itemLinks(list) {
+  list.forEach(item => {
+    item.links = [];
+    item.links[0] = {rel:"read",href:"/company/" + item.id};
+    item.links[1] = {rel:"update",href:"/company/" + item.id};
+    item.links[2] = {rel:"delete",href:"/company/" + item.id};
+});
+  return list;
+}
+
+// handle collection links
+function collectionLinks(list) {
+    list.links = [];
+    list.links[0] = {rel:"list",href:"/company/list"};
+    list.links[1] = {rel:"add",href:"/company/list"};
+    list.links[2] = {rel:"home",href:"/company/"};
+    console.log(list);
+  return list;
+}
 
 /****************************************
  * handle processing of request/responses
