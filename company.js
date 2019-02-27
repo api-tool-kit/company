@@ -57,6 +57,9 @@ router.get('/', function (req, res) {
 // create
 router.post('/', function(req,res) {
   processPost(req,res).then(function(body) {
+    body = itemLinks(body);
+    body = {company:body};
+    body = collectionLinks(body);
     res.send('{"company" : ' + JSON.stringify(body,null,2) + '}\n');
   }).catch(function(err) {
     res.send('{"error" : ' + JSON.stringify(err,null,2) + '}\n');
