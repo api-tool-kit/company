@@ -11,7 +11,7 @@ module.exports = main;
 // app-level actions for tasks
 // args: name, props, reqd, action, id, filter, item
 function main(args) {
-  var name, rtn, props;
+  var name, rtn, props, reqd, enums;
   var conn, action, id, filter, item;
 
   elm = args.name||"";    
@@ -21,6 +21,8 @@ function main(args) {
   id = args.id||"";
   filter = args.filter||"";
   item = args.item||{};
+  reqd = args.reqd||[];
+  enums = args.enums||[];
  
   // confirm existence of object storage
   storage({action:'create',object:elm});
@@ -47,10 +49,10 @@ function main(args) {
       rtn = utils.cleanList(storage({object:elm, action:'filter', filter:filter}));
       break
     case 'add':
-      rtn = addEntry(elm, item, props);
+      rtn = addEntry(elm, item, props, reqd, enums);
       break;
     case 'update':
-      rtn = updateEntry(elm, id, item, props);
+      rtn = updateEntry(elm, id, item, props, reqd, enums);
       break;
     case 'remove':
     case 'delete':
@@ -63,7 +65,7 @@ function main(args) {
   return rtn;
 }
 
-function addEntry(elm, entry, props) {
+function addEntry(elm, entry, props, reqd, enums) {
   var rtn, item, error;
  
   item = {}
@@ -80,6 +82,17 @@ function addEntry(elm, entry, props) {
     }
   }
 
+  for(i=0,x=enums.length;i<x;i++) {
+    for(var key in enums[i]) {
+      //console.log(key);
+    }
+    if(item[key]!=="") {
+      if(enums[i][key].indexOf(item[key])===-1) {
+        error += "Invalid enumerator [" + item[key] + "] for " + key + " ";
+      }
+    }
+  }
+  
   if(error.length!==0) {
     rtn = utils.exception(error);
   }
@@ -96,7 +109,7 @@ function addEntry(elm, entry, props) {
   return rtn;
 }
 
-function updateEntry(elm, id, entry, props) {
+function updateEntry(elm, id, entry, props, reqd, enums) {
   var rtn, check, item, error;
 
   check = storage({object:elm, action:'item', id:id}); 
@@ -110,11 +123,22 @@ function updateEntry(elm, id, entry, props) {
         item[props[i]] = (entry[props[i]]===undefined?check[props[i]]:entry[props[i]]);
       }
     }
-   
+
     error = "";
     for(i=0,x=reqd.length;i<x;i++) {
       if(item[reqd[i]]==="") {
         error += "Missing "+ reqd[i] + " ";
+      }
+    }
+
+    for(i=0,x=enums.length;i<x;i++) {
+      for(var key in enums[i]) {
+        //console.log(key);
+      }
+      if(item[key]!=="") {
+        if(enums[i][key].indexOf(item[key])===-1) {
+          error += "Invalid enumerator [" + item[key] + "] for " + key + " ";
+        }
       }
     }
     
@@ -132,6 +156,8 @@ function updateEntry(elm, id, entry, props) {
       );
     }
   }
+  
+  console.log(rtn);
   
   return rtn;
 }

@@ -8,5 +8,5 @@ var app = express();
 var company = require('./company');
 var port = process.env.PORT || 8484;
  
-app.use('/company',company);
+app.use('/',company); 
 app.listen(port, () => console.log(`company svc listening on port ${port}!`));

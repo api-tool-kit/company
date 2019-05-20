@@ -1,64 +1,51 @@
+/*****************************************
+ * company service for BigCo, Inc.
+ * 2019-01 mamund
+ *****************************************/
+
 var express = require('express')
 var router = express.Router()
 var bodyParser = require('body-parser');
 var component = require('./simple-component');
+var properties = require('./properties.js');
+var routes = require('./routes.js');
 
-var ejs = require('ejs');
-var jsonView = '<%= body %>';
+var host = "";
 
-// set up request body parsing
-router.use(bodyParser.json({type:[
-    "application/json",
-    "application/vnd.hal+json",
-    "application/vnd.siren+json",
-    "application/vnd.collection+json"
-    ]}));
-router.use(bodyParser.urlencoded({extended:true}));
+// set up body parsing
+router.use(bodyParser.json({type:properties.responseTypes}));
+router.use(bodyParser.urlencoded({extended:properties.urlencoded}));
 
 // middleware that is specific to this router
 router.use(function timeLog (req, res, next) {
+  host = "http://" + req.headers.host;
   console.log('Time: ', Date.now())
   next()
 })
 
-// config customer object
-var props = [
-  'id',
-  'companyName',
-  'streetAddress',
-  'city',
-  'stateProvince',
-  'postalCode',
-  'country',
-  'telephone',
-  'email',
-  'status',
-  'dateCreated',
-  'dateUpdated'
-]
-var reqd = ['companyName','email','status'];
-
-/*
-status MUST be one of:
-- pending
-- active
-- suspended
-- closed
-*/
-
 /***************************************
  * handle request events
  ***************************************/
+ 
 // home
+/*
 router.get('/', function (req, res) {
-  res.send('{"home" : {"name":"company", "rel" : "collection", "href":"/company/list/"}}\n');
+  var body = {home:{name:"company",rel:"collection",href:host+"/list/"}};
+  res.send(JSON.stringify(body,null,2));
 })
+*/
+router.get('/', routes.home)
 
 // create
 router.post('/', function(req,res) {
-  processPost(req,res).then(function(body) {
-    body = {company:body};
-    res.send('{"company" : ' + JSON.stringify(body,null,2) + '}\n');
+  processCreate(req,res).then(function(body) {
+    if(body.type && body.type==='error') {
+      body = {error:body};
+    }  
+    else  {
+      body = {company:body};
+    } 
+    res.send(JSON.stringify(body,null,2));
   }).catch(function(err) {
     res.send('{"error" : ' + JSON.stringify(err,null,2) + '}\n');
   });
@@ -67,7 +54,12 @@ router.post('/', function(req,res) {
 // list
 router.get('/list/', function(req, res) {
   processList(req,res).then(function(body) {
-    body = {company:body};
+    if(body[0].type && body[0].type==='error') {
+      body = {error:body};
+    }  
+    else  {
+      body = {company:body};
+    } 
     res.send(JSON.stringify(body,null,2));
   }).catch(function(err) {
     res.send('{"error" : ' + JSON.stringify(err,null,2) + '}\n');
@@ -77,7 +69,12 @@ router.get('/list/', function(req, res) {
 // filter
 router.get('/filter/', function(req, res) {
   processFilter(req,res).then(function(body){
-    body = {company:body};
+    if(body[0] && body[0].type && body[0].type==='error') {
+      body = {error:body};
+    }  
+    else  {
+      body = {company:body};
+    } 
     res.send(JSON.stringify(body,null,2));
   }).catch(function(err) {
     res.send('{"error" : ' + JSON.stringify(err,null,2) + '}\n');
@@ -87,17 +84,43 @@ router.get('/filter/', function(req, res) {
 // read
 router.get('/:companyId', function(req, res) {
   processItem(req,res).then(function(body){
-    body = {company:body};
+    if(body[0].type && body[0].type==='error') {
+      body = {error:body};
+    }  
+    else  {
+      body = {company:body};
+    } 
     res.send(JSON.stringify(body,null,2));
   }).catch(function(err) {
-    res.send('{"error" : ' + JSON.stringify(err,null,2) + '}\n');
+    body = {error:err}
+    console.log(body);
+    res.send(JSON.stringify(body,null,2));
   });
 });
 
 // update
 router.put('/:companyId', function(req, res) {
   processUpdate(req,res).then(function(body){
-    body = {company:body};
+    if(body.type && body.type==='error') {
+      body = {error:body};
+    }  
+    else  {
+      body = {company:body};
+    } 
+    res.send(JSON.stringify(body,null,2));
+  }).catch(function(err) {
+    res.send('{"error" : ' + JSON.stringify(err,null,2) + '}\n');
+  });
+});
+
+router.patch('/status/:companyId', function(req, res) {
+  processStatus(req,res).then(function(body){
+    if(body.type && body.type==='error') {
+      body = {error:body};
+    }  
+    else  {
+      body = {company:body};
+    } 
     res.send(JSON.stringify(body,null,2));
   }).catch(function(err) {
     res.send('{"error" : ' + JSON.stringify(err,null,2) + '}\n');
@@ -107,7 +130,12 @@ router.put('/:companyId', function(req, res) {
 // delete
 router.delete('/:companyId', function(req, res) {
   processDelete(req,res).then(function(body){
-    body = {company:body};
+    if(body.type && body.type==='error') {
+      body = {error:body};
+    }  
+    else  {
+      body = {company:body};
+    } 
     res.send(JSON.stringify(body,null,2));
   }).catch(function(err) {
     res.send('{"error" : ' + JSON.stringify(err,null,2) + '}\n');
@@ -120,11 +148,22 @@ module.exports = router
  * handle processing of request/responses
  ****************************************/
 
-function processPost(req,res) {
+function processCreate(req,res) {
   return new Promise(function(resolve,reject) {
     if(req.body) {
      var body = req.body;
-     resolve(component({name:'company',action:'add',item:body,props:props,reqd:reqd}));
+     resolve(
+      component(
+        { 
+          name:'company',
+          action:'add',
+          item:body,
+          props:properties.props,
+          reqd:properties.reqd, 
+          enums:properties.enums
+        }
+       )
+     );
     }
     else {
       reject({error:"invalid body"});
@@ -172,8 +211,30 @@ function processUpdate(req,res) {
           action:'update',
           id:id,
           item:body,
-          props:props,
-          reqd:reqd}));
+          props:properties.props,
+          reqd:properties.reqd,
+          enums:properties.enums}));
+     }
+     else {
+       reject({error:"missing id and/or body"});
+     }
+  });
+}
+
+function processStatus(req,res) {
+  var id,body;
+  return new Promise(function(resolve,reject){
+    id = req.params.companyId||null;
+    body = req.body||null;
+    if(id!==null && body!==null) {
+       resolve(component(
+         {name:'company',
+          action:'update',
+          id:id,
+          item:body,
+          props:properties.props,
+          reqd:properties.reqd,
+          enums:properties.enums}));
      }
      else {
        reject({error:"missing id and/or body"});
