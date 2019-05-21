@@ -17,7 +17,8 @@ exports.props = [
   'status',
   'dateCreated',
   'dateUpdated'
-]
+];
+
 exports.reqd = ['companyName','email','status'];
 exports.enums = [
   {status:['pending','active','suspended','closed']}

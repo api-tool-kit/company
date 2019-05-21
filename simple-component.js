@@ -3,8 +3,8 @@
  * Mike Amundsen (@mamund)
  *******************************************************/
 
-var storage = require('./simple-storage.js');
-var utils = require('./utils.js');
+var storage = require('./simple-storage');
+var utils = require('./utils');
 
 module.exports = main;
 
