@@ -19,10 +19,8 @@ router.use(function timeLog (req, res, next) {
   next()
 })
 
-//router.get('/', routes.home)
 router.get('/',function(req,res){handler(req,res,routes.processHome,"company")});
 router.post('/', routes.create);
-//router.get('/list/',routes.list);
 router.get('/list/',function(req, res){handler(req,res,routes.processList,"company")});
 router.get('/filter/', routes.filter);
 router.get('/:companyId', routes.read);
@@ -32,16 +30,16 @@ router.patch('/status/:companyId', routes.status);
 
 module.exports = router
 
-
 function handler(req, res, fn, type){
+  var rtn = {};
   fn(req,res).then(function(body) {
     if(body.type && body.type==='error') {
-      body = {error:body};
+      rtn = {error:body};
     }  
     else  {
-      body = {type:body};
+      rtn[type] = body;
     } 
-    res.send(JSON.stringify(body,null,2));
+    res.send(JSON.stringify(rtn,null,2));
   }).catch(function(err) {
     res.send('{"error" : ' + JSON.stringify(err,null,2) + '}\n');
   });
