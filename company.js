@@ -21,7 +21,8 @@ router.use(function timeLog (req, res, next) {
 
 router.get('/', routes.home)
 router.post('/', routes.create);
-router.get('/list/', routes.list);
+//router.get('/list/',routes.list);
+router.get('/list/',function(req, res){handler(req,res,routes.processList,"company")});
 router.get('/filter/', routes.filter);
 router.get('/:companyId', routes.read);
 router.put('/:companyId', routes.update);
@@ -29,4 +30,26 @@ router.delete('/:companyId', routes.remove);
 router.patch('/status/:companyId', routes.status);
 
 module.exports = router
+
+
+function handler(req, res, fn, type){
+  fn(req,res).then(function(body) {
+    if(body.type && body.type==='error') {
+      body = {error:body};
+    }  
+    else  {
+      body = {type:body};
+    } 
+    res.send(JSON.stringify(body,null,2));
+  }).catch(function(err) {
+    res.send('{"error" : ' + JSON.stringify(err,null,2) + '}\n');
+  });
+}
+
+function processList(req,res) {
+  return new Promise(function(resolve,reject) {
+    resolve(component({name:'company',action:'list'}));
+  });
+}
+
 

@@ -143,7 +143,7 @@ function processCreate(req,res) {
   });
 };
 
-function processList(req,res) {
+module.exports.processList = function(req,res) {
   return new Promise(function(resolve,reject) {
     resolve(component({name:'company',action:'list'}));
   });
