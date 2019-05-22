@@ -19,7 +19,8 @@ router.use(function timeLog (req, res, next) {
   next()
 })
 
-router.get('/', routes.home)
+//router.get('/', routes.home)
+router.get('/',function(req,res){handler(req,res,routes.processHome,"company")});
 router.post('/', routes.create);
 //router.get('/list/',routes.list);
 router.get('/list/',function(req, res){handler(req,res,routes.processList,"company")});
@@ -45,11 +46,4 @@ function handler(req, res, fn, type){
     res.send('{"error" : ' + JSON.stringify(err,null,2) + '}\n');
   });
 }
-
-function processList(req,res) {
-  return new Promise(function(resolve,reject) {
-    resolve(component({name:'company',action:'list'}));
-  });
-}
-
 

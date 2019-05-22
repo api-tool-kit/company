@@ -120,6 +120,24 @@ module.exports.remove = function(req, res) {
  * private processing requests for company
  ******************************************/
 
+ module.exports.processHome = function(req,res) {
+  return new Promise(function(resolve,reject) {
+    var body = {
+      home:{
+        name:"company",
+        rel:"collection",
+        href:"/list/"
+      }
+    };
+    if(body) {
+      resolve(body);
+    }
+    else {
+      reject({error:"invalid body"});
+    }
+  });
+}
+
 function processCreate(req,res) {
   return new Promise(function(resolve,reject) {
     if(req.body) {
