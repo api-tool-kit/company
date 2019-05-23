@@ -68,7 +68,14 @@ function handler(req, res, fn, type){
     }
     res.send(JSON.stringify(rtn,null,2));
   }).catch(function(err) {
-    res.send('{"error" : ' + JSON.stringify(err,null,2) + '}\n');
+    xr.push(utils.exception(
+      "Server error",
+      err.message||"Internal error",
+      500,
+      "error",
+      'http://' + req.headers.host + req.url
+    ));
+    res.send(JSON.stringify({error:xr},null,2));
   });
 }
 
