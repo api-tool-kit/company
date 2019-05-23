@@ -189,13 +189,15 @@ function getQArgs(req) {
 }
 
 // craft an internal exception object
-exports.exception = function(name, message, code) {
+// based on RFC7807 (problem details
+exports.exception = function(name, message, code, type, url) {
   var rtn = {};
 
-  rtn.type = "error";
-  rtn.name = (name||"Error");
-  rtn.message = (message||rtn.name);
-  rtn.code = (code||400);
+  rtn.type = (type||"error");
+  rtn.title = (name||"Error");
+  rtn.detail = (message||rtn.name);
+  rtn.status = (code||400);
+  if(url) {rtn.instance = url};
 
   return rtn;
 }

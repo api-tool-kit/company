@@ -9,6 +9,7 @@ var bodyParser = require('body-parser');
 var routes = require('./routes');
 var properties = require('./properties');
 var jsUtil = require('util');
+var utils = require('./utils');
 
 // set up body parsing
 router.use(bodyParser.json({type:properties.responseTypes}));
@@ -33,11 +34,18 @@ module.exports = router
 
 function handler(req, res, fn, type){
   var rtn = {};
+  var xr = [];
   fn(req,res).then(function(body) {
     if(jsUtil.isArray(body)===true) {
       if(body[0].type && body[0].type==="error") {
-        delete body[0].type;
-        rtn = {error:body};
+        xr.push(utils.exception(
+          body[0].name,
+          body[0].message,
+          body[0].code,
+          body[0].type,
+          'http://' + req.headers.host + req.url
+        ));
+        rtn = {error:xr};
       }
       else {
         rtn[type] = body
@@ -45,8 +53,14 @@ function handler(req, res, fn, type){
     }
     else {
       if(body.type && body.type==='error') {
-        delete body.type;
-        rtn = {error:body};
+        xr.push(utils.exception(
+          body.name,
+          body.message,
+          body.code,
+          body.type,
+          'http://' + req.headers.host + req.url
+        ));
+        rtn = {error:xr};
       }  
       else  {
         rtn[type] = body;
