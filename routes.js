@@ -10,6 +10,7 @@ var properties = require('./properties');
  * event handlers for company
  *****************************************/
 
+/*
 module.exports.home = function (req, res) {
   var body = {home:{name:"company",rel:"collection",href:"/list/"}};
   res.send(JSON.stringify(body,null,2));
@@ -115,6 +116,7 @@ module.exports.remove = function(req, res) {
     res.send('{"error" : ' + JSON.stringify(err,null,2) + '}\n');
   });
 }
+*/
 
 /******************************************
  * private processing requests for company
@@ -123,11 +125,9 @@ module.exports.remove = function(req, res) {
  module.exports.processHome = function(req,res) {
   return new Promise(function(resolve,reject) {
     var body = {
-      home:{
-        name:"company",
-        rel:"collection",
-        href:"/list/"
-      }
+      name:"company",
+      rel:"collection",
+      href:"/list/"
     };
     if(body) {
       resolve(body);
@@ -138,7 +138,7 @@ module.exports.remove = function(req, res) {
   });
 }
 
-function processCreate(req,res) {
+module.exports.processCreate = function(req,res) {
   return new Promise(function(resolve,reject) {
     if(req.body) {
      var body = req.body;
@@ -167,7 +167,7 @@ module.exports.processList = function(req,res) {
   });
 }
 
-function processFilter(req,res) {
+module.exports.processFilter = function(req,res) {
   return new Promise(function(resolve,reject){
     if(req.query && req.query.length!==0) {
       resolve(component({name:'company',action:'filter',filter:req.query}));
@@ -178,7 +178,7 @@ function processFilter(req,res) {
   })
 }
 
-function processItem(req,res) {
+module.exports.processItem = function(req,res) {
   return new Promise(function(resolve,reject){
     if(req.params.companyId && req.params.companyId!==null) {
       var id = req.params.companyId;
@@ -190,7 +190,7 @@ function processItem(req,res) {
   });
 }
 
-function processUpdate(req,res) {
+module.exports.processUpdate = function(req,res) {
   var id,body;
   return new Promise(function(resolve,reject){
     id = req.params.companyId||null;
@@ -211,7 +211,7 @@ function processUpdate(req,res) {
   });
 }
 
-function processStatus(req,res) {
+module.exports.processStatus = function(req,res) {
   var id,body;
   return new Promise(function(resolve,reject){
     id = req.params.companyId||null;
@@ -232,7 +232,7 @@ function processStatus(req,res) {
   });
 }
 
-function processDelete(req,res) {
+module.exports.processDelete = function(req,res) {
   return new Promise(function(resolve,reject){
     if(req.params.companyId && req.params.companyId!==null) {
       var id = req.params.companyId;

@@ -8,6 +8,7 @@ var router = express.Router()
 var bodyParser = require('body-parser');
 var routes = require('./routes');
 var properties = require('./properties');
+var jsUtil = require('util');
 
 // set up body parsing
 router.use(bodyParser.json({type:properties.responseTypes}));
@@ -19,26 +20,38 @@ router.use(function timeLog (req, res, next) {
   next()
 })
 
-router.get('/',function(req,res){handler(req,res,routes.processHome,"company")});
-router.post('/', routes.create);
-router.get('/list/',function(req, res){handler(req,res,routes.processList,"company")});
-router.get('/filter/', routes.filter);
-router.get('/:companyId', routes.read);
-router.put('/:companyId', routes.update);
-router.delete('/:companyId', routes.remove);
-router.patch('/status/:companyId', routes.status);
+router.get('/',function(req,res){handler(req,res,routes.processHome,"home")});
+router.post('/', function(req,res){handler(req,res,routes.processCreate,"company")});
+router.get('/list/',function(req,res){handler(req,res,routes.processList,"company")});
+router.get('/filter/', function(req,res){handler(req,res,routes.processFilter,"company")});
+router.get('/:companyId', function(req,res){handler(req,res,routes.processItem,"company")});
+router.put('/:companyId', function(req,res){handler(req,res,routes.prcoessUpdate,"company")});
+router.delete('/:companyId', function(req,res){handler(req,res,routes.processDelete,"company")});
+router.patch('/status/:companyId', function(req,res){handler(req,res,routes.processStatus,"company")});
 
 module.exports = router
 
 function handler(req, res, fn, type){
   var rtn = {};
   fn(req,res).then(function(body) {
-    if(body.type && body.type==='error') {
-      rtn = {error:body};
-    }  
-    else  {
-      rtn[type] = body;
-    } 
+    if(jsUtil.isArray(body)===true) {
+      if(body[0].type && body[0].type==="error") {
+        delete body[0].type;
+        rtn = {error:body};
+      }
+      else {
+        rtn[type] = body
+      }
+    }
+    else {
+      if(body.type && body.type==='error') {
+        delete body.type;
+        rtn = {error:body};
+      }  
+      else  {
+        rtn[type] = body;
+      } 
+    }
     res.send(JSON.stringify(rtn,null,2));
   }).catch(function(err) {
     res.send('{"error" : ' + JSON.stringify(err,null,2) + '}\n');
