@@ -10,6 +10,7 @@ var routes = require('./routes');
 var properties = require('./properties');
 var jsUtil = require('util');
 var utils = require('./utils');
+var ejs = require('ejs');
 
 // set up body parsing
 router.use(bodyParser.json({type:properties.responseTypes}));
@@ -32,41 +33,50 @@ router.patch('/status/:companyId', function(req,res){handler(req,res,routes.proc
 
 module.exports = router
 
+
+// handle formatting response
 function handler(req, res, fn, type){
   var rtn = {};
   var xr = [];
+  var oType = type||"collection";
   fn(req,res).then(function(body) {
     if(jsUtil.isArray(body)===true) {
+      oType = type||"collection";
       if(body[0].type && body[0].type==="error") {
         xr.push(utils.exception(
           body[0].name,
           body[0].message,
           body[0].code,
-          body[0].type,
+          body[0].oType,
           'http://' + req.headers.host + req.url
         ));
         rtn = {error:xr};
       }
       else {
-        rtn[type] = body
+        rtn[oType] = body
       }
     }
     else {
+      oType = type||"item";
       if(body.type && body.type==='error') {
         xr.push(utils.exception(
           body.name,
           body.message,
           body.code,
-          body.type,
+          body.oType,
           'http://' + req.headers.host + req.url
         ));
         rtn = {error:xr};
       }  
       else  {
-        rtn[type] = body;
+        rtn[oType] = body;
       } 
     }
-    res.send(JSON.stringify(rtn,null,2));
+    console.log(body);
+    var reply = ejs.render('{"company" : {"id":"<%= company[0].id %>"}}', {company: body});
+    res.type("application/vnd.collection+json");
+    res.send(reply);
+    //res.send(JSON.stringify(reply,null,2));
   }).catch(function(err) {
     xr.push(utils.exception(
       "Server error",
