@@ -16,48 +16,27 @@ var ejs = require('ejs');
 router.use(bodyParser.json({type:properties.responseTypes}));
 router.use(bodyParser.urlencoded({extended:properties.urlencoded}));
 
-// ejs templates
-var ejsHome = 
-  ` <%if(home) {%>
-    { "home" : 
+// simple js template
+var jsTemplate = 
+  `{ 
+      "<%=type%>" : 
       [
-        <%home.forEach(function(item){%>
+        <%var x=0;%>
+        <%rtn.forEach(function(item){%>
+          <%if(x!==0){%>,<%}%>
           {
+            <%var y=0;%>
             <%for(var p in item){%>
-              "<%=p%>" : "<%=item[p]%>",
+              <%if(y!==0){%>,<%}%>
+              "<%=p%>" : "<%=item[p]%>"
+              <%y=1;%>
             <%}%>
-          },
+          }
+          <%x=1;%>
         <%});%>
       ]
-    }
-    <%}%>
+   }
   `
-var ejsCompany = 
-  `{"company" : 
-    [
-      <% company.forEach(function(item){ %>
-        {
-          <% for(var p in item) { %>
-            "<%=p%>" : "<%=item[p]%>",
-          <% } %>
-        },
-      <% });%>  
-    ]
-   }
-   `
-var ejsError = 
-  `{"error" : 
-     [
-       <%error.forEach(function(item){%>
-        {
-          <%for(var p in item){%>
-            "<%=p%>" : "<%=item[p]%>",
-          <%}%>
-        },
-       <%});%>
-     ]
-   }
-   `
 
 // middleware that is specific to this router
 router.use(function timeLog (req, res, next) {
@@ -93,10 +72,11 @@ function handler(req, res, fn, type){
           body[0].oType,
           'http://' + req.headers.host + req.url
         ));
-        rtn = {error:xr};
+        rtn = xr;
+        oType="error";
       }
       else {
-        rtn[oType] = body
+        rtn = body
       }
     }
     else {
@@ -109,31 +89,20 @@ function handler(req, res, fn, type){
           body.oType,
           'http://' + req.headers.host + req.url
         ));
-        rtn = {error:xr};
+        rtn = xr;
+        oType="error";
       }  
       else  {
-        rtn[oType] = body;
+        rtn = body;
       } 
     }
+
     var reply = "";
-    if(rtn.home) {
-      console.log(rtn);
-      reply = ejs.render(ejsHome,rtn);
-    }
-    if(reply===""){
-      if(rtn.company) {
-        reply = ejs.render(ejsCompany,rtn);
-      }
-    }
-    if(reply===""){
-      if(rtn.error) {
-        reply = ejs.render(ejsError,rtn);
-      }
-    }
-    //var reply = ejs.render(ejsCompany,{company:body});
-    res.type("application/vnd.collection+json");
+    rtn = {rtn:rtn,type:oType};
+    reply= ejs.render(jsTemplate,rtn);
+    res.type("application/json");
     res.send(reply);
-    //res.send(JSON.stringify(reply,null,2));
+
   }).catch(function(err) {
     xr.push(utils.exception(
       "Server error",

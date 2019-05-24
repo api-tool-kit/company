@@ -15,7 +15,7 @@ var properties = require('./properties');
     var body = [{
       name:"company",
       rel:"collection",
-      href:"/list/"
+      href:"http://" + req.headers.host + "/list/"
     }];
     if(body) {
       resolve(body);
