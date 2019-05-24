@@ -18,7 +18,8 @@ router.use(bodyParser.urlencoded({extended:properties.urlencoded}));
 
 // ejs templates
 var ejsHome = 
-  ` { "home" : 
+  ` <%if(home) {%>
+    { "home" : 
       [
         <%home.forEach(function(item){%>
           {
@@ -29,6 +30,7 @@ var ejsHome =
         <%});%>
       ]
     }
+    <%}%>
   `
 var ejsCompany = 
   `{"company" : 
