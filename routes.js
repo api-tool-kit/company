@@ -12,11 +12,11 @@ var properties = require('./properties');
 
  module.exports.processHome = function(req,res) {
   return new Promise(function(resolve,reject) {
-    var body = {
+    var body = [{
       name:"company",
       rel:"collection",
       href:"/list/"
-    };
+    }];
     if(body) {
       resolve(body);
     }

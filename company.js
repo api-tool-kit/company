@@ -16,6 +16,47 @@ var ejs = require('ejs');
 router.use(bodyParser.json({type:properties.responseTypes}));
 router.use(bodyParser.urlencoded({extended:properties.urlencoded}));
 
+// ejs templates
+var ejsHome = 
+  ` { "home" : 
+      [
+        <%home.forEach(function(item){%>
+          {
+            <%for(var p in item){%>
+              "<%=p%>" : "<%=item[p]%>",
+            <%}%>
+          },
+        <%});%>
+      ]
+    }
+  `
+var ejsCompany = 
+  `{"company" : 
+    [
+      <% company.forEach(function(item){ %>
+        {
+          <% for(var p in item) { %>
+            "<%=p%>" : "<%=item[p]%>",
+          <% } %>
+        },
+      <% });%>  
+    ]
+   }
+   `
+var ejsError = 
+  `{"error" : 
+     [
+       <%error.forEach(function(item){%>
+        {
+          <%for(var p in item){%>
+            "<%=p%>" : "<%=item[p]%>",
+          <%}%>
+        },
+       <%});%>
+     ]
+   }
+   `
+
 // middleware that is specific to this router
 router.use(function timeLog (req, res, next) {
   console.log('Time: ', Date.now())
@@ -72,8 +113,22 @@ function handler(req, res, fn, type){
         rtn[oType] = body;
       } 
     }
-    console.log(body);
-    var reply = ejs.render('{"company" : {"id":"<%= company[0].id %>"}}', {company: body});
+    var reply = "";
+    if(rtn.home) {
+      console.log(rtn);
+      reply = ejs.render(ejsHome,rtn);
+    }
+    if(reply===""){
+      if(rtn.company) {
+        reply = ejs.render(ejsCompany,rtn);
+      }
+    }
+    if(reply===""){
+      if(rtn.error) {
+        reply = ejs.render(ejsError,rtn);
+      }
+    }
+    //var reply = ejs.render(ejsCompany,{company:body});
     res.type("application/vnd.collection+json");
     res.send(reply);
     //res.send(JSON.stringify(reply,null,2));
