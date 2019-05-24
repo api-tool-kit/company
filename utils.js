@@ -7,6 +7,8 @@
 var fs = require('fs');
 var qs = require('querystring');
 var folder = process.cwd() + '/files/';
+var ejs = require('ejs');
+var jsUtil = require('util');
 
 // for handling hal-forms extension
 var halFormType = "application/prs.hal-forms+json";
@@ -200,6 +202,78 @@ exports.exception = function(name, message, code, type, url) {
   if(url) {rtn.instance = url};
 
   return rtn;
+}
+
+function exception(name, message, code, type, url) {
+  var rtn = {};
+
+  rtn.type = (type||"error");
+  rtn.title = (name||"Error");
+  rtn.detail = (message||rtn.name);
+  rtn.status = (code||400);
+  if(url) {rtn.instance = url};
+
+  return rtn;
+}
+
+// ejs-dependent response emitter
+// handle formatting response
+exports.handler = function(req, res, fn, type, template){
+  var rtn = {};
+  var xr = [];
+  var oType = type||"collection";
+  fn(req,res).then(function(body) {
+    if(jsUtil.isArray(body)===true) {
+      oType = type||"collection";
+      if(body[0].type && body[0].type==="error") {
+        xr.push(exception(
+          body[0].name,
+          body[0].message,
+          body[0].code,
+          body[0].oType,
+          'http://' + req.headers.host + req.url
+        ));
+        rtn = xr;
+        oType="error";
+      }
+      else {
+        rtn = body
+      }
+    }
+    else {
+      oType = type||"item";
+      if(body.type && body.type==='error') {
+        xr.push(utils.exception(
+          body.name,
+          body.message,
+          body.code,
+          body.oType,
+          'http://' + req.headers.host + req.url
+        ));
+        rtn = xr;
+        oType="error";
+      }  
+      else  {
+        rtn = body;
+      } 
+    }
+
+    var reply = "";
+    rtn = {rtn:rtn,type:oType};
+    reply= ejs.render(template,rtn);
+    res.type("application/json");
+    res.send(reply);
+
+  }).catch(function(err) {
+    xr.push(exception(
+      "Server error",
+      err.message||"Internal error",
+      500,
+      "error",
+      'http://' + req.headers.host + req.url
+    ));
+    res.send(JSON.stringify({error:xr},null,2));
+  });
 }
 
 // EOF
