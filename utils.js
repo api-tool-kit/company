@@ -256,7 +256,7 @@ exports.handler = function(req, res, fn, type, templates){
         oType="error";
       }  
       else  {
-        rtn = body;
+        rtn = [body];
       } 
     }
 
@@ -289,30 +289,6 @@ function resolveAccepts(req, templates) {
   });
   return rtn;
 }
-/*
-function resolveAccept(accept,template, formats) {
-  var rtn = "";
-  if(!template || template==="" || jsUtil.isArray(template)===false || template.length===0) {
-    rtn = "";
-  }
-  else {
-    if(acccept==="*|*") {
-      rtn = template[0].view;
-    }
-    else {
-      formats.forEach(function(item) {
-        if(accept.indexOf(item)!==-1) {
-          template.forEach(function(row) {
-            if(row.format===item) {
-              rtn = row.view;
-            }
-          });
-        }
-      });
-    }
-  }  
-}
-*/
 
 // EOF
 

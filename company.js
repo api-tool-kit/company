@@ -12,7 +12,7 @@ var properties = require('./properties');
 var utils = require('./utils');
 
 // set up body parsing
-router.use(bodyParser.json({type:properties.responseTypes}));
+//router.use(bodyParser.json({type:properties.responseTypes}));
 router.use(bodyParser.urlencoded({extended:properties.urlencoded}));
 
 //set up response template
