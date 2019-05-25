@@ -218,14 +218,16 @@ function exception(name, message, code, type, url) {
 
 // ejs-dependent response emitter
 // handle formatting response
-exports.handler = function(req, res, fn, type, template){
+exports.handler = function(req, res, fn, type, templates){
   var rtn = {};
   var xr = [];
   var oType = type||"collection";
+  var view = resolveAccepts(req, templates);
+  
   fn(req,res).then(function(body) {
     if(jsUtil.isArray(body)===true) {
       oType = type||"collection";
-      if(body[0].type && body[0].type==="error") {
+      if(body.length!==0 && body[0].type && body[0].type==="error") {
         xr.push(exception(
           body[0].name,
           body[0].message,
@@ -260,7 +262,7 @@ exports.handler = function(req, res, fn, type, template){
 
     var reply = "";
     rtn = {rtn:rtn,type:oType};
-    reply= ejs.render(template,rtn);
+    reply= ejs.render(view,rtn);
     res.type("application/json");
     res.send(reply);
 
@@ -275,6 +277,42 @@ exports.handler = function(req, res, fn, type, template){
     res.send(JSON.stringify({error:xr},null,2));
   });
 }
+
+
+// sort out accept header
+function resolveAccepts(req, templates) {
+  var rtn = "";
+  templates.forEach(function(template) {
+    if(rtn==="" && req.accepts(template.format)) {
+      rtn = template.view;
+    }
+  });
+  return rtn;
+}
+/*
+function resolveAccept(accept,template, formats) {
+  var rtn = "";
+  if(!template || template==="" || jsUtil.isArray(template)===false || template.length===0) {
+    rtn = "";
+  }
+  else {
+    if(acccept==="*|*") {
+      rtn = template[0].view;
+    }
+    else {
+      formats.forEach(function(item) {
+        if(accept.indexOf(item)!==-1) {
+          template.forEach(function(row) {
+            if(row.format===item) {
+              rtn = row.view;
+            }
+          });
+        }
+      });
+    }
+  }  
+}
+*/
 
 // EOF
 

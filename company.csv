@@ -1,0 +1,3 @@
+"id","companyName","streetAddress","city","stateProvince","postalCode","country","telephone","email","status","dateCreated","dateUpdated"
+"1or2ab05imf","acme","","","","","","","acme@example.com","active","2019-02-24T09:50:59.093Z","2019-02-24T09:55:38.858Z"
+"1y563cvzy2o","twtr","","","","","","","twtr@example.com","pending","2019-05-20T01:47:19.824Z","2019-05-20T01:47:19.824Z"
