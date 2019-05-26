@@ -204,13 +204,14 @@ function makeId() {
 }
 
 // craft an exception msg
-function exception(name, message, code) {
+function exception(name, message, code, type, url) {
   var rtn = {};
 
-  rtn.type = "error";
-  rtn.name = (name||"Error");
-  rtn.message = (message||rtn.name);
-  rtn.code = (code||400);
+  rtn.type = (type||"error");
+  rtn.title = (name||"Error");
+  rtn.detail = (message||rtn.name);
+  rtn.status = (code||400);
+  if(url) {rtn.instance = url};
 
   return rtn;
 }
