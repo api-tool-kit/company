@@ -10,6 +10,13 @@ module.exports = main;
 
 // app-level actions for tasks
 // args: name, props, reqd, action, id, filter, item
+//
+// on writes, supports 
+// - fields for the object
+// - required fields
+// - enumerator values for a field
+// - DOES NOT support "type" (number, date, email, etc.)
+// - DOES NOT support min/max ranges for a field value
 function main(args) {
   var name, rtn, props, reqd, enums;
   var conn, action, id, filter, item;
