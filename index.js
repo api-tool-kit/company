@@ -5,8 +5,8 @@
  
 var express = require('express');
 var app = express();
-var company = require('./company');
+var routes = require('./routes');
 var port = process.env.PORT || 8484;
  
-app.use('/',company); 
-app.listen(port, () => console.log(`company svc listening on port ${port}!`));
+app.use('/',routes); 
+app.listen(port, () => console.log(`listening on port ${port}!`));

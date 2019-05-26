@@ -1,134 +1,61 @@
 /*****************************************
- * company routes for BigCo, Inc.
+ * company service for BigCo, Inc.
  * 2019-01 mamund
  *****************************************/
 
-var component = require('./simple-component');
+var express = require('express')
+var router = express.Router()
+var bodyParser = require('body-parser');
+
+var actions = require('./actions');
 var properties = require('./properties');
+var utils = require('./utils');
 
-/*****************************************
- * event handlers for company
- *****************************************/
+// set up body parsing
+//router.use(bodyParser.json({type:properties.responseTypes}));
+router.use(bodyParser.urlencoded({extended:properties.urlencoded}));
 
- module.exports.home = function(req,res) {
-  return new Promise(function(resolve,reject) {
-    var body = [{
-      name:"company",
-      rel:"collection",
-      href:"http://" + req.headers.host + "/list/"
-    }];
-    if(body) {
-      resolve(body);
-    }
-    else {
-      reject({error:"invalid body"});
-    }
-  });
-}
+//set up response template
+var templates = properties.templates;
 
-module.exports.create = function(req,res) {
-  return new Promise(function(resolve,reject) {
-    if(req.body) {
-     var body = req.body;
-     resolve(
-      component(
-        { 
-          name:'company',
-          action:'add',
-          item:body,
-          props:properties.props,
-          reqd:properties.reqd, 
-          enums:properties.enums
-        }
-       )
-     );
-    }
-    else {
-      reject({error:"invalid body"});
-    }
-  });
-};
+// middleware that is specific to this router
+router.use(function timeLog (req, res, next) {
+  console.log('Time: ', Date.now())
+  next()
+})
 
-module.exports.list = function(req,res) {
-  return new Promise(function(resolve,reject) {
-    resolve(component({name:'company',action:'list'}));
-  });
-}
+router.get('/',function(req,res){
+  utils.handler(req,res,actions.home,"home", templates)
+});
 
-module.exports.filter = function(req,res) {
-  return new Promise(function(resolve,reject){
-    if(req.query && req.query.length!==0) {
-      resolve(component({name:'company',action:'filter',filter:req.query}));
-    }
-    else {
-      reject({error:"invalid query string"});
-    }
-  })
-}
+router.post('/', function(req,res){
+  utils.handler(req,res,actions.create,"company", templates)
+});
 
-module.exports.read = function(req,res) {
-  return new Promise(function(resolve,reject){
-    if(req.params.companyId && req.params.companyId!==null) {
-      var id = req.params.companyId;
-      resolve(component({name:'company',action:'item',id:id}));
-    } 
-    else {
-      reject({error:"missing id"});
-    }
-  });
-}
+router.get('/list/',function(req,res){
+  utils.handler(req,res,actions.list,"company", templates)
+});
 
-module.exports.update = function(req,res) {
-  var id,body;
-  return new Promise(function(resolve,reject){
-    id = req.params.companyId||null;
-    body = req.body||null;
-    if(id!==null && body!==null) {
-       resolve(component(
-         {name:'company',
-          action:'update',
-          id:id,
-          item:body,
-          props:properties.props,
-          reqd:properties.reqd,
-          enums:properties.enums}));
-     }
-     else {
-       reject({error:"missing id and/or body"});
-     }
-  });
-}
+router.get('/filter/', function(req,res){
+  utils.handler(req,res,actions.filter,"company", templates)
+});
 
-module.exports.status = function(req,res) {
-  var id,body;
-  return new Promise(function(resolve,reject){
-    id = req.params.companyId||null;
-    body = req.body||null;
-    if(id!==null && body!==null) {
-       resolve(component(
-         {name:'company',
-          action:'update',
-          id:id,
-          item:body,
-          props:properties.props,
-          reqd:properties.reqd,
-          enums:properties.enums}));
-     }
-     else {
-       reject({error:"missing id and/or body"});
-     }
-  });
-}
+router.get('/:companyId', function(req,res){
+  utils.handler(req,res,actions.read,"company", templates)
+});
 
-module.exports.remove = function(req,res) {
-  return new Promise(function(resolve,reject){
-    if(req.params.companyId && req.params.companyId!==null) {
-      var id = req.params.companyId;
-      resolve(component({name:'company',action:'delete', id:id}));
-    }
-    else {
-      reject({error:"invalid id"});
-    }
-  });
-}
+router.put('/:companyId', function(req,res){
+  utils.handler(req,res,actions.update,"company", templates)
+});
+
+router.delete('/:companyId', function(req,res){
+  utils.handler(req,res,actions.remove,"company", templates)
+});
+
+router.patch('/status/:companyId', function(req,res){
+  utils.handler(req,res,actions.status,"company", templates)
+});
+
+module.exports = router
+
 
