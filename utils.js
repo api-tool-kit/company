@@ -270,6 +270,9 @@ exports.handler = function(req, res, fn, type, templates){
     else {
       reply = JSON.stringify(rtn, null, 2);
     }
+    // clean up blank lines
+    reply = reply.replace(/^\s*$[\n\r]{1,}/gm, '');
+    
     res.type(template.format);
     res.send(reply);
 

@@ -46,8 +46,7 @@ exports.templates = [
               {
                 <%var y=0;%>
                 <%for(var p in item){%>
-                  <%if(y!==0){%>,<%}%>
-                  "<%=p%>" : "<%=item[p]%>"
+                  <%if(y!==0){%>,<%}%>"<%=p%>" : "<%=item[p]%>"
                   <%y=1;%>
                 <%}%>
               }
