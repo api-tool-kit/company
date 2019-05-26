@@ -18,9 +18,9 @@ router.use(bodyParser.urlencoded({extended:properties.urlencoded}));
 //set up response body templates
 var templates = properties.templates;
 
-// middleware that is specific to this router
+// tracking middleware
 router.use(function timeLog (req, res, next) {
-  console.log('Time: ', Date.now())
+  console.log('Time: ', Date.now() + " : " + req.headers.host + req.url)
   next()
 })
 

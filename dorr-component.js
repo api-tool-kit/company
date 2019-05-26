@@ -1,5 +1,5 @@
 /*`******************************************************
- * registry middleware component (server)
+ * component middleware module (DORR)
  * Mike Amundsen (@mamund)
  *******************************************************/
 
@@ -8,15 +8,17 @@ var utils = require('./dorr-utils');
 
 module.exports = main;
 
-// app-level actions for tasks
+// **********************************************************************
+// DORR OBJECT Module
 // args: name, props, reqd, action, id, filter, item
 //
 // on writes, supports 
-// - fields for the object
+// - valid fields
 // - required fields
-// - enumerator values for a field
-// - DOES NOT support "type" (number, date, email, etc.)
+// - enumerated values for a field
+// - DOES NOT support field type-checking (number, date, email, etc.)
 // - DOES NOT support min/max ranges for a field value
+// **********************************************************************
 function main(args) {
   var name, rtn, props, reqd, enums;
   var conn, action, id, filter, item;
