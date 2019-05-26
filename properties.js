@@ -30,6 +30,8 @@ exports.responseTypes = [
 ];
 exports.urlencoded = true;
 
+// response templates
+// one for each media type format
 exports.templates = [
   { 
     format : "application/json", 

@@ -219,11 +219,12 @@ function exception(name, message, code, type, url) {
 
 // ejs-dependent response emitter
 // handle formatting response
+// depends on ejs templating
 exports.handler = function(req, res, fn, type, templates){
   var rtn = {};
   var xr = [];
   var oType = type||"collection";
-  var view = resolveAccepts(req, templates);
+  var template = resolveAccepts(req, templates);
   
   fn(req,res).then(function(body) {
     if(jsUtil.isArray(body)===true) {
@@ -263,8 +264,13 @@ exports.handler = function(req, res, fn, type, templates){
 
     var reply = "";
     rtn = {rtn:rtn,type:oType};
-    reply= ejs.render(view,rtn);
-    res.type("application/json");
+    if(template.view!=="") {
+      reply= ejs.render(template.view,rtn);
+    }
+    else {
+      reply = JSON.stringify(rtn, null, 2);
+    }
+    res.type(template.format);
     res.send(reply);
 
   }).catch(function(err) {
@@ -283,11 +289,15 @@ exports.handler = function(req, res, fn, type, templates){
 // sort out accept header
 function resolveAccepts(req, templates) {
   var rtn = "";
+  var fallback = {format:"application/json",view:""};
   templates.forEach(function(template) {
     if(rtn==="" && req.accepts(template.format)) {
-      rtn = template.view;
+      rtn = template;
     }
   });
+  if(rtn==="") {
+    rtn = fallback;
+  }
   return rtn;
 }
 
