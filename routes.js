@@ -9,13 +9,13 @@ var bodyParser = require('body-parser');
 
 var actions = require('./actions');
 var properties = require('./properties');
-var utils = require('./utils');
+var utils = require('./dorr-utils');
 
-// set up body parsing
-//router.use(bodyParser.json({type:properties.responseTypes}));
+// set up request body parsing
+router.use(bodyParser.json({type:properties.responseTypes}));
 router.use(bodyParser.urlencoded({extended:properties.urlencoded}));
 
-//set up response template
+//set up response body templates
 var templates = properties.templates;
 
 // middleware that is specific to this router
@@ -24,6 +24,7 @@ router.use(function timeLog (req, res, next) {
   next()
 })
 
+// the actions/capabilities of this service API
 router.get('/',function(req,res){
   utils.handler(req,res,actions.home,"home", templates)
 });
@@ -56,6 +57,7 @@ router.patch('/status/:companyId', function(req,res){
   utils.handler(req,res,actions.status,"company", templates)
 });
 
+// publish the capability routes
 module.exports = router
 
 

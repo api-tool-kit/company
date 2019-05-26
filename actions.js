@@ -1,13 +1,13 @@
 /*****************************************
- * company routes for BigCo, Inc.
+ * company capabilities for BigCo, Inc.
  * 2019-01 mamund
  *****************************************/
 
-var component = require('./simple-component');
+var component = require('./dorr-component');
 var properties = require('./properties');
 
 /*****************************************
- * event handlers for company
+ * action handles for company service
  *****************************************/
 
  module.exports.home = function(req,res) {

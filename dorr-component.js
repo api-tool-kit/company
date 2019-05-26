@@ -3,8 +3,8 @@
  * Mike Amundsen (@mamund)
  *******************************************************/
 
-var storage = require('./simple-storage');
-var utils = require('./utils');
+var storage = require('./dorr-storage');
+var utils = require('./dorr-utils');
 
 module.exports = main;
 
