@@ -27,6 +27,7 @@ exports.enums = [
 // config response/request types
 exports.responseTypes = [
   "application/json",
+  "text/csv"
 ];
 exports.urlencoded = true;
 
