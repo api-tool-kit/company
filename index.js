@@ -5,8 +5,13 @@
  
 var express = require('express');
 var app = express();
+var cors = require('cors');
+
 var resources = require('./resources');
 var port = process.env.PORT || 8484;
- 
+
+app.use(cors());
+app.options('*',cors()); 
 app.use('/',resources); 
+
 app.listen(port, () => console.log(`listening on port ${port}!`));
