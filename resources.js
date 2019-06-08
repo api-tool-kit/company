@@ -24,6 +24,7 @@ router.use(function timeLog (req, res, next) {
   next()
 })
 
+// the actions/capabilities of this service API
 router.post('/', function(req,res){
   utils.handler(req,res,actions.create,"company", templates)
 });
@@ -52,7 +53,6 @@ router.patch('/status/:companyId', function(req,res){
   utils.handler(req,res,actions.status,"company", templates)
 });
 
-// the actions/capabilities of this service API
 router.get('/',function(req,res){
   utils.handler(req,res,actions.home,"home", templates)
 });
