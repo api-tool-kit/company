@@ -59,7 +59,9 @@ function main(args) {
       rtn = null;
       break;
   }
+
   return rtn;
+ 
 }
 
 // get a list of items (possibly via filter)

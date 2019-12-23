@@ -71,7 +71,16 @@ function main(args) {
       rtn = null;
       break;
   }
-  return rtn;
+ 
+  /* return a promise object */	
+  return new Promise(function(resolve, reject) {
+    if(rtn) {
+      resolve(rtn);
+    }
+    else {
+      reject({error:"unable to process component request"});
+    }
+  });
 }
 
 function addEntry(elm, entry, props, reqd, enums) {
