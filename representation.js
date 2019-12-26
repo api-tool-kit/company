@@ -1,7 +1,8 @@
-// ****************************************
-// bigco company
-// response templates
-// ****************************************
+/*****************************************
+// bigco, inc company
+// response representations
+// 2020-02-01 : mamund
+ *****************************************/
 
 // config response/request types
 exports.responseTypes = [

@@ -1,6 +1,7 @@
 /*****************************************
- * action handles for BigCo, Inc. company
- * 2019-01 mamund
+// bigco, inc company
+// action elements
+// 2020-02-01 : mamund
  *****************************************/
 
 var component = require('./darrt/component');

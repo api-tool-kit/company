@@ -1,7 +1,7 @@
 /*****************************************
- * bigco company
- * resource definitions
- * 2019-01 mamund
+// bigco, inc company
+// resources 
+// 2020-02-01 : mamund
  *****************************************/
 
 var express = require('express')
@@ -23,12 +23,7 @@ router.use(function timeLog (req, res, next) {
   next()
 })
 
-// ****************************************
-// RESOURCES
-// URL handlers
-// ****************************************
-
-// the actions/capabilities of this service API
+// the exposed resources to manage state for this API
 router.post('/', function(req,res){
   utils.handler(req,res,actions.create,"company", templates)
 });

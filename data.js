@@ -1,7 +1,8 @@
 // ****************************************
 // bigco, inc company
-// data/object elements
+// data elements
 // properties, requireds, and enums
+// 2020-02-01 : mamund
 // ****************************************
 
 // config message properties
