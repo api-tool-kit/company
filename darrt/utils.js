@@ -1,5 +1,4 @@
 /*******************************************************
- * service: disco registry
  * module: internal utilities
  * Mike Amundsen (@mamund)
  *******************************************************/
@@ -258,7 +257,7 @@ exports.handler = function(req, res, fn, type, templates){
     else {
       oType = type||"item";
       if(body.type && body.type==='error') {
-        xr.push(utils.exception(
+        xr.push(exception(
           body.name,
           body.message,
           body.code,

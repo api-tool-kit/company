@@ -1,7 +1,6 @@
 // ****************************************
-// DARRT REPRESENTATION
+// bigco company
 // response templates
-// one for each media type format
 // ****************************************
 
 // config response/request types
@@ -10,6 +9,7 @@ exports.responseTypes = [
   "application/json",
   "text/csv"
 ];
+
 exports.urlencoded = true;
 
 exports.templates = [

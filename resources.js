@@ -1,5 +1,6 @@
 /*****************************************
- * company service for BigCo, Inc.
+ * bigco company
+ * resource definitions
  * 2019-01 mamund
  *****************************************/
 
@@ -8,21 +9,24 @@ var router = express.Router()
 var bodyParser = require('body-parser');
 
 var actions = require('./actions');
-var properties = require('./properties');
-var utils = require('./dorr-utils');
+var representation = require('./representation');
+var utils = require('./darrt/utils');
 
-// set up request body parsing
-router.use(bodyParser.json({type:properties.responseTypes}));
-router.use(bodyParser.urlencoded({extended:properties.urlencoded}));
+// set up request body parsing & response templates
+router.use(bodyParser.json({type:representation.responseTypes}));
+router.use(bodyParser.urlencoded({extended:representation.urlencoded}));
+var templates = representation.templates;
 
-//set up response body templates
-var templates = properties.templates;
-
-// tracking middleware
+// optional tracking middleware
 router.use(function timeLog (req, res, next) {
   console.log('Time: ', Date.now() + " : " + req.headers.host + req.url)
   next()
 })
+
+// ****************************************
+// RESOURCES
+// URL handlers
+// ****************************************
 
 // the actions/capabilities of this service API
 router.post('/', function(req,res){

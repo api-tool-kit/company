@@ -5,7 +5,7 @@
  *******************************************************/
 
 /*
- * DORR DATA Module
+ * DARRT DATA Module
  - simple storage component writes files to disk
  - FOLDER is the collection (tasks, users, notes, etc.)
  - FILE is the record (stored as JSON object, w/ ID as filename)

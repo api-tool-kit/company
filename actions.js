@@ -1,16 +1,12 @@
 /*****************************************
- * company capabilities for BigCo, Inc.
+ * action handles for BigCo, Inc. company
  * 2019-01 mamund
  *****************************************/
 
-var component = require('./dorr-component');
-var properties = require('./properties');
+var component = require('./darrt/component');
+var data = require('./data');
 
-/*****************************************
- * action handles for company service
- *****************************************/
-
- module.exports.home = function(req,res) {
+module.exports.home = function(req,res) {
   return new Promise(function(resolve,reject) {
     var body = [{
       name:"company",
@@ -36,9 +32,9 @@ module.exports.create = function(req,res) {
           name:'company',
           action:'add',
           item:body,
-          props:properties.props,
-          reqd:properties.reqd, 
-          enums:properties.enums
+          props:data.props,
+          reqd:data.reqd, 
+          enums:data.enums
         }
        )
      );
@@ -89,9 +85,9 @@ module.exports.update = function(req,res) {
           action:'update',
           id:id,
           item:body,
-          props:properties.props,
-          reqd:properties.reqd,
-          enums:properties.enums}));
+          props:data.props,
+          reqd:data.reqd,
+          enums:data.enums}));
      }
      else {
        reject({error:"missing id and/or body"});
@@ -110,9 +106,9 @@ module.exports.status = function(req,res) {
           action:'update',
           id:id,
           item:body,
-          props:properties.props,
-          reqd:properties.reqd,
-          enums:properties.enums}));
+          props:data.props,
+          reqd:data.data,
+          enums:data.enums}));
      }
      else {
        reject({error:"missing id and/or body"});

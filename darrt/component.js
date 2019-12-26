@@ -1,15 +1,15 @@
 /*`******************************************************
- * component middleware module (DORR)
+ * component middleware module (DARRT)
  * Mike Amundsen (@mamund)
  *******************************************************/
 
-var storage = require('./dorr-storage');
-var utils = require('./dorr-utils');
+var storage = require('./storage');
+var utils = require('./utils');
 
 module.exports = main;
 
 // **********************************************************************
-// DORR OBJECT Module
+// DARRT component handler
 // args: name, props, reqd, action, id, filter, item
 //
 // on writes, supports 
