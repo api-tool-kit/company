@@ -24,8 +24,25 @@
        tags: "collection, company, list",
        title: "Create Company",
        method: "POST",
-       properties: []
+       properties: [
+        {name:"id",value:""},
+        {name:"companyName",value:""}
+       ]
      }
    ],
-   itemForms: []
+   itemForms: [
+    {
+      id:"update",
+      name:"update",
+      href:"/",
+      rel: "edit-form",
+      tags: "item, company, list",
+      title: "Edit",
+      method: "PUT",
+      properties: [
+        {name:"id",value:""},
+        {name:"companyName",value:""}
+      ]
+    }
+   ]
  }

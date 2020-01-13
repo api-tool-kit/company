@@ -246,7 +246,7 @@ exports.handler = function(req, res, fn, type, representation){
   var metadata = representation.metadata||[];
   
   pForms = tagFilter(pForms,filter);
-  iForms = tagFilter(pForms,filter);
+  iForms = tagFilter(iForms,filter);
   metadata = tagFilter(metadata,filter);
   
   fn(req,res).then(function(body) {

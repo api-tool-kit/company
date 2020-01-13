@@ -92,6 +92,7 @@ exports.templates = [
 	              <%var a=0;%>
 		      <%form[p].forEach(function(prop){%>
 	                <%if(a!==0){%>,<%}%>
+	                <%a=1%>
 			{
 			  <%var b=0;%>
 			  <%for(var pr in prop){%>
@@ -117,19 +118,45 @@ exports.templates = [
                   <%var y=0;%>
                   <%for(var p in item){%>
                     <%if(p==="id"){%>
-                    "forms" : [
-                      {"name" : "item", "href" : "/<%=item[p]%>", "method":"get","properties":[]},
-                      {"name" : "edit", "href" : "/<%=item[p]%>", "method":"put","properties":[]},
-                      {"name" : "status", "href" : "/<%=item[p]%>", "method":"patch","properties":[]},
-                      {"name" : "close", "href" : "/<%=item[p]%>", "method":"post","properties":[]}
-                    ]
-                    <%y=1;%><%}%>
-                    <%if(y!==0){%>,<%}%>"<%=p%>" : "<%=item[p]%>"
-                    <%y=1;%>
-                  <%}%>
-                }
-                <%x=1;%>
-              <%});%>
+                    <%# replace with iForms loop #%>
+                  "links" : 
+                  [
+                    <%var q=0;%>
+                    <%iForms.forEach(function(form){%>
+                      <%if(q!==0){%>,<%}%>
+                      {
+                        <%var r=0;%>
+                        <%for(var p in form){%>
+                          <%if(r!==0){%>,<%}%>"<%=p%>" : <%if(Array.isArray(form[p])){%>
+                      [
+                      <%var s=0;%>
+                <%form[p].forEach(function(prop){%>
+                        <%if(s!==0){%>,<%}%>
+                        <%s=1%>
+            {
+              <%var t=0;%>
+              <%for(var pr in prop){%>
+                <%if(t!==0){%>,<%}%>"<%=pr%>" : "<%=prop[pr]%>"
+                <%t=1;%>
+              <%}%>
+            }
+                <%});%>
+                
+                ]	      
+                    <%}else{%>"<%=form[p]%>"<%}%>
+                          <%r=1;%>
+                        <%}%>  
+                      }
+                      <%q=1;%>
+                    <%});%>
+                  ]
+                  <%y=1;%><%}%>
+                  <%if(y!==0){%>,<%}%>"<%=p%>" : "<%=item[p]%>"
+                  <%y=1;%>
+                <%}%>
+              }
+              <%x=1;%>
+            <%});%>
             ]
           }
        }
