@@ -13,6 +13,12 @@ exports.responseTypes = [
 
 exports.urlencoded = true;
 
+exports.forms = {
+  pageForms: [],
+  itemForms: []
+}
+
+// actual response templates
 exports.templates = [
   { 
     format : "application/json", 
@@ -44,8 +50,36 @@ exports.templates = [
       { 
           "<%=type%>" : 
           { 
-            "metadata" : [],
-            "forms" : 
+            "metadata" : 
+            [
+              <%var z=0;%>
+              <%metadata.forEach(function(md){%>
+                <%if(z!==0){%>,<%}%>
+                {
+                  <%var w=0;%>
+                  <%for(var p in md){%>
+                    <%if(w!==0){%>,<%}%>"<%=p%>" : <%if(Array.isArray(md[p])){%>
+	              [
+	              <%var a=0;%>
+		      <%md[p].forEach(function(prop){%>
+	                <%if(a!==0){%>,<%}%>
+			{
+			  <%var b=0;%>
+			  <%for(var pr in prop){%>
+			    <%if(b!==0){%>,<%}%>"<%=pr%>" : "<%=prop[pr]%>"
+			    <%b=1;%>
+			  <%}%>
+			}
+		      <%});%>
+		      ]	      
+	            <%}else{%>"<%=md[p]%>"<%}%>
+                    <%w=1;%>
+                  <%}%>  
+                }
+                <%z=1;%>
+              <%});%>
+            ],
+            "links" : 
             [
               <%var z=0;%>
               <%pForms.forEach(function(form){%>

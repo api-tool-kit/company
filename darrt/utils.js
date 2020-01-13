@@ -230,11 +230,19 @@ function exception(name, message, code, type, url) {
 // ejs-dependent response emitter
 // handle formatting response
 // depends on ejs templating
-exports.handler = function(req, res, fn, type, templates){
+exports.handler = function(req, res, fn, type, representation){
   var rtn = {};
   var xr = [];
   var oType = type||"collection";
+
+  var templates = representation.templates||[];
   var template = resolveAccepts(req, templates);
+
+  var forms = representation.forms||{};
+  var pForms = forms.pageForms||[];
+  var iForms = forms.itemForms||[];
+  
+  var metadata = representation.metadata||[];
   
   fn(req,res).then(function(body) {
     if(jsUtil.isArray(body)===true) {
@@ -273,7 +281,7 @@ exports.handler = function(req, res, fn, type, templates){
     }
 
     var reply = "";
-    rtn = {rtn:rtn,type:oType};
+    rtn = {rtn:rtn,type:oType, pForms:pForms,iForms:iForms, metadata:metadata};
     if(template.view!=="") {
       reply= ejs.render(template.view,rtn);
     }

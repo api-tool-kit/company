@@ -1,6 +1,6 @@
 /*******************************************************
  * service: bigco customer records
- * module: simple storage (via files)
+ * module: darrt simple storage (via files)
  * Mike Amundsen (@mamund)
  *******************************************************/
 

@@ -5,7 +5,7 @@
 // 2020-02-01 : mamund
 // ****************************************
 
-// config message properties
+// message properties
 exports.props = [
   'id',
   'companyName',
@@ -21,7 +21,10 @@ exports.props = [
   'dateUpdated'
 ];
 
+// required properties
 exports.reqd = ['companyName','email','status'];
+
+// enumerated properties
 exports.enums = [
   {status:['pending','active','suspended','closed']}
 ];

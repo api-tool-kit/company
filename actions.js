@@ -9,11 +9,11 @@ var data = require('./data');
 
 module.exports.home = function(req,res) {
   return new Promise(function(resolve,reject) {
-    var body = [{
-      name:"company",
-      rel:"collection",
-      href:"http://" + req.headers.host + "/list/"
-    }];
+    var body = []; //{
+//      name:"company",
+//      rel:"collection",
+//      href:"http://" + req.headers.host + "/list/"
+//    }];
     if(body) {
       resolve(body);
     }
