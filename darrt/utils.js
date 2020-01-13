@@ -235,6 +235,7 @@ exports.handler = function(req, res, fn, type, representation){
   var xr = [];
   var oType = type||"collection";
 
+  var filter = representation.filter||"";
   var templates = representation.templates||[];
   var template = resolveAccepts(req, templates);
 
@@ -243,6 +244,10 @@ exports.handler = function(req, res, fn, type, representation){
   var iForms = forms.itemForms||[];
   
   var metadata = representation.metadata||[];
+  
+  pForms = tagFilter(pForms,filter);
+  iForms = tagFilter(pForms,filter);
+  metadata = tagFilter(metadata,filter);
   
   fn(req,res).then(function(body) {
     if(jsUtil.isArray(body)===true) {
@@ -318,6 +323,34 @@ function resolveAccepts(req, templates) {
   });
   if(rtn==="") {
     rtn = fallback;
+  }
+  return rtn;
+}
+
+// tag filter
+function tagFilter(collection, filter) {
+  var coll = collection||[];
+  var tag = filter||"";
+  var rtn = [];
+  
+  if(tag==="") {
+    rtn = coll;
+    console.log("all");
+  }
+  else {
+    coll.forEach(function(item) {
+      f = item.tags||"";
+      if(f==="") {
+        rtn.push(item);
+        console.log("no tags")
+      }
+      else {
+        if(f.indexOf(tag)!==-1) {
+          rtn.push(item);
+          console.log("checking...");
+        }
+      }
+    });
   }
   return rtn;
 }

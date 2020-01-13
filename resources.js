@@ -34,13 +34,13 @@ router.use(function timeLog (req, res, next) {
 // the exposed resources to manage state for this API
 router.post('/', function(req,res){
   utils.handler(req,res,actions.create,"company", 
-    {metadata:metadata,templates:templates,forms:forms}
+    {metadata:metadata,templates:templates,forms:forms,filter:"home"}
   )
 });
 
 router.get('/list/',function(req,res){
   utils.handler(req,res,actions.list,"company", 
-    {metadata:metadata,templates:templates,forms:forms}
+    {metadata:metadata,templates:templates,forms:forms,filter:"list"}
   )
 });
 
@@ -76,7 +76,7 @@ router.patch('/status/:companyId', function(req,res){
 
 router.get('/',function(req,res){
   utils.handler(req,res,actions.home,"home", 
-    {metadata:metadata,templates:templates,forms:forms}
+    {metadata:metadata,templates:templates,forms:forms,filter:"home"}
   )
 });
 

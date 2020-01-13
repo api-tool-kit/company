@@ -11,10 +11,20 @@
        name:"home",
        href:"/",
        rel: "colllection",
-       tags: "collection, company, home",
+       tags: "collection, item, company, home, list",
        title: "Home",
        method: "GET",
        properties:[]
+     },
+     {
+       id: "createCompany",
+       name: "create",
+       href: "/",
+       rel: "create-form",
+       tags: "collection, company, list",
+       title: "Create Company",
+       method: "POST",
+       properties: []
      }
    ],
    itemForms: []
