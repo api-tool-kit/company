@@ -48,6 +48,8 @@ exports.templates = [
     view : 
     `
       { 
+          "condition" : "<%= sayHi('mike')%>"
+      }
           "<%=type%>" : 
           { 
             "metadata" : 

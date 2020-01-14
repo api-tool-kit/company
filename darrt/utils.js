@@ -8,6 +8,7 @@ var qs = require('querystring');
 var folder = process.cwd() + '/files/';
 var ejs = require('ejs');
 var jsUtil = require('util');
+var helper = require('./ejs-helpers');
 
 // for handling hal-forms extension
 var halFormType = "application/prs.hal-forms+json";
@@ -248,7 +249,7 @@ exports.handler = function(req, res, fn, type, representation){
   pForms = tagFilter(pForms,filter);
   iForms = tagFilter(iForms,filter);
   metadata = tagFilter(metadata,filter);
-  
+    
   fn(req,res).then(function(body) {
     if(jsUtil.isArray(body)===true) {
       oType = type||"collection";
@@ -286,9 +287,10 @@ exports.handler = function(req, res, fn, type, representation){
     }
 
     var reply = "";
-    rtn = {rtn:rtn,type:oType, pForms:pForms,iForms:iForms, metadata:metadata};
+    rtn = {rtn:rtn,type:oType, pForms:pForms,iForms:iForms, metadata:metadata, sayHi:sayHi};
     if(template.view!=="") {
-      reply= ejs.render(template.view,rtn);
+      console.log(sayHi('mike'));    
+      reply= ejs.render(template.view, rtn);
     }
     else {
       reply = JSON.stringify(rtn, null, 2);
@@ -311,6 +313,9 @@ exports.handler = function(req, res, fn, type, representation){
   });
 }
 
+function sayHi(name) {
+    return 'Hello ' + name;
+};
 
 // sort out accept header
 function resolveAccepts(req, templates) {

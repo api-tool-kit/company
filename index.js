@@ -15,6 +15,11 @@ var port = process.env.PORT || 8484;
 app.use(cors());
 app.options('*',cors()); 
 
+app.locals.iif = function(cond,value){
+  if(cond) return value;
+  return '';
+}
+
 // point to exposed resources for this API
 app.use('/',resources); 
 
