@@ -7,6 +7,7 @@
 var express = require('express')
 var router = express.Router()
 var bodyParser = require('body-parser');
+var uriParser = require('uri-template');
 
 var actions = require('./actions');
 var representation = require('./representation');
@@ -22,8 +23,10 @@ var forms = transitions.forms;
 var metadata = [
   {name: "title", value: "BigCo Company Records"},
   {name: "author", value: "Mike Amundsen"},
-  {name: "release", value: "1.0.0"} 
+  {name: "release", value: "{release}"} 
 ];
+
+var dataVars = {release:"1.0.0"}
 
 // optional tracking middleware
 router.use(function timeLog (req, res, next) {
@@ -39,6 +42,7 @@ router.post('/', function(req,res){
 });
 
 router.get('/list/',function(req,res){
+  metadata = parseVars(metadata,dataVars);
   utils.handler(req,res,actions.list,"company", 
     {metadata:metadata,templates:templates,forms:forms,filter:"list"}
   )
@@ -82,5 +86,17 @@ router.get('/',function(req,res){
 
 // publish the capability routes
 module.exports = router
+
+function parseVars(collection,varData) {
+  var coll = collection||[];
+  var data = varData||{};
+  var rtn = [];
+  coll.forEach(function(item) {
+    item.value = item.value.replace("{release}",data.release);
+    rtn.push(item);
+  });
+  
+  return rtn;
+}
 
 
