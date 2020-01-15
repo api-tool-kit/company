@@ -10,18 +10,28 @@
        id:"home",
        name:"home",
        href:"/",
-       rel: "colllection",
-       tags: "collection, item, company, home, list",
+       rel: "colllection company",
+       tags: "collection company home list item",
        title: "Home",
        method: "GET",
+       properties:[]
+     },
+     {
+       id:"list",
+       name:"list",
+       href:"/list",
+       rel:"collection company",
+       tags:"collection company home list item",
+       title:"List",
+       method:"GET",
        properties:[]
      },
      {
        id: "createCompany",
        name: "create",
        href: "/",
-       rel: "create-form",
-       tags: "collection, company, list",
+       rel: "create-form company",
+       tags: "collection company list",
        title: "Create Company",
        method: "POST",
        properties: [
@@ -35,8 +45,8 @@
       id:"update",
       name:"update",
       href:"/{id}",
-      rel: "edit-form",
-      tags: "item, company, list",
+      rel: "edit-form company",
+      tags: "company list item",
       title: "Edit",
       method: "PUT",
       properties: [
