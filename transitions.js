@@ -25,7 +25,7 @@
        title: "Create Company",
        method: "POST",
        properties: [
-        {name:"id",value:""},
+        {name:"id",value:"{makeid}"},
         {name:"companyName",value:""}
        ]
      }
@@ -34,14 +34,16 @@
     {
       id:"update",
       name:"update",
-      href:"/",
+      href:"/{id}",
       rel: "edit-form",
       tags: "item, company, list",
       title: "Edit",
       method: "PUT",
       properties: [
-        {name:"id",value:""},
-        {name:"companyName",value:""}
+        {name:"id",value:"{id}"},
+        {name:"companyName",value:"{companyName}"},
+        {name:"email",value:"{email}"},
+        {name:"status",value:"{status}"}
       ]
     }
    ]

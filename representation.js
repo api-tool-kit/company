@@ -48,8 +48,10 @@ exports.templates = [
     view : 
     `
       { 
-          "condition" : "<%= sayHi('mike')%>"
-      }
+          "hi" : "<%=helpers.sayHi('mike')%>",
+          "checksum" : "<%=helpers.iif(true,"yes")%>",
+          "makeid" : "<%=helpers.stateValue('{makeid}',{})%>",
+          "default" : "<%=helpers.stateValue('{xxx}',{},'2')%>",
           "<%=type%>" : 
           { 
             "metadata" : 
@@ -120,7 +122,6 @@ exports.templates = [
                   <%var y=0;%>
                   <%for(var p in item){%>
                     <%if(p==="id"){%>
-                    <%# replace with iForms loop #%>
                   "links" : 
                   [
                     <%var q=0;%>
@@ -138,14 +139,14 @@ exports.templates = [
             {
               <%var t=0;%>
               <%for(var pr in prop){%>
-                <%if(t!==0){%>,<%}%>"<%=pr%>" : "<%=prop[pr]%>"
+                <%if(t!==0){%>,<%}%>"<%=pr%>" : "<%=helpers.stateValue(prop[pr],item,prop[pr])%>"
                 <%t=1;%>
               <%}%>
             }
                 <%});%>
                 
                 ]	      
-                    <%}else{%>"<%=form[p]%>"<%}%>
+                    <%}else{%>"<%=helpers.stateValue(form[p],item,form[p])%>"<%}%>
                           <%r=1;%>
                         <%}%>  
                       }

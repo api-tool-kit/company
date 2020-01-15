@@ -8,7 +8,7 @@ var qs = require('querystring');
 var folder = process.cwd() + '/files/';
 var ejs = require('ejs');
 var jsUtil = require('util');
-var helper = require('./ejs-helpers');
+var ejsHelper = require('./ejs-helpers');
 
 // for handling hal-forms extension
 var halFormType = "application/prs.hal-forms+json";
@@ -287,9 +287,8 @@ exports.handler = function(req, res, fn, type, representation){
     }
 
     var reply = "";
-    rtn = {rtn:rtn,type:oType, pForms:pForms,iForms:iForms, metadata:metadata, sayHi:sayHi};
+    rtn = {rtn:rtn,type:oType, pForms:pForms,iForms:iForms, metadata:metadata, helpers:ejsHelper};
     if(template.view!=="") {
-      console.log(sayHi('mike'));    
       reply= ejs.render(template.view, rtn);
     }
     else {
@@ -347,12 +346,10 @@ function tagFilter(collection, filter) {
       f = item.tags||"";
       if(f==="") {
         rtn.push(item);
-        console.log("no tags")
       }
       else {
         if(f.indexOf(tag)!==-1) {
           rtn.push(item);
-          console.log("checking...");
         }
       }
     });
