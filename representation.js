@@ -6,6 +6,8 @@
 
 var appJson = require('./darrt/representors/app-json');
 var formsJson = require('./darrt/representors/forms-json');
+var linksJson = require('./darrt/representors/links-json');
+var pragJson = require('./darrt/representors/prag-json');
 var textCsv = require('./darrt/representors/text-csv');
 
 // config response/request types
