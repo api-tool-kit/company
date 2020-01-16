@@ -4,6 +4,7 @@
 // 2020-02-01 : mamund
  *****************************************/
  
+// links-json response template
 exports.template =  
 {
   format : "application/links+json", 

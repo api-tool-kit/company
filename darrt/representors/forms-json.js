@@ -4,30 +4,29 @@
 // 2020-02-01 : mamund
  *****************************************/
  
+// forms-json response  
 exports.template =  
 {
   format : "application/forms+json", 
   view : 
   `
     { 
-        "checksum" : "<%=helpers.iif(true,"true")%>",
-        "makeid" : "<%=helpers.stateValue('{makeid}',{})%>",
-        "default" : "<%=helpers.stateValue('{xxx}',{},'2')%>",
-        "<%=type%>" : 
-        { 
-          "metadata" : 
-          [
-            <%var z=0;%>
-            <%metadata.forEach(function(md){%>
-              <%if(z!==0){%>,<%}%>
-              {
-                <%var w=0;%>
-                <%for(var p in md){%>
-                  <%if(w!==0){%>,<%}%>"<%=p%>" : <%if(Array.isArray(md[p])){%>
-              [
-              <%var a=0;%>
-	      <%md[p].forEach(function(prop){%>
-                <%if(a!==0){%>,<%}%>
+      "type" : "<%=type%>",
+      "<%=type%>" : 
+      { 
+        "metadata" : 
+        [
+          <%var z=0;%>
+          <%metadata.forEach(function(md){%>
+            <%if(z!==0){%>,<%}%>
+            {
+              <%var w=0;%>
+              <%for(var p in md){%>
+                <%if(w!==0){%>,<%}%>"<%=p%>" : <%if(Array.isArray(md[p])){%>
+            [
+            <%var a=0;%>
+     <%md[p].forEach(function(prop){%>
+              <%if(a!==0){%>,<%}%>
 		{
 		  <%var b=0;%>
 		  <%for(var pr in prop){%>

@@ -4,6 +4,7 @@
 // 2020-02-01 : mamund
  *****************************************/
  
+ // CSV response template
 exports.template = 
 {
   format: "text/csv",
