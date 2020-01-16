@@ -14,11 +14,12 @@ var transitions = require('./transitions');
 var utils = require('./darrt/utils');
 
 // set up request body parsing & response templates
-router.use(bodyParser.json({type:representation.responseTypes}));
+router.use(bodyParser.json({type:representation.getResponseTypes()}));
 router.use(bodyParser.urlencoded({extended:representation.urlencoded}));
 
-var templates = representation.templates;
+var templates = representation.getTemplates();
 var forms = transitions.forms;
+
 var metadata = [
   {name: "title", value: "BigCo Company Records"},
   {name: "author", value: "Mike Amundsen"},
