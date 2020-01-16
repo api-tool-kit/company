@@ -11,11 +11,13 @@ var pragJson = require('./darrt/representors/prag-json');
 var textCsv = require('./darrt/representors/text-csv');
 
 // config response/request types
+/*
 exports.responseTypes = [
   "application/forms+json",
   "application/json",
   "text/csv"
 ];
+*/
 
 exports.urlencoded = true;
 
@@ -41,11 +43,14 @@ exports.getTemplates = function() {
   list.push(appJson.template);
   list.push(formsJson.template);
   list.push(textCsv.template);
+  list.push(linksJson.template);
+  list.push(pragJson.template);
 
   return list;  
 }
 
 // actual response templates
+/*
 exports.templates = [
   { 
     format : "application/json", 
@@ -200,3 +205,4 @@ exports.templates = [
 <%});%>`
   }
 ]
+*/

@@ -10,7 +10,7 @@ exports.template =
   view : 
   `
     { 
-        "checksum" : "<%=helpers.iif(true,"yes")%>",
+        "checksum" : "<%=helpers.iif(true,"true")%>",
         "makeid" : "<%=helpers.stateValue('{makeid}',{})%>",
         "default" : "<%=helpers.stateValue('{xxx}',{},'2')%>",
         "<%=type%>" : 
