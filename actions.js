@@ -11,8 +11,9 @@ var data = require('./data');
 var homeBody = {
   name:"company",
   rel:"collection",
-  href:"http://" + req.headers.host + "/list/"
-}
+  href: "/list/"
+};
+
 
 module.exports.home = function(req,res) {
   return new Promise(function(resolve,reject) {
