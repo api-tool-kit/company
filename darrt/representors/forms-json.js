@@ -11,7 +11,6 @@ exports.template =
   view : 
   `
     { 
-      "type" : "<%=type%>",
       "<%=type%>" : 
       { 
         "metadata" : 

@@ -5,7 +5,7 @@
 // 2020-02-01 : mamund
 // ****************************************
 
-// message properties
+// this service's message properties
 exports.props = [
   'id',
   'companyName',

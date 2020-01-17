@@ -17,9 +17,11 @@ var utils = require('./darrt/utils');
 router.use(bodyParser.json({type:representation.getResponseTypes()}));
 router.use(bodyParser.urlencoded({extended:representation.urlencoded}));
 
+// load response templates and input forms
 var templates = representation.getTemplates();
 var forms = transitions.forms;
 
+// load shared metadata
 var metadata = [
   {name: "title", value: "BigCo Company Records"},
   {name: "author", value: "Mike Amundsen"},
@@ -32,7 +34,7 @@ router.use(function timeLog (req, res, next) {
   next()
 })
 
-// the exposed resources to manage state for this API
+// here are the exposed resources to manage state for this API
 router.post('/', function(req,res){
   utils.handler(req,res,actions.create,"company", 
     {metadata:metadata,templates:templates,forms:forms,filter:"home"}

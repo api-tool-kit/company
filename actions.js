@@ -7,13 +7,16 @@
 var component = require('./darrt/component');
 var data = require('./data');
 
+// when no hypermedia is supported
+var homeBody = {
+  name:"company",
+  rel:"collection",
+  href:"http://" + req.headers.host + "/list/"
+}
+
 module.exports.home = function(req,res) {
   return new Promise(function(resolve,reject) {
-    var body = []; //{
-//      name:"company",
-//      rel:"collection",
-//      href:"http://" + req.headers.host + "/list/"
-//    }];
+    var body = []; 
     if(body) {
       resolve(body);
     }
