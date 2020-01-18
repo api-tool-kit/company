@@ -320,6 +320,7 @@ function sayHi(name) {
 function resolveAccepts(req, templates) {
   var rtn = "";
   var fallback = {format:"application/json",view:""};
+  
   templates.forEach(function(template) {
     if(rtn==="" && req.accepts(template.format)) {
       rtn = template;

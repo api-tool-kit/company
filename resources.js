@@ -35,51 +35,102 @@ router.use(function timeLog (req, res, next) {
 })
 
 // here are the exposed resources to manage state for this API
+router.get('/',function(req,res){
+  utils.handler(req,res,actions.home,"home", 
+    {
+      metadata:metadata,
+      templates:templates,
+      forms:forms,
+      filter:"home"
+    }
+  )
+});
+
 router.post('/', function(req,res){
   utils.handler(req,res,actions.create,"company", 
-    {metadata:metadata,templates:templates,forms:forms,filter:"home"}
+    {
+      metadata:metadata,
+      templates:templates,
+      forms:forms,
+      filter:"home"
+    }
   )
 });
 
 router.get('/list/',function(req,res){
   utils.handler(req,res,actions.list,"company", 
-    {metadata:metadata,templates:templates,forms:forms,filter:"list"}
+    {
+      metadata:metadata,
+      templates:templates,
+      forms:forms,
+      filter:"list"
+    }
   )
 });
 
 router.get('/filter/', function(req,res){
   utils.handler(req,res,actions.filter,"company", 
-    {metadata:metadata,templates:templates,forms:forms}
+    {
+      metadata:metadata,
+      templates:templates,
+      forms:forms, 
+      filter:"list"
+    }
   )
 });
 
 router.get('/:companyId', function(req,res){
   utils.handler(req,res,actions.read,"company", 
-    {metadata:metadata,templates:templates,forms:forms}
+    {
+      metadata:metadata,
+      templates:templates,
+      forms:forms, 
+      filter:"item"
+    }
   )
 });
 
 router.put('/:companyId', function(req,res){
   utils.handler(req,res,actions.update,"company", 
-    {metadata:metadata,templates:templates,forms:forms}
+    {
+      metadata:metadata,
+      templates:templates,
+      forms:forms, 
+      filter:"item"
+    }
   )
 });
 
 router.delete('/:companyId', function(req,res){
   utils.handler(req,res,actions.remove,"company", 
-    {metadata:metadata,templates:templates,forms:forms}
+    {
+      metadata:metadata,
+      templates:templates,
+      forms:forms, 
+      filter:"list"
+    }
   )
 });
 
 router.patch('/status/:companyId', function(req,res){
   utils.handler(req,res,actions.status,"company", 
-    {metadata:metadata,templates:templates,forms:forms}
+    {
+      metadata:metadata,
+      templates:templates,
+      forms:forms, 
+      filter:"item"
+    }
   )
 });
 
 router.get('/',function(req,res){
   utils.handler(req,res,actions.home,"home", 
-    {metadata:metadata,templates:templates,forms:forms,filter:"home"}
+    {
+      metadata:metadata,
+      templates:templates,
+      forms:forms,
+      filter:"home"
+    }
   )
 });
 
