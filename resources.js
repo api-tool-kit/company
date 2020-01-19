@@ -21,12 +21,13 @@ router.use(bodyParser.urlencoded({extended:representation.urlencoded}));
 var templates = representation.getTemplates();
 var forms = transitions.forms;
 
+/************************************************************************/
+
 // load shared metadata
 var metadata = [
   {name: "title", value: "BigCo Company Records"},
   {name: "author", value: "Mike Amundsen"},
-  {name: "release", value: "1.0.0"}, 
-  {name: "self", value: "{fullurl}"}
+  {name: "release", value: "1.0.0"} 
 ];
 
 // optional tracking middleware
@@ -108,7 +109,7 @@ router.delete('/:companyId', function(req,res){
       metadata:metadata,
       templates:templates,
       forms:forms, 
-      filter:"list"
+      filter:"item"
     }
   )
 });

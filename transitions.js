@@ -4,6 +4,7 @@
 // 2020-02-01 : mamund
  *****************************************/
  
+ // page- and item-level forms
  exports.forms = {
    pageForms: [
      {
@@ -37,6 +38,19 @@
        properties:[]
      },
      {
+       id:"filter",
+       name:"filter",
+       href:"{fullhost}/filter/",
+       rel:"collection company filter",
+       tags:"collection company filter home list item",
+       title:"Search",
+       method:"GET",
+       properties:[
+         {name:"status",value:""},
+         {name:"companyName",value:""} 
+       ]
+     },
+     {
        id: "createCompany",
        name: "create",
        href: "{fullhost}/",
@@ -51,30 +65,50 @@
      }
    ],
    itemForms: [
-    {
-      id:"update",
-      name:"update",
-      href:"{fullhost}/{id}",
-      rel: "edit-form company",
-      tags: "company list item",
-      title: "Edit",
-      method: "PUT",
-      properties: [
-        {name:"id",value:"{id}"},
-        {name:"companyName",value:"{companyName}"},
-        {name:"email",value:"{email}"},
-        {name:"status",value:"{status}"}
-      ]
-    },
-    {
-      id:"self",
-      name:"self",
-      href:"{fullurl}",
-      rel: "self colllection company",
-      tags: "collection company self home list item",
-      title: "Self",
-      method: "GET",
-      properties:[]
-    },
- ]
+     {
+       id:"item_{id}",
+       name: "item",
+       href: "{fullhost}/{id}",
+       rel: "item company read",
+       title: "Read",
+       method: "GET",
+       properties: []
+     },
+     {
+       id:"update_{id}",
+       name:"update",
+       href:"{fullhost}/{id}",
+       rel: "item edit-form company",
+       tags: "company list item",
+       title: "Edit",
+       method: "PUT",
+       properties: [
+         {name:"id",value:"{id}"},
+         {name:"companyName",value:"{companyName}"},
+         {name:"email",value:"{email}"},
+         {name:"status",value:"{status}"}
+       ]
+     },
+     {
+       id:"status_{id}",
+       name:"status",
+       href:"{fullhost}/{id}",
+       rel: "item company status",
+       tags: "company item list status",
+       title: "Status",
+       method: "PATCH",
+       properties: [
+         {name:"status",value:"{status}"}
+       ]
+     },
+     {
+       id:"remove_{id}",
+       name: "remove",
+       href: "{fullhost}/{id}",
+       rel: "item company remove",
+       title: "Remove",
+       method: "DELETE",
+       properties: []
+     }
+   ]
  }
