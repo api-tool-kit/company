@@ -21,7 +21,7 @@
        id:"home",
        name:"home",
        href:"{fullhost}/",
-       rel: "colllection company",
+       rel: "collection company",
        tags: "collection company home list item",
        title: "Home",
        method: "GET",
@@ -47,7 +47,7 @@
        method:"GET",
        properties:[
          {name:"status",value:""},
-         {name:"companyName",value:""} 
+         {name:"companyName",value:""}
        ]
      },
      {
@@ -60,14 +60,22 @@
        method: "POST",
        properties: [
         {name:"id",value:"{makeid}"},
-        {name:"companyName",value:""}
+        {name:"companyName",value:""},
+        {name:"streetAddress",value:""},
+        {name:"city",value:""},
+        {name:"stateProvince",value:""},
+        {name:"postalCode",value:""},
+        {name:"country",value:""},
+        {name:"telephone",value:""},
+        {name:"email",value:""},
+        {name:"status",value:"pending"}
        ]
      }
    ],
    itemForms: [
      {
-       id:"item_{id}",
-       name: "item",
+       id:"read_{id}",
+       name: "read",
        href: "{fullhost}/{id}",
        rel: "item company read",
        title: "Read",
@@ -86,7 +94,14 @@
          {name:"id",value:"{id}"},
          {name:"companyName",value:"{companyName}"},
          {name:"email",value:"{email}"},
-         {name:"status",value:"{status}"}
+         {name:"status",value:"{status}"},
+         {name:"streetAddress",value:"{streetAddress}"},
+         {name:"city",value:"{city}"},
+         {name:"stateProvince",value:"{stateProvince}"},
+         {name:"postalCode",value:"{postalCode}"},
+         {name:"country",value:"{country}"},
+         {name:"telephone",value:"{telephone}"},
+         {name:"email",value:"{email}"}
        ]
      },
      {

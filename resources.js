@@ -127,18 +127,5 @@ router.patch('/status/:companyId', function(req,res){
   )
 });
 
-/*
-router.get('/',function(req,res){
-  utils.handler(req,res,actions.home,"home", 
-    {
-      metadata:metadata,
-      templates:templates,
-      forms:forms,
-      filter:"home"
-    }
-  )
-});
-*/
-
 // publish the capability routes
 module.exports = router

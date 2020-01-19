@@ -22,7 +22,7 @@ exports.props = [
 ];
 
 // required properties
-exports.reqd = ['companyName','email','status'];
+exports.reqd = ['id','companyName','email','status'];
 
 // enumerated properties
 exports.enums = [
