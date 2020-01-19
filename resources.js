@@ -25,7 +25,8 @@ var forms = transitions.forms;
 var metadata = [
   {name: "title", value: "BigCo Company Records"},
   {name: "author", value: "Mike Amundsen"},
-  {name: "release", value: "1.0.0"} 
+  {name: "release", value: "1.0.0"}, 
+  {name: "self", value: "{fullurl}"}
 ];
 
 // optional tracking middleware
