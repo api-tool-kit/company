@@ -42,7 +42,7 @@
        name:"filter",
        href:"{fullhost}/filter/",
        rel:"collection company filter",
-       tags:"collection company filter home list item",
+       tags:"collection company filter list item",
        title:"Search",
        method:"GET",
        properties:[

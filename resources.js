@@ -36,7 +36,9 @@ router.use(function timeLog (req, res, next) {
   next()
 })
 
+// ***********************************************************
 // here are the exposed resources to manage state for this API
+// ***********************************************************
 router.get('/',function(req,res){
   utils.handler(req,res,actions.home,"home", 
     {
@@ -125,6 +127,7 @@ router.patch('/status/:companyId', function(req,res){
   )
 });
 
+/*
 router.get('/',function(req,res){
   utils.handler(req,res,actions.home,"home", 
     {
@@ -135,6 +138,7 @@ router.get('/',function(req,res){
     }
   )
 });
+*/
 
 // publish the capability routes
 module.exports = router
