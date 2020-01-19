@@ -18,7 +18,7 @@ module.exports.home = function(req,res) {
         id:"list",
         name:"company",
         rel:"collection company",
-        href: "/list/"
+        href: "{fullhost}/list/"
       };
     }
     

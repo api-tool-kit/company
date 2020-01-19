@@ -19,7 +19,7 @@ exports.template =
               {
                 <%var y=0;%>
                 <%for(var p in item){%>
-                  <%if(y!==0){%>,<%}%>"<%=p%>" : "<%=item[p]%>"
+                  <%if(y!==0){%>,<%}%>"<%=p%>" : "<%=helpers.stateValue(item[p],item,request,item[p])%>"
                   <%y=1;%>
                 <%}%>
               }
