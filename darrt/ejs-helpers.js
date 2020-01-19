@@ -10,23 +10,40 @@
 // def = "<default-value>"
 //
 // note: {makeid} is special, generates unique ID
-exports.stateValue = function(val, state, def) {
+exports.stateValue = function(val, state, request, def) {
   var v = val||"";
   var st = state||{};
-  var d = def||"";
+  var d = def||v;
+  var x=0;
+  req = request||{};
   
-  if(v === "{makeid}") {
-    v = makeId();
+  // handle special macros
+  if(v.indexOf("{makeid}")!==-1) {
+    v = v.replace("{makeid}",makeId());
+    x=1
   }
-  else {
-    v = d;
-    for(s in st) {
-      if(v.indexOf('{'+s+'}')!==-1) {
-        v = v.replace('{'+s+'}',st[s]);;
-        break;
-      }
+  if(v.indexOf("{fullurl}")!==-1) {
+    v = v.replace("{fullurl}",(req ? req.protocol : "http") + "://" + (req.get ? req.get("Host") : "") + (req ? req.originalUrl : "/"));
+    x=1;
+  }
+  if(v.indexOf("{fullhost}")!==-1) {
+    v = v.replace("{fullhost}",(req ? req.protocol : "http") + "://"+ (req.get ? req.get("Host") : ""));  
+    x=1;
+  }
+  
+  // handle named properties
+  for(s in st) {
+    if(v.indexOf('{'+s+'}')!==-1) {
+      v = v.replace('{'+s+'}',st[s]);
+      x=1;
     }
   }
+  
+  // insert default, if nothing found
+  if(x==0) {
+    v = d;
+  }
+  
   return v;
 }
 

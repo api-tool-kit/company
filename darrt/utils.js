@@ -287,7 +287,7 @@ exports.handler = function(req, res, fn, type, representation){
     }
 
     var reply = "";
-    rtn = {rtn:rtn,type:oType, pForms:pForms,iForms:iForms, metadata:metadata, helpers:ejsHelper};
+    rtn = {rtn:rtn,type:oType, pForms:pForms,iForms:iForms, metadata:metadata, helpers:ejsHelper, request:req};
     if(template.view!=="") {
       reply= ejs.render(template.view, rtn);
     }

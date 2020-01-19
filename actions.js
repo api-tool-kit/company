@@ -7,17 +7,21 @@
 var component = require('./darrt/component');
 var data = require('./data');
 
-// when no hypermedia is supported
-var homeBody = {
-  name:"company",
-  rel:"collection",
-  href: "/list/"
-};
-
-
 module.exports.home = function(req,res) {
   return new Promise(function(resolve,reject) {
     var body = []; 
+    
+    // hack to handle empty root for non-link types
+    ctype = req.get("Accept")||"";
+    if("application/json text-csv".indexOf(ctype)!==-1) {
+      body = {
+        id:"list",
+        name:"company",
+        rel:"collection company",
+        href: "/list/"
+      };
+    }
+    
     if(body) {
       resolve(body);
     }

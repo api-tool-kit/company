@@ -28,13 +28,13 @@ exports.template =
 	{
 	  <%var b=0;%>
 	  <%for(var pr in prop){%>
-	    <%if(b!==0){%>,<%}%>"<%=pr%>" : "<%=prop[pr]%>"
+	    <%if(b!==0){%>,<%}%>"<%=pr%>" : "<%=helpers.stateValue(prop[pr],{},request,prop[pr])%>"
 	    <%b=1;%>
 	  <%}%>
 	}
       <%});%>
       ]	      
-          <%}else{%>"<%=md[p]%>"<%}%>
+          <%}else{%>"<%=helpers.stateValue(md[p],{},request,md[p])%>"<%}%>
                 <%w=1;%>
               <%}%>  
             }
@@ -58,13 +58,13 @@ exports.template =
 	{
 	  <%var b=0;%>
 	  <%for(var pr in prop){%>
-	    <%if(b!==0){%>,<%}%>"<%=pr%>" : "<%=prop[pr]%>"
+	    <%if(b!==0){%>,<%}%>"<%=pr%>" : "<%=helpers.stateValue(prop[pr],{},request,prop[pr])%>"
 	    <%b=1;%>
 	  <%}%>
 	}
       <%});%>
       ]	      
-          <%}else{%>"<%=form[p]%>"<%}%>
+          <%}else{%>"<%=helpers.stateValue(form[p],{},request,form[p])%>"<%}%>
                 <%w=1;%>
               <%}%>  
             }
@@ -97,14 +97,14 @@ exports.template =
         {
           <%var t=0;%>
           <%for(var pr in prop){%>
-            <%if(t!==0){%>,<%}%>"<%=pr%>" : "<%=helpers.stateValue(prop[pr],item,prop[pr])%>"
+            <%if(t!==0){%>,<%}%>"<%=pr%>" : "<%=helpers.stateValue(prop[pr],item,request,prop[pr])%>"
             <%t=1;%>
           <%}%>
         }
             <%});%>
             
             ]	      
-                <%}else{%>"<%=helpers.stateValue(form[p],item,form[p])%>"<%}%>
+                <%}else{%>"<%=helpers.stateValue(form[p],item,request,form[p])%>"<%}%>
                       <%r=1;%>
                     <%}%>  
                   }
@@ -116,6 +116,7 @@ exports.template =
               <%y=1;%>
             <%}%>
           }
+          
           <%x=1;%>
         <%});%>
         ]

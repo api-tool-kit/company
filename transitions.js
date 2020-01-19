@@ -7,9 +7,19 @@
  exports.forms = {
    pageForms: [
      {
+       id:"self",
+       name:"self",
+       href:"{fullurl}",
+       rel: "self colllection company",
+       tags: "collection company self home list item",
+       title: "Self",
+       method: "GET",
+       properties:[]
+     },
+     {
        id:"home",
        name:"home",
-       href:"/",
+       href:"{fullhost}/",
        rel: "colllection company",
        tags: "collection company home list item",
        title: "Home",
@@ -19,7 +29,7 @@
      {
        id:"list",
        name:"list",
-       href:"/list",
+       href:"{fullhost}/list/",
        rel:"collection company",
        tags:"collection company home list item",
        title:"List",
@@ -29,7 +39,7 @@
      {
        id: "createCompany",
        name: "create",
-       href: "/",
+       href: "{fullhost}/",
        rel: "create-form company",
        tags: "collection company list",
        title: "Create Company",
@@ -44,7 +54,7 @@
     {
       id:"update",
       name:"update",
-      href:"/{id}",
+      href:"{fullhost}/{id}",
       rel: "edit-form company",
       tags: "company list item",
       title: "Edit",
@@ -55,6 +65,16 @@
         {name:"email",value:"{email}"},
         {name:"status",value:"{status}"}
       ]
-    }
-   ]
+    },
+    {
+      id:"self",
+      name:"self",
+      href:"{fullurl}",
+      rel: "self colllection company",
+      tags: "collection company self home list item",
+      title: "Self",
+      method: "GET",
+      properties:[]
+    },
+ ]
  }

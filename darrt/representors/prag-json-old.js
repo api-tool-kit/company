@@ -4,10 +4,10 @@
 // 2020-02-01 : mamund
  *****************************************/
  
-// forms-json response  
+// prag-json response template 
 exports.template =  
 {
-  format : "application/forms+json", 
+  format : "application/parg+json", 
   view : 
   `
     { 
