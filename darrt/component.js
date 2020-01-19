@@ -84,15 +84,20 @@ function main(args) {
 }
 
 function addEntry(elm, entry, props, reqd, enums) {
-  var rtn, item, error;
+  var rtn, item, error, id;
  
   item = {}
   for(i=0,x=props.length;i<x;i++) {
+    console.log(props[i]);
     if(props[i]!=="id") {
       item[props[i]] = (entry[props[i]]||"");
     }
+    else {
+      id = entry[props[i]];
+    }
   }
-
+  console.log(id);
+  
   error = "";
   for(i=0,x=reqd.length;i<x;i++) {
     if(item[reqd[i]]==="") {
@@ -119,7 +124,8 @@ function addEntry(elm, entry, props, reqd, enums) {
       {
         object:elm, 
         action:'add', 
-        item:utils.setProps(item,props)
+        item:utils.setProps(item,props),
+        id
       }
     );
   }

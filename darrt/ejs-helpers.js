@@ -11,7 +11,7 @@
 //
 // note: {makeid} is special, generates unique ID
 exports.stateValue = function(val, state, request, def) {
-  var v = val||"";
+  var v = val.toString()||"";
   var st = state||{};
   var d = def||v;
   var x=0;

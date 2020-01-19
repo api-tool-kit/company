@@ -273,7 +273,7 @@ exports.handler = function(req, res, fn, type, representation){
       if(body.type && body.type==='error') {
         xr.push(exception(
           body.name,
-          body.message,
+          body.detail,
           body.code,
           body.oType,
           'http://' + req.headers.host + req.url
@@ -286,20 +286,24 @@ exports.handler = function(req, res, fn, type, representation){
       } 
     }
 
-    var reply = "";
-    rtn = {rtn:rtn,type:oType, pForms:pForms,iForms:iForms, metadata:metadata, helpers:ejsHelper, request:req};
-    if(template.view!=="") {
-      reply= ejs.render(template.view, rtn);
+    if(oType==="error") {
+      res.status(rtn.code||400).send(JSON.stringify({error:rtn},null,2));      
     }
     else {
-      reply = JSON.stringify(rtn, null, 2);
+      var reply = "";
+      rtn = {rtn:rtn,type:oType, pForms:pForms,iForms:iForms, metadata:metadata, helpers:ejsHelper, request:req};
+      if(template.view!=="") {
+        reply= ejs.render(template.view, rtn);
+      }
+      else {
+        reply = JSON.stringify(rtn, null, 2);
+      }
+      // clean up blank lines
+      reply = reply.replace(/^\s*$[\n\r]{1,}/gm, '');
+      
+      res.type(template.format);
+      res.send(reply);
     }
-    // clean up blank lines
-    reply = reply.replace(/^\s*$[\n\r]{1,}/gm, '');
-    
-    res.type(template.format);
-    res.send(reply);
-
   }).catch(function(err) {
     xr.push(exception(
       "Server error",
@@ -308,7 +312,7 @@ exports.handler = function(req, res, fn, type, representation){
       "error",
       'http://' + req.headers.host + req.url
     ));
-    res.send(JSON.stringify({error:xr},null,2));
+    res.status(500).send(JSON.stringify({error:xr},null,2));
   });
 }
 

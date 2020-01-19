@@ -132,7 +132,9 @@ module.exports.remove = function(req,res) {
   return new Promise(function(resolve,reject){
     if(req.params.companyId && req.params.companyId!==null) {
       var id = req.params.companyId;
-      resolve(component({name:'company',action:'delete', id:id}));
+      console.log(id);
+      resolve(component(
+        {name:'company',action:'delete', id:id}));
     }
     else {
       reject({error:"invalid id"});

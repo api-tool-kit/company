@@ -107,7 +107,7 @@
      {
        id:"status_{id}",
        name:"status",
-       href:"{fullhost}/{id}",
+       href:"{fullhost}/status/{id}",
        rel: "item company status",
        tags: "company item list status",
        title: "Status",
