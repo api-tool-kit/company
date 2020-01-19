@@ -11,31 +11,31 @@ exports.template =
   view : 
   `
     { 
-        "<%=type%>" : 
-        { 
-          "metadata" : 
-          [
-            <%var z=0;%>
-            <%metadata.forEach(function(md){%>
-              <%if(z!==0){%>,<%}%>
-              {
-                <%var w=0;%>
-                <%for(var p in md){%>
-                  <%if(w!==0){%>,<%}%>"<%=p%>" : <%if(Array.isArray(md[p])){%>
-              [
-              <%var a=0;%>
-	      <%md[p].forEach(function(prop){%>
-                <%if(a!==0){%>,<%}%>
+      "<%=type%>" : 
+      { 
+        "metadata" : 
+        [
+          <%var z=0;%>
+          <%metadata.forEach(function(md){%>
+            <%if(z!==0){%>,<%}%>
+            {
+              <%var w=0;%>
+              <%for(var p in md){%>
+                <%if(w!==0){%>,<%}%>"<%=p%>" : <%if(Array.isArray(md[p])){%>
+            [
+            <%var a=0;%>
+     <%md[p].forEach(function(prop){%>
+              <%if(a!==0){%>,<%}%>
 		{
 		  <%var b=0;%>
 		  <%for(var pr in prop){%>
-		    <%if(b!==0){%>,<%}%>"<%=pr%>" : "<%=prop[pr]%>"
+		    <%if(b!==0){%>,<%}%>"<%=pr%>" : "<%=helpers.stateValue(prop[pr],{},request,prop[pr])%>"
 		    <%b=1;%>
 		  <%}%>
 		}
 	      <%});%>
 	      ]	      
-            <%}else{%>"<%=md[p]%>"<%}%>
+            <%}else{%>"<%=helpers.stateValue(md[p],{},request,md[p])%>"<%}%>
                   <%w=1;%>
                 <%}%>  
               }
@@ -59,13 +59,13 @@ exports.template =
 		{
 		  <%var b=0;%>
 		  <%for(var pr in prop){%>
-		    <%if(b!==0){%>,<%}%>"<%=pr%>" : "<%=prop[pr]%>"
+		    <%if(b!==0){%>,<%}%>"<%=pr%>" : "<%=helpers.stateValue(prop[pr],{},request,prop[pr])%>"
 		    <%b=1;%>
 		  <%}%>
 		}
 	      <%});%>
 	      ]	      
-            <%}else{%>"<%=form[p]%>"<%}%>
+            <%}else{%>"<%=helpers.stateValue(form[p],{},request,form[p])%>"<%}%>
                   <%w=1;%>
                 <%}%>  
               }
@@ -83,34 +83,6 @@ exports.template =
                   <%if(p==="id"){%>
                 "links" : 
                 [
-                  <%var q=0;%>
-                  <%iForms.forEach(function(form){%>
-                    <%if(q!==0){%>,<%}%>
-                    {
-                      <%var r=0;%>
-                      <%for(var p in form){%>
-                        <%if(r!==0){%>,<%}%>"<%=p%>" : <%if(Array.isArray(form[p])){%>
-                    [
-                    <%var s=0;%>
-              <%form[p].forEach(function(prop){%>
-                      <%if(s!==0){%>,<%}%>
-                      <%s=1%>
-          {
-            <%var t=0;%>
-            <%for(var pr in prop){%>
-              <%if(t!==0){%>,<%}%>"<%=pr%>" : "<%=helpers.stateValue(prop[pr],item,prop[pr])%>"
-              <%t=1;%>
-            <%}%>
-          }
-              <%});%>
-              
-              ]	      
-                  <%}else{%>"<%=helpers.stateValue(form[p],item,form[p])%>"<%}%>
-                        <%r=1;%>
-                      <%}%>  
-                    }
-                    <%q=1;%>
-                  <%});%>
                 ]
                 <%y=1;%><%}%>
                 <%if(y!==0){%>,<%}%>"<%=p%>" : "<%=item[p]%>"

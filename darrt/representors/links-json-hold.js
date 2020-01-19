@@ -4,10 +4,10 @@
 // 2020-02-01 : mamund
  *****************************************/
  
-// forms-json response  
+// links-json response template
 exports.template =  
 {
-  format : "application/forms+json", 
+  format : "application/links+json", 
   view : 
   `
     { 
@@ -29,7 +29,7 @@ exports.template =
 		{
 		  <%var b=0;%>
 		  <%for(var pr in prop){%>
-		    <%if(b!==0){%>,<%}%>"<%=pr%>" : "<%=helpers.stateValue(prop[pr],{},prop[pr])%>"
+		    <%if(b!==0){%>,<%}%>"<%=pr%>" : "<%=helpers.stateValue(prop[pr],{},request,prop[pr])%>"
 		    <%b=1;%>
 		  <%}%>
 		}
