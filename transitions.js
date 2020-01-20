@@ -47,8 +47,8 @@
        method:"GET",
        properties:[
          {name:"status",value:""},
-         {name:"companyName",value:""}
-         {name:"stateProvince",value:""}
+         {name:"companyName",value:""},
+         {name:"stateProvince",value:""},
          {name:"country",value:""}
        ]
      },
