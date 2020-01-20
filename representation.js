@@ -1,6 +1,6 @@
 /*****************************************
-// bigco, inc company
-// response representations
+// bigco, inc
+// company response representations
 // 2020-02-01 : mamund
  *****************************************/
 
@@ -39,7 +39,7 @@ exports.getResponseTypes = function() {
   return rtn;
 }
 
-// to hold forms/links
+// init to hold forms/links
 exports.forms = {
   pageForms: [],
   itemForms: []

@@ -1,9 +1,12 @@
 /*****************************************
-// bigco, inc company
-// resources 
+// bigco, inc
+// company resources 
 // 2020-02-01 : mamund
  *****************************************/
 
+/*******************************************
+// initialization and setup for DARRT
+********************************************/
 var express = require('express')
 var router = express.Router()
 var bodyParser = require('body-parser');
@@ -21,23 +24,24 @@ router.use(bodyParser.urlencoded({extended:representation.urlencoded}));
 var templates = representation.getTemplates();
 var forms = transitions.forms;
 
-/************************************************************************/
-
-// load shared metadata
-var metadata = [
-  {name: "title", value: "BigCo Company Records"},
-  {name: "author", value: "Mike Amundsen"},
-  {name: "release", value: "1.0.0"} 
-];
-
 // optional tracking middleware
 router.use(function timeLog (req, res, next) {
   console.log('Time: ', Date.now() + " : " + req.headers.host + req.url)
   next()
 })
 
+/************************************************************************/
+
+// shared metadata for this service
+var metadata = [
+  {name: "title", value: "BigCo Company Records"},
+  {name: "author", value: "Mike Amundsen"},
+  {name: "release", value: "1.0.0"} 
+];
+
+
 // ***********************************************************
-// here are the exposed resources to manage state for this API
+// public resources for the cokmpany service
 // ***********************************************************
 router.get('/',function(req,res){
   utils.handler(req,res,actions.home,"home", 
@@ -83,7 +87,7 @@ router.get('/filter/', function(req,res){
   )
 });
 
-router.get('/:companyId', function(req,res){
+router.get('/:id', function(req,res){
   utils.handler(req,res,actions.read,"company", 
     {
       metadata:metadata,
@@ -94,7 +98,7 @@ router.get('/:companyId', function(req,res){
   )
 });
 
-router.put('/:companyId', function(req,res){
+router.put('/:id', function(req,res){
   utils.handler(req,res,actions.update,"company", 
     {
       metadata:metadata,
@@ -105,7 +109,7 @@ router.put('/:companyId', function(req,res){
   )
 });
 
-router.delete('/:companyId', function(req,res){
+router.delete('/:id', function(req,res){
   utils.handler(req,res,actions.remove,"company", 
     {
       metadata:metadata,
@@ -116,7 +120,7 @@ router.delete('/:companyId', function(req,res){
   )
 });
 
-router.patch('/status/:companyId', function(req,res){
+router.patch('/status/:id', function(req,res){
   utils.handler(req,res,actions.status,"company", 
     {
       metadata:metadata,

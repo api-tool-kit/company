@@ -344,7 +344,6 @@ function tagFilter(collection, filter) {
   
   if(tag==="") {
     rtn = coll;
-    console.log("all");
   }
   else {
     coll.forEach(function(item) {

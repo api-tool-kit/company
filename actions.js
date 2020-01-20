@@ -1,14 +1,17 @@
 /*****************************************
-// bigco, inc company
-// action elements
+// bigco, inc 
+// company action elements
 // 2020-02-01 : mamund
  *****************************************/
 
 var component = require('./darrt/component');
 var data = require('./data');
 
-/*********************************************************/
-
+/***************************************** 
+// actions for the company service
+// home, create, list, filter, 
+// read, update, status, remove
+ *****************************************/
 
 module.exports.home = function(req,res) {
   return new Promise(function(resolve,reject) {
@@ -76,8 +79,8 @@ module.exports.filter = function(req,res) {
 
 module.exports.read = function(req,res) {
   return new Promise(function(resolve,reject){
-    if(req.params.companyId && req.params.companyId!==null) {
-      var id = req.params.companyId;
+    if(req.params.id && req.params.id!==null) {
+      var id = req.params.id;
       resolve(component({name:'company',action:'item',id:id}));
     } 
     else {
@@ -89,7 +92,7 @@ module.exports.read = function(req,res) {
 module.exports.update = function(req,res) {
   var id,body;
   return new Promise(function(resolve,reject){
-    id = req.params.companyId||null;
+    id = req.params.id||null;
     body = req.body||null;
     if(id!==null && body!==null) {
        resolve(component(
@@ -110,7 +113,7 @@ module.exports.update = function(req,res) {
 module.exports.status = function(req,res) {
   var id,body;
   return new Promise(function(resolve,reject){
-    id = req.params.companyId||null;
+    id = req.params.id||null;
     body = req.body||null;
     if(id!==null && body!==null) {
        resolve(component(
@@ -130,9 +133,8 @@ module.exports.status = function(req,res) {
 
 module.exports.remove = function(req,res) {
   return new Promise(function(resolve,reject){
-    if(req.params.companyId && req.params.companyId!==null) {
-      var id = req.params.companyId;
-      console.log(id);
+    if(req.params.id && req.params.id!==null) {
+      var id = req.params.id;
       resolve(component(
         {name:'company',action:'delete', id:id}));
     }

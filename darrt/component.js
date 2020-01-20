@@ -88,7 +88,6 @@ function addEntry(elm, entry, props, reqd, enums) {
  
   item = {}
   for(i=0,x=props.length;i<x;i++) {
-    console.log(props[i]);
     if(props[i]!=="id") {
       item[props[i]] = (entry[props[i]]||"");
     }
@@ -96,7 +95,6 @@ function addEntry(elm, entry, props, reqd, enums) {
       id = entry[props[i]];
     }
   }
-  console.log(id);
   
   error = "";
   for(i=0,x=reqd.length;i<x;i++) {
@@ -180,8 +178,6 @@ function updateEntry(elm, id, entry, props, reqd, enums) {
       );
     }
   }
-  
-  console.log(rtn);
   
   return rtn;
 }

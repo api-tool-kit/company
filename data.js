@@ -1,6 +1,6 @@
 // ****************************************
-// bigco, inc company
-// data elements
+// bigco, inc
+// data elements for company
 // properties, requireds, and enums
 // 2020-02-01 : mamund
 // ****************************************
