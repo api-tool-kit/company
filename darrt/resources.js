@@ -14,7 +14,7 @@ var bodyParser = require('body-parser');
 var actions = require('./actions');
 var representation = require('./representation');
 var transitions = require('./transitions');
-var utils = require('./darrt/utils');
+var utils = require('./lib/utils');
 
 // set up request body parsing & response templates
 router.use(bodyParser.json({type:representation.getResponseTypes()}));

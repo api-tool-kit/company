@@ -4,7 +4,7 @@
 // 2020-02-01 : mamund
  *****************************************/
 
-var component = require('./darrt/component');
+var component = require('./lib/component');
 var data = require('./data');
 
 /***************************************** 

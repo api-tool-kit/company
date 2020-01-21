@@ -5,11 +5,11 @@
  *****************************************/
 
 // load representors
-var appJson = require('./darrt/representors/app-json');
-var formsJson = require('./darrt/representors/forms-json');
-var linksJson = require('./darrt/representors/links-json');
-var pragJson = require('./darrt/representors/prag-json');
-var textCsv = require('./darrt/representors/text-csv');
+var appJson = require('./representors/app-json');
+var formsJson = require('./representors/forms-json');
+var linksJson = require('./representors/links-json');
+var pragJson = require('./representors/prag-json');
+var textCsv = require('./representors/text-csv');
 
 // support form encoding
 exports.urlencoded = true;
