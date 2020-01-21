@@ -32,19 +32,20 @@ function main(args) {
   var filter = args.filter||null;
   var id = args.id||null;
   var item = args.item||{};
+  var fields = args.fields||"";
 
   switch (action) {
     case 'create':
       rtn = createObject(object);
       break;
     case 'list':
-      rtn = getList(object);
+      rtn = getList(object, null, fields);
       break;
     case 'filter':
-      rtn = getList(object, filter);
+      rtn = getList(object, filter, fields);
       break;
     case 'item':
-      rtn = getItem(object, id);
+      rtn = getItem(object, id, fields);
       break;
     case 'add':
       rtn = addItem(object, item, id);
@@ -65,7 +66,7 @@ function main(args) {
 }
 
 // get a list of items (possibly via filter)
-function getList(object, filter) {
+function getList(object, filter, fields) {
   var coll, item, list, i, x, t, name;
 
   coll = [];
@@ -99,11 +100,16 @@ function getList(object, filter) {
     coll = [];
   }
 
+  // apply field filter
+  for(i=0,x=coll.length;i<x;i++) {
+    coll[i] = applyFields(coll[i],fields);
+  }
+
   return coll;
 }
 
 // retrieve and existing item
-function getItem(object, id) {
+function getItem(object, id, fields) {
   var rtn;
 
   try {
@@ -112,7 +118,30 @@ function getItem(object, id) {
     rtn = exception("SimpleStorage: ["+object+"]", ex.message, 400);
   }
 
+  rtn = applyFields(rtn, fields);
+
   return rtn;
+}
+
+// apply field list
+// item = object to return
+// fields = a string of field names to return
+function applyFields(item,fields) {
+  var rtn = {};
+  
+  if(fields.length!==0) {
+    for(var i in item) {
+      if(fields.indexOf(i)!==-1) {
+        rtn[i] = item[i];
+      }
+    }
+  }
+  else {
+    rtn = item;
+  }
+  
+  return rtn;
+  
 }
 
 // create a storage object (folder)
@@ -212,8 +241,8 @@ function exception(name, message, code, type, url) {
 
   rtn.type = (type||"error");
   rtn.title = (name||"Error");
-  rtn.detail = (message||rtn.name);
-  rtn.status = (code||400);
+  rtn.detail = (message||name);
+  rtn.status = (code||"400");
   if(url) {rtn.instance = url};
 
   return rtn;

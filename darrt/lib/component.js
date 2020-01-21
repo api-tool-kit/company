@@ -32,7 +32,9 @@ function main(args) {
   item = args.item||{};
   reqd = args.reqd||[];
   enums = args.enums||[];
- 
+  defs = args.defs||[];
+  fields = args.fields||"";
+  
   // confirm existence of object storage
   storage({action:'create',object:elm});
 
@@ -48,17 +50,17 @@ function main(args) {
       rtn = profile;
       break;
     case 'list':
-      rtn = utils.cleanList(storage({object:elm, action:'list'}));
+      rtn = utils.cleanList(storage({object:elm, action:'list', fields:fields}));
       break;
     case 'read':
     case 'item':
-      rtn = utils.cleanList(storage({object:elm, action:'item', id:id}));
+      rtn = utils.cleanList(storage({object:elm, action:'item', id:id, fields:fields}));
       break;
     case 'filter':
-      rtn = utils.cleanList(storage({object:elm, action:'filter', filter:filter}));
+      rtn = utils.cleanList(storage({object:elm, action:'filter', filter:filter, fields:fields}));
       break
     case 'add':
-      rtn = addEntry(elm, item, props, reqd, enums);
+      rtn = addEntry(elm, item, props, reqd, enums, defs);
       break;
     case 'update':
       rtn = updateEntry(elm, id, item, props, reqd, enums);
