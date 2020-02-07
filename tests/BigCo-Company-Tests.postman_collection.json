@@ -1,0 +1,297 @@
+{
+	"info": {
+		"_postman_id": "83478b04-f732-4375-83b8-b7a7d29144f0",
+		"name": "BigCo-Company-Tests",
+		"description": "Company test suite for Company API. Expectes FORMS+JSON responses",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "company home",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "86d36fad-506d-439b-8eee-f0ce289d0d9e",
+						"type": "text/javascript",
+						"exec": [
+							"/***********************",
+							" * FORMS+JSON TESTS",
+							" ***********************/",
+							"",
+							"// shared vars for this script ",
+							"var body = pm.response.json();",
+							"var obj = 'home';",
+							"var utils = shared();",
+							"",
+							"// 200 OK",
+							"utils.checkStatus(200);",
+							"",
+							"// HEADERS",
+							"utils.checkHeader({name:'content-type',value:'application/forms+json'});",
+							"",
+							"// METADATA",
+							"utils.checkMeta({name:'title', value:'BigCo Company Records'});",
+							"utils.checkMeta({name:'release', value:'1.0.0'});",
+							"utils.checkMeta({name:'author', value:'Amundsen'});",
+							"",
+							"// LINKS",
+							"utils.checkLink('home');",
+							"utils.checkLink('self');",
+							"utils.checkLink('list');",
+							"",
+							"// ITEMS",
+							"/* none for this request */",
+							"",
+							"",
+							"// SHARED FUNCTIONS",
+							"function shared () {",
+							"",
+							"    // check status",
+							"    var checkStatus = function(value) {",
+							"        pm.test('Status is '+ value, function() {",
+							"           pm.expect(pm.response.code).to.equal(value); ",
+							"        });",
+							"    };",
+							"",
+							"    // check header",
+							"    var checkHeader = function(args) {",
+							"        pm.test('Header ' + args.name + ' contains ' + args.value, function() {",
+							"            var hdr = pm.response.headers.get(args.name);",
+							"            pm.expect(hdr.indexOf(args.value)).to.not.equal(-1);",
+							"        });",
+							"    };",
+							"",
+							"    // metadata testing",
+							"    var checkMeta = function(args) {",
+							"        pm.test(args.name + ' contains '+ args.value, function() {",
+							"           var meta = body[obj].metadata.find( x => x.name === args.name);",
+							"           pm.expect(meta.value.indexOf(args.value)).to.not.equal(-1);",
+							"        });",
+							"    };",
+							"",
+							"    // link testing",
+							"    var checkLink = function(id) {",
+							"        pm.test('Valid '+id+' link', function() {",
+							"            var body = pm.response.json();",
+							"            var link = body[obj].links.find(x => x.id === id);",
+							"            pm.expect(link.id).to.equal(id);",
+							"            pm.expect(link.href).to.be.a('string');",
+							"        });",
+							"    };",
+							"",
+							"    return {",
+							"        checkStatus,",
+							"        checkHeader,",
+							"        checkMeta,",
+							"        checkLink",
+							"    };",
+							"}"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/forms+json"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "{{server}}/",
+					"host": [
+						"{{server}}"
+					],
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "company list",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "9e430311-1925-447e-9d35-debfa6d4e4c2",
+						"type": "text/javascript",
+						"exec": [
+							"/***********************",
+							" * FORMS+JSON TESTS",
+							" ***********************/",
+							"",
+							"// shared vars for this script ",
+							"var body = pm.response.json();",
+							"var obj = 'company';",
+							"var utils = shared();",
+							"",
+							"// 200 OK",
+							"utils.checkStatus(200);",
+							"",
+							"// HEADERS",
+							"utils.checkHeader({name:'content-type',value:'application/forms+json'});",
+							"",
+							"// METADATA",
+							"utils.checkMeta({name:'title', value:'BigCo Company Records'});",
+							"utils.checkMeta({name:'release', value:'1.0.0'});",
+							"utils.checkMeta({name:'author', value:'Amundsen'});",
+							"",
+							"// LINKS",
+							"utils.checkLink('home');",
+							"utils.checkLink('self');",
+							"utils.checkLink('list');",
+							"",
+							"// ITEMS",
+							"/* none for this request */",
+							"",
+							"",
+							"// SHARED FUNCTIONS",
+							"function shared () {",
+							"",
+							"    // check status",
+							"    var checkStatus = function(value) {",
+							"        pm.test('Status is '+ value, function() {",
+							"           pm.expect(pm.response.code).to.equal(value); ",
+							"        });",
+							"    };",
+							"",
+							"    // check header",
+							"    var checkHeader = function(args) {",
+							"        pm.test('Header ' + args.name + ' contains ' + args.value, function() {",
+							"            var hdr = pm.response.headers.get(args.name);",
+							"            pm.expect(hdr.indexOf(args.value)).to.not.equal(-1);",
+							"        });",
+							"    };",
+							"",
+							"    // metadata testing",
+							"    var checkMeta = function(args) {",
+							"        pm.test(args.name + ' contains '+ args.value, function() {",
+							"           var meta = body[obj].metadata.find( x => x.name === args.name);",
+							"           pm.expect(meta.value.indexOf(args.value)).to.not.equal(-1);",
+							"        });",
+							"    };",
+							"",
+							"    // link testing",
+							"    var checkLink = function(id) {",
+							"        pm.test('Valid '+id+' link', function() {",
+							"            var body = pm.response.json();",
+							"            var link = body[obj].links.find(x => x.id === id);",
+							"            pm.expect(link.id).to.equal(id);",
+							"            pm.expect(link.href).to.be.a('string');",
+							"        });",
+							"    };",
+							"",
+							"    return {",
+							"        checkStatus,",
+							"        checkHeader,",
+							"        checkMeta,",
+							"        checkLink",
+							"    };",
+							"}"
+						]
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "e4a76d51-4781-4bac-9815-ce94d48b5af7",
+						"type": "text/javascript",
+						"exec": [
+							"postman.setEnvironmentVariable(\"utils\", () => {",
+							"    // SHARED CODE",
+							"",
+							"    // check status",
+							"    var checkStatus = function(value) {",
+							"        pm.test('Status is '+ value, function() {",
+							"           pm.expect(pm.response.code).to.equal(value); ",
+							"        });",
+							"    };",
+							"",
+							"    // check header",
+							"    var checkHeader = function(args) {",
+							"        pm.test('Header ' + args.name + ' contains ' + args.value, function() {",
+							"            var hdr = pm.response.headers.get(args.name);",
+							"            pm.expect(hdr.indexOf(args.value)).to.not.equal(-1);",
+							"        });",
+							"    };",
+							"",
+							"    // metadata testing",
+							"    var checkMeta = function(args) {",
+							"        pm.test(args.name + ' contains '+ args.value, function() {",
+							"           var meta = body[obj].metadata.find( x => x.name === args.name);",
+							"           pm.expect(meta.value.indexOf(args.value)).to.not.equal(-1);",
+							"        });",
+							"    };",
+							"",
+							"    // link testing",
+							"    var checkLink = function(id) {",
+							"        pm.test('Valid '+id+' link', function() {",
+							"            var body = pm.response.json();",
+							"            var link = body[obj].links.find(x => x.id === id);",
+							"            pm.expect(link.id).to.equal(id);",
+							"            pm.expect(link.href).to.be.a('string');",
+							"        });",
+							"    };",
+							"",
+							"    return {",
+							"        checkStatus,",
+							"        checkHeader,",
+							"        checkMeta,",
+							"        checkLink",
+							"    };",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/forms+json"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "{{server}}/list/",
+					"host": [
+						"{{server}}"
+					],
+					"path": [
+						"list",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "99278e70-6024-4792-89f2-67606c887db8",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "4ff83442-3a8a-473e-8627-1e0012751c4e",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
