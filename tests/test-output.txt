@@ -1,0 +1,160 @@
+newman
+
+BigCo Company API
+
+→ Company Home
+  GET localhost:8484/ [200 OK, 2KB, 93ms]
+  ✓  Status is 200
+  ✓  Header content-type contains application/forms+json
+  ✓  title contains BigCo Company Records
+  ✓  release contains 1.0.0
+  ✓  author contains Amundsen
+  ✓  Valid home link
+  ✓  Valid self link
+  ✓  Valid list link
+
+→ Company List
+  GET localhost:8484/list/ [200 OK, 55.23KB, 19ms]
+  ✓  Status is 200
+  ✓  Header content-type contains application/forms+json
+  ✓  title contains BigCo Company Records
+  ✓  release contains 1.0.0
+  ✓  author contains Amundsen
+  ✓  Valid home page link
+  ✓  Valid self page link
+  ✓  Valid list page link
+  ✓  Valid filter page link
+  ✓  Valid create page link
+  ✓  Valid items
+  ✓  Valid read item link
+  ✓  Valid update item link
+  ✓  Valid status item link
+  ✓  Valid remove item link
+
+→ Company Remove
+  DELETE localhost:8484/q1w2e3r4 [200 OK, 50.11KB, 21ms]
+  ✓  Status is 200
+  ✓  Header content-type contains application/forms+json
+  ✓  title contains BigCo Company Records
+  ✓  release contains 1.0.0
+  ✓  author contains Amundsen
+  ✓  Valid home page link
+  ✓  Valid self page link
+  ✓  Valid list page link
+  ✓  Valid filter page link
+  ✓  Valid items
+  ✓  Valid read item link
+  ✓  Valid update item link
+  ✓  Valid status item link
+  ✓  Valid remove item link
+
+→ Company Create
+  POST localhost:8484/ [200 OK, 3.46KB, 11ms]
+  ✓  Status is 200
+  ✓  Header content-type contains application/forms+json
+  ✓  title contains BigCo Company Records
+  ✓  release contains 1.0.0
+  ✓  author contains Amundsen
+  ✓  Valid home page link
+  ✓  Valid self page link
+  ✓  Valid list page link
+  1. Valid filter page link
+  2. Valid create page link
+  ✓  Valid items
+  ✓  Valid read item link
+  3. Valid update item link
+  4. Valid status item link
+  ✓  Valid remove item link
+
+→ Company Read
+  GET localhost:8484/q1w2e3r4 [200 OK, 6.51KB, 5ms]
+  ✓  Status is 200
+  ✓  Header content-type contains application/forms+json
+  ✓  title contains BigCo Company Records
+  ✓  release contains 1.0.0
+  ✓  author contains Amundsen
+  ✓  Valid home page link
+  ✓  Valid self page link
+  ✓  Valid list page link
+  ✓  Valid filter page link
+  ✓  Valid items
+  ✓  Valid read item link
+  ✓  Valid update item link
+  ✓  Valid status item link
+  ✓  Valid remove item link
+
+→ Company Update
+  PUT localhost:8484/q1w2e3r4 [200 OK, 6.69KB, 7ms]
+  ✓  Status is 200
+  ✓  Header content-type contains application/forms+json
+  ✓  title contains BigCo Company Records
+  ✓  release contains 1.0.0
+  ✓  author contains Amundsen
+  ✓  Valid home page link
+  ✓  Valid self page link
+  ✓  Valid list page link
+  ✓  Valid filter page link
+  ✓  Valid items
+  ✓  Valid read item link
+  ✓  Valid update item link
+  ✓  Valid status item link
+  ✓  Valid remove item link
+
+→ Company Status
+  PATCH localhost:8484/status/q1w2e3r4 [200 OK, 6.7KB, 5ms]
+  ✓  Status is 200
+  ✓  Header content-type contains application/forms+json
+  ✓  title contains BigCo Company Records
+  ✓  release contains 1.0.0
+  ✓  author contains Amundsen
+  ✓  Valid home page link
+  ✓  Valid self page link
+  ✓  Valid list page link
+  ✓  Valid filter page link
+  ✓  Valid items
+  ✓  Valid read item link
+  ✓  Valid update item link
+  ✓  Valid status item link
+  ✓  Valid remove item link
+
+┌─────────────────────────┬──────────┬──────────┐
+│                         │ executed │   failed │
+├─────────────────────────┼──────────┼──────────┤
+│              iterations │        1 │        0 │
+├─────────────────────────┼──────────┼──────────┤
+│                requests │        7 │        0 │
+├─────────────────────────┼──────────┼──────────┤
+│            test-scripts │        7 │        0 │
+├─────────────────────────┼──────────┼──────────┤
+│      prerequest-scripts │        7 │        0 │
+├─────────────────────────┼──────────┼──────────┤
+│              assertions │       94 │        4 │
+├─────────────────────────┴──────────┴──────────┤
+│ total run duration: 870ms                     │
+├───────────────────────────────────────────────┤
+│ total data received: 128.96KB (approx)        │
+├───────────────────────────────────────────────┤
+│ average response time: 23ms                   │
+└───────────────────────────────────────────────┘
+
+  #  failure         detail                              
+                                                         
+ 1.  AssertionError  Valid filter page link              
+                     Target cannot be null or undefined. 
+                     at assertion:8 in test-script       
+                     inside "Company Create"             
+                                                         
+ 2.  AssertionError  Valid create page link              
+                     Target cannot be null or undefined. 
+                     at assertion:9 in test-script       
+                     inside "Company Create"             
+                                                         
+ 3.  AssertionError  Valid update item link              
+                     Target cannot be null or undefined. 
+                     at assertion:12 in test-script      
+                     inside "Company Create"             
+                                                         
+ 4.  AssertionError  Valid status item link              
+                     Target cannot be null or undefined. 
+                     at assertion:13 in test-script      
+                     inside "Company Create"             
