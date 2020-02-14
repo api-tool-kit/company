@@ -1,0 +1,179 @@
+newman
+
+BigCo Company API
+
+→ Company Home
+  GET localhost:8484/ [200 OK, 2KB, 105ms]
+  ✓  Status is 200
+  ✓  Header content-type contains application/forms+json
+  ✓  Meta property title contains BigCo Company Records
+  ✓  Meta property release contains 1.0.0
+  ✓  Meta property author contains Amundsen
+  ✓  Valid home page link
+  ✓  Page link home has a property id set to home
+  ✓  Valid self page link
+  ✓  Valid list page link
+
+→ Company List
+  GET localhost:8484/list/ [200 OK, 122.18KB, 37ms]
+  ✓  Status is 200
+  ✓  Header content-type contains application/forms+json
+  ✓  Meta property title contains BigCo Company Records
+  ✓  Meta property release contains 1.0.0
+  ✓  Meta property author contains Amundsen
+  ✓  Valid home page link
+  ✓  Valid self page link
+  ✓  Valid list page link
+  ✓  Valid filter page link
+  ✓  Valid create page link
+  ✓  Valid items
+  ✓  Valid read item link
+  ✓  Valid update item link
+  ✓  Valid status item link
+  ✓  Valid remove item link
+
+→ Company Remove
+  DELETE localhost:8484/22lzh7mpshx [200 OK, 121.06KB, 45ms]
+  ✓  Status is 200
+  ✓  Header content-type contains application/forms+json
+  ✓  Meta property title contains BigCo Company Records
+  ✓  Meta property release contains 1.0.0
+  ✓  Meta property author contains Amundsen
+  ✓  Valid home page link
+  ✓  Valid self page link
+  ✓  Valid list page link
+  ✓  Valid filter page link
+  ✓  Valid items
+  ✓  Valid read item link
+  ✓  Valid update item link
+  ✓  Valid status item link
+  ✓  Valid remove item link
+
+→ Company Create
+  POST localhost:8484/ [200 OK, 3.45KB, 20ms]
+  ✓  Status is 200
+  ✓  Header content-type contains application/forms+json
+  ✓  Meta property title contains BigCo Company Records
+  ✓  Meta property release contains 1.0.0
+  ✓  Meta property author contains Amundsen
+  ✓  Valid home page link
+  ✓  Valid self page link
+  ✓  Valid list page link
+  1. Valid filter page link
+  2. Valid create page link
+  ✓  Valid items
+  ✓  Valid read item link
+  3. Valid update item link
+  4. Valid status item link
+  ✓  Valid remove item link
+
+→ Company Read
+  GET localhost:8484/22lzh7mpshx [200 OK, 6.49KB, 7ms]
+  ✓  Status is 200
+  ✓  Header content-type contains application/forms+json
+  ✓  Meta property title contains BigCo Company Records
+  ✓  Meta property release contains 1.0.0
+  ✓  Meta property author contains Amundsen
+  ✓  Valid home page link
+  ✓  Valid self page link
+  ✓  Valid list page link
+  ✓  Valid filter page link
+  ✓  Valid items
+  ✓  Valid read item link
+  ✓  Valid update item link
+  ✓  Valid status item link
+  ✓  Valid remove item link
+  ✓  Item 22lzh7mpshx has a property companyName set to mike-co
+  ✓  Item 22lzh7mpshx has a property email set to mike-co@gmail.com
+  ✓  Item 22lzh7mpshx has a property telephone set to 123-456-7890
+  ✓  Item 22lzh7mpshx has a property status set to pending
+
+→ Company Update
+  PUT localhost:8484/22lzh7mpshx [200 OK, 6.55KB, 7ms]
+  ✓  Status is 200
+  ✓  Header content-type contains application/forms+json
+  ✓  Meta property title contains BigCo Company Records
+  ✓  Meta property release contains 1.0.0
+  ✓  Meta property author contains Amundsen
+  ✓  Valid home page link
+  ✓  Valid self page link
+  ✓  Valid list page link
+  ✓  Valid filter page link
+  ✓  Valid items
+  ✓  Valid read item link
+  ✓  Valid update item link
+  ✓  Valid status item link
+  ✓  Valid remove item link
+  ✓  Item 22lzh7mpshx has a property companyName set to mike-co
+  ✓  Item 22lzh7mpshx has a property email set to mike-co@gmail.com
+  ✓  Item 22lzh7mpshx has a property telephone set to 123-456-7890
+  ✓  Item 22lzh7mpshx has a property streetAddress set to 123 Main St
+  ✓  Item 22lzh7mpshx has a property city set to Byteville
+  ✓  Item 22lzh7mpshx has a property country set to USA
+  ✓  Item 22lzh7mpshx has a property postalCode set to 12345
+  5. Item 22lzh7mpshx has a property status set to active
+
+→ Company Status
+  PATCH localhost:8484/status/22lzh7mpshx [200 OK, 6.56KB, 8ms]
+  ✓  Status is 200
+  ✓  Header content-type contains application/forms+json
+  ✓  Meta property title contains BigCo Company Records
+  ✓  Meta property release contains 1.0.0
+  ✓  Meta property author contains Amundsen
+  ✓  Valid home page link
+  ✓  Valid self page link
+  ✓  Valid list page link
+  ✓  Valid filter page link
+  ✓  Valid items
+  ✓  Valid read item link
+  ✓  Valid update item link
+  ✓  Valid status item link
+  ✓  Valid remove item link
+  ✓  Item 22lzh7mpshx has a property telephone set to 123-456-7890
+
+┌─────────────────────────┬──────────┬──────────┐
+│                         │ executed │   failed │
+├─────────────────────────┼──────────┼──────────┤
+│              iterations │        1 │        0 │
+├─────────────────────────┼──────────┼──────────┤
+│                requests │        7 │        0 │
+├─────────────────────────┼──────────┼──────────┤
+│            test-scripts │       14 │        0 │
+├─────────────────────────┼──────────┼──────────┤
+│      prerequest-scripts │       14 │        0 │
+├─────────────────────────┼──────────┼──────────┤
+│              assertions │      108 │        5 │
+├─────────────────────────┴──────────┴──────────┤
+│ total run duration: 1916ms                    │
+├───────────────────────────────────────────────┤
+│ total data received: 266.55KB (approx)        │
+├───────────────────────────────────────────────┤
+│ average response time: 32ms                   │
+└───────────────────────────────────────────────┘
+
+  #  failure         detail                                               
+                                                                          
+ 1.  AssertionError  Valid filter page link                               
+                     Target cannot be null or undefined.                  
+                     at assertion:8 in test-script                        
+                     inside "Company Create"                              
+                                                                          
+ 2.  AssertionError  Valid create page link                               
+                     Target cannot be null or undefined.                  
+                     at assertion:9 in test-script                        
+                     inside "Company Create"                              
+                                                                          
+ 3.  AssertionError  Valid update item link                               
+                     Target cannot be null or undefined.                  
+                     at assertion:12 in test-script                       
+                     inside "Company Create"                              
+                                                                          
+ 4.  AssertionError  Valid status item link                               
+                     Target cannot be null or undefined.                  
+                     at assertion:13 in test-script                       
+                     inside "Company Create"                              
+                                                                          
+ 5.  AssertionError  Item 22lzh7mpshx has a property status set to active 
+                     expected 'pending' to include 'active'               
+                     at assertion:21 in test-script                       
+                     inside "Company Update"                              

@@ -70,14 +70,27 @@ curl -s -X GET $svr/environments/$envid -H "X-Api-Key:$apikey" \
 # run the tests
 echo "Running tests..."
 newman run $testfile -e $envfile > $outfile
-newman run $testfile -e $envfile -r cli --reporter-cli-no-failures  \
+newman run $testfile -e $envfile --bail newman  -r cli --reporter-cli-no-failures  \
   --reporter-cli-no-assertions --reporter-cli-no-console
+
+# **************************************
+# check exist code
+if [ $? -eq 1 ]
+then 
+  echo "One or more tests failed!"
+  ex=1
+else
+  echo "All tests passed."
+  ex=0
+fi
 
 # **************************************
 # clean up
 echo
 echo "Test run completed and saved to $outfile."
 echo
+
+exit $ex
 
 # **************************************
 # EOF
