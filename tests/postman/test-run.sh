@@ -2,11 +2,12 @@
 
 # **************************************
 # run a postman collection of tests
+#
 # see "Design and Build Great Web APIs"
 # 2020-04 : @mamund
 #
 # assumes target API is up and running
-#   and availble at environment's URL
+#   and available at environment's URL
 #
 # utility dependencies:
 #   - newman
@@ -15,8 +16,11 @@
 # **************************************
 
 # **************************************
-# share vars
+# load local env values
 source postman.env
+
+# **************************************
+# share vars
 title="BigCo Company Tests"
 
 svr="https://api.getpostman.com"
@@ -57,14 +61,17 @@ fi
 # **************************************
 # pull collection 
 echo "Pulling postman data..."
-curl -s -X GET $svr/collections/$collid -H "X-Api-Key:$apikey" -H "Cache-Control:no-cache" -o $testfile
-curl -s -X GET $svr/environments/$envid -H "X-Api-Key:$apikey" -H "Cache-Control:no-cache" -o $envfile
+curl -s -X GET $svr/collections/$collid -H "X-Api-Key:$apikey" \
+  -H "Cache-Control:no-cache" -o $testfile
+curl -s -X GET $svr/environments/$envid -H "X-Api-Key:$apikey" \
+  -H "Cache-Control:no-cache" -o $envfile
 
 # **************************************
 # run the tests
 echo "Running tests..."
 newman run $testfile -e $envfile > $outfile
-newman run $testfile -e $envfile -r cli --reporter-cli-no-failures --reporter-cli-no-assertions --reporter-cli-no-console
+newman run $testfile -e $envfile -r cli --reporter-cli-no-failures  \
+  --reporter-cli-no-assertions --reporter-cli-no-console
 
 # **************************************
 # clean up

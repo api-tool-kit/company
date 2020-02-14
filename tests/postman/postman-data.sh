@@ -13,11 +13,14 @@
 # **************************************
 
 # **************************************
-# share vars
+# load local env values
 source postman.env
-title="Postman Collections and Environments"
+
+# **************************************
+# share vars
 apikey=$POSTMAN_KEY
 
+title="Postman Collections and Environments"
 svr="https://api.getpostman.com"
 
 collfile="collection-list.json"
@@ -52,10 +55,12 @@ fi
 # **************************************
 # pull collection & environment info
 echo "Pulling postman data..."
-curl -s -X GET $svr/collections/ -H "X-Api-Key:$apikey" -H "Cache-Control:no-cache" -o $temp
+curl -s -X GET $svr/collections/ -H "X-Api-Key:$apikey" \
+  -H "Cache-Control:no-cache" -o $temp
 cat $temp | jq "." > $collfile
 
-curl -s -X GET $svr/environments/ -H "X-Api-Key:$apikey" -H "Cache-Control:no-cache" -o $temp
+curl -s -X GET $svr/environments/ -H "X-Api-Key:$apikey" \
+  -H "Cache-Control:no-cache" -o $temp
 cat $temp | jq "." > $envfile
 
 # **************************************
