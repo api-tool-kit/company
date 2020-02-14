@@ -41,4 +41,5 @@ Thumbs.db
 # local environment data #
 ##########################
 *.postman_environment.json
+*.env
 
