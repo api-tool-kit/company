@@ -3,7 +3,7 @@ newman
 BigCo Company API
 
 → Company Home
-  GET localhost:8484/ [200 OK, 2KB, 149ms]
+  GET localhost:8484/ [200 OK, 2KB, 385ms]
   ✓  Status is 200
   ✓  Header content-type contains application/forms+json
   ✓  Meta property title contains BigCo Company Records
@@ -15,7 +15,7 @@ BigCo Company API
   ✓  Valid list page link
 
 → Company List
-  GET localhost:8484/list/ [200 OK, 83.66KB, 34ms]
+  GET localhost:8484/list/ [200 OK, 60.56KB, 171ms]
   ✓  Status is 200
   ✓  Header content-type contains application/forms+json
   ✓  Meta property title contains BigCo Company Records
@@ -33,7 +33,7 @@ BigCo Company API
   ✓  Valid remove item link
 
 → Company Remove
-  DELETE localhost:8484/6rf2kdujfc [200 OK, 82.54KB, 39ms]
+  DELETE localhost:8484/1t4j7lg5w6h [200 OK, 59.45KB, 183ms]
   ✓  Status is 200
   ✓  Header content-type contains application/forms+json
   ✓  Meta property title contains BigCo Company Records
@@ -50,7 +50,7 @@ BigCo Company API
   ✓  Valid remove item link
 
 → Company Create
-  POST localhost:8484/ [200 OK, 3.45KB, 17ms]
+  POST localhost:8484/ [200 OK, 3.45KB, 18ms]
   ✓  Status is 200
   ✓  Header content-type contains application/forms+json
   ✓  Meta property title contains BigCo Company Records
@@ -68,7 +68,7 @@ BigCo Company API
   ✓  Valid remove item link
 
 → Company Read
-  GET localhost:8484/6rf2kdujfc [200 OK, 6.48KB, 9ms]
+  GET localhost:8484/1t4j7lg5w6h [200 OK, 6.49KB, 9ms]
   ✓  Status is 200
   ✓  Header content-type contains application/forms+json
   ✓  Meta property title contains BigCo Company Records
@@ -83,13 +83,13 @@ BigCo Company API
   ✓  Valid update item link
   ✓  Valid status item link
   ✓  Valid remove item link
-  ✓  Item 6rf2kdujfc has a property companyName set to mike-co
-  ✓  Item 6rf2kdujfc has a property email set to mike-co@gmail.com
-  ✓  Item 6rf2kdujfc has a property telephone set to 123-456-7890
-  ✓  Item 6rf2kdujfc has a property status set to pending
+  ✓  Item 1t4j7lg5w6h has a property companyName set to mike-co
+  ✓  Item 1t4j7lg5w6h has a property email set to mike-co@gmail.com
+  ✓  Item 1t4j7lg5w6h has a property telephone set to 123-456-7890
+  ✓  Item 1t4j7lg5w6h has a property status set to pending
 
 → Company Update
-  PUT localhost:8484/6rf2kdujfc [200 OK, 6.54KB, 11ms]
+  PUT localhost:8484/1t4j7lg5w6h [200 OK, 6.55KB, 7ms]
   ✓  Status is 200
   ✓  Header content-type contains application/forms+json
   ✓  Meta property title contains BigCo Company Records
@@ -104,17 +104,17 @@ BigCo Company API
   ✓  Valid update item link
   ✓  Valid status item link
   ✓  Valid remove item link
-  ✓  Item 6rf2kdujfc has a property companyName set to mike-co
-  ✓  Item 6rf2kdujfc has a property email set to mike-co@gmail.com
-  ✓  Item 6rf2kdujfc has a property telephone set to 123-456-7890
-  ✓  Item 6rf2kdujfc has a property streetAddress set to 123 Main St
-  ✓  Item 6rf2kdujfc has a property city set to Byteville
-  ✓  Item 6rf2kdujfc has a property country set to USA
-  ✓  Item 6rf2kdujfc has a property postalCode set to 12345
-  5. Item 6rf2kdujfc has a property status set to active
+  ✓  Item 1t4j7lg5w6h has a property companyName set to mike-co
+  ✓  Item 1t4j7lg5w6h has a property email set to mike-co@gmail.com
+  ✓  Item 1t4j7lg5w6h has a property telephone set to 123-456-7890
+  ✓  Item 1t4j7lg5w6h has a property streetAddress set to 123 Main St
+  ✓  Item 1t4j7lg5w6h has a property city set to Byteville
+  ✓  Item 1t4j7lg5w6h has a property country set to USA
+  ✓  Item 1t4j7lg5w6h has a property postalCode set to 12345
+  5. Item 1t4j7lg5w6h has a property status set to active
 
 → Company Status
-  PATCH localhost:8484/status/6rf2kdujfc [200 OK, 6.54KB, 8ms]
+  PATCH localhost:8484/status/1t4j7lg5w6h [200 OK, 6.56KB, 8ms]
   ✓  Status is 200
   ✓  Header content-type contains application/forms+json
   ✓  Meta property title contains BigCo Company Records
@@ -129,51 +129,51 @@ BigCo Company API
   ✓  Valid update item link
   ✓  Valid status item link
   ✓  Valid remove item link
-  ✓  Item 6rf2kdujfc has a property telephone set to 123-456-7890
+  ✓  Item 1t4j7lg5w6h has a property telephone set to 123-456-7890
 
-┌─────────────────────────┬───────────────────┬──────────────────┐
-│                         │          executed │           failed │
-├─────────────────────────┼───────────────────┼──────────────────┤
-│              iterations │                 1 │                0 │
-├─────────────────────────┼───────────────────┼──────────────────┤
-│                requests │                 7 │                0 │
-├─────────────────────────┼───────────────────┼──────────────────┤
-│            test-scripts │                14 │                0 │
-├─────────────────────────┼───────────────────┼──────────────────┤
-│      prerequest-scripts │                14 │                0 │
-├─────────────────────────┼───────────────────┼──────────────────┤
-│              assertions │               108 │                5 │
-├─────────────────────────┴───────────────────┴──────────────────┤
-│ total run duration: 924ms                                      │
-├────────────────────────────────────────────────────────────────┤
-│ total data received: 189.48KB (approx)                         │
-├────────────────────────────────────────────────────────────────┤
-│ average response time: 38ms [min: 8ms, max: 149ms, s.d.: 46ms] │
-└────────────────────────────────────────────────────────────────┘
+┌─────────────────────────┬──────────┬──────────┐
+│                         │ executed │   failed │
+├─────────────────────────┼──────────┼──────────┤
+│              iterations │        1 │        0 │
+├─────────────────────────┼──────────┼──────────┤
+│                requests │        7 │        0 │
+├─────────────────────────┼──────────┼──────────┤
+│            test-scripts │       14 │        0 │
+├─────────────────────────┼──────────┼──────────┤
+│      prerequest-scripts │       14 │        0 │
+├─────────────────────────┼──────────┼──────────┤
+│              assertions │      108 │        5 │
+├─────────────────────────┴──────────┴──────────┤
+│ total run duration: 1901ms                    │
+├───────────────────────────────────────────────┤
+│ total data received: 143.32KB (approx)        │
+├───────────────────────────────────────────────┤
+│ average response time: 111ms                  │
+└───────────────────────────────────────────────┘
 
-  #  failure         detail                                              
-                                                                         
- 1.  AssertionError  Valid filter page link                              
-                     Target cannot be null or undefined.                 
-                     at assertion:8 in test-script                       
-                     inside "Company Create"                             
-                                                                         
- 2.  AssertionError  Valid create page link                              
-                     Target cannot be null or undefined.                 
-                     at assertion:9 in test-script                       
-                     inside "Company Create"                             
-                                                                         
- 3.  AssertionError  Valid update item link                              
-                     Target cannot be null or undefined.                 
-                     at assertion:12 in test-script                      
-                     inside "Company Create"                             
-                                                                         
- 4.  AssertionError  Valid status item link                              
-                     Target cannot be null or undefined.                 
-                     at assertion:13 in test-script                      
-                     inside "Company Create"                             
-                                                                         
- 5.  AssertionError  Item 6rf2kdujfc has a property status set to active 
-                     expected 'pending' to include 'active'              
-                     at assertion:21 in test-script                      
-                     inside "Company Update"                             
+  #  failure         detail                                               
+                                                                          
+ 1.  AssertionError  Valid filter page link                               
+                     Target cannot be null or undefined.                  
+                     at assertion:8 in test-script                        
+                     inside "Company Create"                              
+                                                                          
+ 2.  AssertionError  Valid create page link                               
+                     Target cannot be null or undefined.                  
+                     at assertion:9 in test-script                        
+                     inside "Company Create"                              
+                                                                          
+ 3.  AssertionError  Valid update item link                               
+                     Target cannot be null or undefined.                  
+                     at assertion:12 in test-script                       
+                     inside "Company Create"                              
+                                                                          
+ 4.  AssertionError  Valid status item link                               
+                     Target cannot be null or undefined.                  
+                     at assertion:13 in test-script                       
+                     inside "Company Create"                              
+                                                                          
+ 5.  AssertionError  Item 1t4j7lg5w6h has a property status set to active 
+                     expected 'pending' to include 'active'               
+                     at assertion:21 in test-script                       
+                     inside "Company Update"                              

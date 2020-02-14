@@ -54,9 +54,6 @@ then
   rm $outfile
 fi
 
-curl -s -X GET $svr/collections/ -H "X-Api-Key:$apikey" -H "Cache-Control:no-cache" -o collection-list.json 
-curl -s -X GET $svr/environments/ -H "X-Api-Key:$apikey" -H "Cache-Control:no-cache" -o environment-list.json
-
 # **************************************
 # pull collection 
 echo "Pulling postman data..."
