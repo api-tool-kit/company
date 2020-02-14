@@ -16,6 +16,7 @@
 
 # **************************************
 # share vars
+source postman.env
 title="BigCo Company Tests"
 
 svr="https://api.getpostman.com"

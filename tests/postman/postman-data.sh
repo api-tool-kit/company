@@ -14,6 +14,7 @@
 
 # **************************************
 # share vars
+source postman.env
 title="Postman Collections and Environments"
 apikey=$POSTMAN_KEY
 
