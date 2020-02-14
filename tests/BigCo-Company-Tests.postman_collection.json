@@ -401,7 +401,18 @@
 					"script": {
 						"id": "0bf85a62-3593-4514-bab9-ca0015971f4e",
 						"exec": [
-							""
+							"pm.environment.set(\"testId\", makeId());",
+							"",
+							"// generate a unique id ",
+							"function makeId() {",
+							"  var rtn;",
+							"",
+							"  rtn = String(Math.random());",
+							"  rtn = rtn.substring(2);",
+							"  rtn = parseInt(rtn).toString(36);",
+							"",
+							"  return rtn;",
+							"}"
 						],
 						"type": "text/javascript"
 					}
@@ -427,12 +438,12 @@
 					"urlencoded": []
 				},
 				"url": {
-					"raw": "{{server}}/q1w2e3r4",
+					"raw": "{{server}}/{{testId}}",
 					"host": [
 						"{{server}}"
 					],
 					"path": [
-						"q1w2e3r4"
+						"{{testId}}"
 					]
 				}
 			},
@@ -590,7 +601,7 @@
 					"urlencoded": [
 						{
 							"key": "id",
-							"value": "q1w2e3r4",
+							"value": "{{testId}}",
 							"type": "text"
 						},
 						{
@@ -768,12 +779,12 @@
 					}
 				],
 				"url": {
-					"raw": "{{server}}/q1w2e3r4",
+					"raw": "{{server}}/{{testId}}",
 					"host": [
 						"{{server}}"
 					],
 					"path": [
-						"q1w2e3r4"
+						"{{testId}}"
 					]
 				}
 			},
@@ -956,12 +967,12 @@
 					]
 				},
 				"url": {
-					"raw": "{{server}}/q1w2e3r4",
+					"raw": "{{server}}/{{testId}}",
 					"host": [
 						"{{server}}"
 					],
 					"path": [
-						"q1w2e3r4"
+						"{{testId}}"
 					]
 				}
 			},
@@ -1124,13 +1135,13 @@
 					]
 				},
 				"url": {
-					"raw": "{{server}}/status/q1w2e3r4",
+					"raw": "{{server}}/status/{{testId}}",
 					"host": [
 						"{{server}}"
 					],
 					"path": [
 						"status",
-						"q1w2e3r4"
+						"{{testId}}"
 					]
 				}
 			},
