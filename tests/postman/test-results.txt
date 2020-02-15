@@ -3,7 +3,7 @@ newman
 BigCo Company API
 
 → Company Home
-  GET company-atk.herokuapp.com/ [200 OK, 2.06KB, 143ms]
+  GET company-atk.herokuapp.com/ [200 OK, 2.06KB, 140ms]
   ✓  Status is 200
   ✓  Header content-type contains application/forms+json
   ✓  Meta property title contains BigCo Company Records
@@ -15,7 +15,7 @@ BigCo Company API
   ✓  Valid list page link
 
 → Company List
-  GET company-atk.herokuapp.com/list/ [200 OK, 69.09KB, 104ms]
+  GET company-atk.herokuapp.com/list/ [200 OK, 15.75KB, 54ms]
   ✓  Status is 200
   ✓  Header content-type contains application/forms+json
   ✓  Meta property title contains BigCo Company Records
@@ -32,43 +32,20 @@ BigCo Company API
   ✓  Valid status item link
   ✓  Valid remove item link
 
-→ Company Remove
-  DELETE company-atk.herokuapp.com/81ny4g3vzc0 [200 OK, 67.96KB, 62ms]
-  ✓  Status is 200
-  ✓  Header content-type contains application/forms+json
-  ✓  Meta property title contains BigCo Company Records
-  ✓  Meta property release contains 1.0.0
-  ✓  Meta property author contains Amundsen
-  ✓  Valid home page link
-  ✓  Valid self page link
-  ✓  Valid list page link
-  ✓  Valid filter page link
-  ✓  Valid items
-  ✓  Valid read item link
-  ✓  Valid update item link
-  ✓  Valid status item link
-  ✓  Valid remove item link
-
 → Company Create
-  POST company-atk.herokuapp.com/ [200 OK, 3.54KB, 30ms]
+  POST company-atk.herokuapp.com/ [200 OK, 3.54KB, 60ms]
   ✓  Status is 200
   ✓  Header content-type contains application/forms+json
   ✓  Meta property title contains BigCo Company Records
   ✓  Meta property release contains 1.0.0
   ✓  Meta property author contains Amundsen
-  ✓  Valid home page link
   ✓  Valid self page link
-  ✓  Valid list page link
-  1. Valid filter page link
-  2. Valid create page link
   ✓  Valid items
   ✓  Valid read item link
-  3. Valid update item link
-  4. Valid status item link
   ✓  Valid remove item link
 
 → Company Read
-  GET company-atk.herokuapp.com/81ny4g3vzc0 [200 OK, 6.61KB, 24ms]
+  GET company-atk.herokuapp.com/1t0e32o1iu4 [200 OK, 6.61KB, 32ms]
   ✓  Status is 200
   ✓  Header content-type contains application/forms+json
   ✓  Meta property title contains BigCo Company Records
@@ -83,13 +60,13 @@ BigCo Company API
   ✓  Valid update item link
   ✓  Valid status item link
   ✓  Valid remove item link
-  ✓  Item 81ny4g3vzc0 has a property companyName set to mike-co
-  ✓  Item 81ny4g3vzc0 has a property email set to mike-co@gmail.com
-  ✓  Item 81ny4g3vzc0 has a property telephone set to 123-456-7890
-  ✓  Item 81ny4g3vzc0 has a property status set to pending
+  ✓  Item 1t0e32o1iu4 has a property companyName set to mike-co
+  ✓  Item 1t0e32o1iu4 has a property email set to mike-co@gmail.com
+  ✓  Item 1t0e32o1iu4 has a property telephone set to 123-456-7890
+  ✓  Item 1t0e32o1iu4 has a property status set to pending
 
 → Company Update
-  PUT company-atk.herokuapp.com/81ny4g3vzc0 [200 OK, 6.67KB, 28ms]
+  PUT company-atk.herokuapp.com/1t0e32o1iu4 [200 OK, 6.67KB, 28ms]
   ✓  Status is 200
   ✓  Header content-type contains application/forms+json
   ✓  Meta property title contains BigCo Company Records
@@ -104,17 +81,17 @@ BigCo Company API
   ✓  Valid update item link
   ✓  Valid status item link
   ✓  Valid remove item link
-  ✓  Item 81ny4g3vzc0 has a property companyName set to mike-co
-  ✓  Item 81ny4g3vzc0 has a property email set to mike-co@gmail.com
-  ✓  Item 81ny4g3vzc0 has a property telephone set to 123-456-7890
-  ✓  Item 81ny4g3vzc0 has a property streetAddress set to 123 Main St
-  ✓  Item 81ny4g3vzc0 has a property city set to Byteville
-  ✓  Item 81ny4g3vzc0 has a property country set to USA
-  ✓  Item 81ny4g3vzc0 has a property postalCode set to 12345
-  5. Item 81ny4g3vzc0 has a property status set to active
+  ✓  Item 1t0e32o1iu4 has a property companyName set to mike-co
+  ✓  Item 1t0e32o1iu4 has a property email set to mike-co@gmail.com
+  ✓  Item 1t0e32o1iu4 has a property telephone set to 123-456-7890
+  ✓  Item 1t0e32o1iu4 has a property streetAddress set to 123 Main St
+  ✓  Item 1t0e32o1iu4 has a property city set to Byteville
+  ✓  Item 1t0e32o1iu4 has a property country set to USA
+  ✓  Item 1t0e32o1iu4 has a property postalCode set to 12345
+  ✓  Item 1t0e32o1iu4 has a property status set to pending
 
 → Company Status
-  PATCH company-atk.herokuapp.com/status/81ny4g3vzc0 [200 OK, 6.67KB, 26ms]
+  PATCH company-atk.herokuapp.com/status/1t0e32o1iu4 [200 OK, 6.67KB, 37ms]
   ✓  Status is 200
   ✓  Header content-type contains application/forms+json
   ✓  Meta property title contains BigCo Company Records
@@ -129,7 +106,24 @@ BigCo Company API
   ✓  Valid update item link
   ✓  Valid status item link
   ✓  Valid remove item link
-  ✓  Item 81ny4g3vzc0 has a property telephone set to 123-456-7890
+  ✓  Item 1t0e32o1iu4 has a property status set to active
+
+→ Company Remove
+  DELETE company-atk.herokuapp.com/1t0e32o1iu4 [200 OK, 14.62KB, 31ms]
+  ✓  Status is 200
+  ✓  Header content-type contains application/forms+json
+  ✓  Meta property title contains BigCo Company Records
+  ✓  Meta property release contains 1.0.0
+  ✓  Meta property author contains Amundsen
+  ✓  Valid home page link
+  ✓  Valid self page link
+  ✓  Valid list page link
+  ✓  Valid filter page link
+  ✓  Valid items
+  ✓  Valid read item link
+  ✓  Valid update item link
+  ✓  Valid status item link
+  ✓  Valid remove item link
 
 ┌─────────────────────────┬──────────┬──────────┐
 │                         │ executed │   failed │
@@ -142,38 +136,11 @@ BigCo Company API
 ├─────────────────────────┼──────────┼──────────┤
 │      prerequest-scripts │       14 │        0 │
 ├─────────────────────────┼──────────┼──────────┤
-│              assertions │      108 │        5 │
+│              assertions │      102 │        0 │
 ├─────────────────────────┴──────────┴──────────┤
-│ total run duration: 1579ms                    │
+│ total run duration: 1046ms                    │
 ├───────────────────────────────────────────────┤
-│ total data received: 160.64KB (approx)        │
+│ total data received: 53.96KB (approx)         │
 ├───────────────────────────────────────────────┤
-│ average response time: 59ms                   │
+│ average response time: 54ms                   │
 └───────────────────────────────────────────────┘
-
-  #  failure         detail                                               
-                                                                          
- 1.  AssertionError  Valid filter page link                               
-                     Target cannot be null or undefined.                  
-                     at assertion:8 in test-script                        
-                     inside "Company Create"                              
-                                                                          
- 2.  AssertionError  Valid create page link                               
-                     Target cannot be null or undefined.                  
-                     at assertion:9 in test-script                        
-                     inside "Company Create"                              
-                                                                          
- 3.  AssertionError  Valid update item link                               
-                     Target cannot be null or undefined.                  
-                     at assertion:12 in test-script                       
-                     inside "Company Create"                              
-                                                                          
- 4.  AssertionError  Valid status item link                               
-                     Target cannot be null or undefined.                  
-                     at assertion:13 in test-script                       
-                     inside "Company Create"                              
-                                                                          
- 5.  AssertionError  Item 81ny4g3vzc0 has a property status set to active 
-                     expected 'pending' to include 'active'               
-                     at assertion:21 in test-script                       
-                     inside "Company Update"                              

@@ -56,6 +56,7 @@ fi
 
 # **************************************
 # use git push to heroku
+echo "Deploying to production..."
 $deploy
 ex=$?
 
@@ -67,6 +68,14 @@ then
   echo
   exit $ex
 fi  
+
+# **************************************
+# report successful run
+echo 
+echo "***********************************"
+echo "*** DEPLOYMENT SUCCESSFUL ***"
+echo "***********************************"
+exit 0
 
 # **************************************
 # EOF
