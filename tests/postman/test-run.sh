@@ -25,19 +25,18 @@ title="BigCo Company Tests"
 
 svr="https://api.getpostman.com"
 apikey=$POSTMAN_KEY
-
-collid="48501-e8b3b37c-13ab-4eb9-9070-466bd8552699"
-
-# localhost
-local_envid="48501-3ed1e4f5-d531-42ef-a044-95ea24c8649f"
-# heroku
-remote_envid="48501-2ddd8578-43f1-41a6-9a7f-6ba2bdd1c9e8"
-
-envid=$remote_envid
+envid="na"
+arg="na"
 
 testfile="test-collection.json"
 envfile="test-environment.json"
 outfile="test-results.txt"
+
+collid="48501-e8b3b37c-13ab-4eb9-9070-466bd8552699"
+# localhost
+local_envid="48501-3ed1e4f5-d531-42ef-a044-95ea24c8649f"
+# heroku
+remote_envid="48501-2ddd8578-43f1-41a6-9a7f-6ba2bdd1c9e8"
 
 # **************************************
 # heading
@@ -45,6 +44,28 @@ clear
 echo $title
 echo "===================================================="
 date
+
+# **************************************
+# parse environment selection
+if [ -z "$1" ]
+then
+  echo "*** missing environment - job cancelled. ***"
+  exit 1
+fi
+
+arg=$1
+
+if [ "$arg" == "local" ]
+then
+  envid=$local_envid
+fi
+
+if [ "$arg" == "remote" ]
+then
+  envid=$remote_envid
+fi
+
+echo "Running $arg environment..."
 
 # **************************************
 # clean up
