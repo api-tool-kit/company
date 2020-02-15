@@ -1,0 +1,16 @@
+{
+  "collections": [
+    {
+      "uid": "48501-e8b3b37c-13ab-4eb9-9070-466bd8552699",
+      "owner": "48501",
+      "name": "BigCo Company API",
+      "id": "e8b3b37c-13ab-4eb9-9070-466bd8552699"
+    },
+    {
+      "uid": "48501-f695cab7-6878-eb55-7943-ad88e1ccfd65",
+      "owner": "48501",
+      "name": "Postman Echo",
+      "id": "f695cab7-6878-eb55-7943-ad88e1ccfd65"
+    }
+  ]
+}

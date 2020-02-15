@@ -3,7 +3,7 @@ newman
 BigCo Company API
 
 → Company Home
-  GET localhost:8484/ [200 OK, 2KB, 108ms]
+  GET company-atk.herokuapp.com/ [200 OK, 2.06KB, 143ms]
   ✓  Status is 200
   ✓  Header content-type contains application/forms+json
   ✓  Meta property title contains BigCo Company Records
@@ -15,7 +15,7 @@ BigCo Company API
   ✓  Valid list page link
 
 → Company List
-  GET localhost:8484/list/ [200 OK, 99.05KB, 30ms]
+  GET company-atk.herokuapp.com/list/ [200 OK, 69.09KB, 104ms]
   ✓  Status is 200
   ✓  Header content-type contains application/forms+json
   ✓  Meta property title contains BigCo Company Records
@@ -33,7 +33,7 @@ BigCo Company API
   ✓  Valid remove item link
 
 → Company Remove
-  DELETE localhost:8484/3alrmqvd2p [200 OK, 97.93KB, 40ms]
+  DELETE company-atk.herokuapp.com/81ny4g3vzc0 [200 OK, 67.96KB, 62ms]
   ✓  Status is 200
   ✓  Header content-type contains application/forms+json
   ✓  Meta property title contains BigCo Company Records
@@ -50,7 +50,7 @@ BigCo Company API
   ✓  Valid remove item link
 
 → Company Create
-  POST localhost:8484/ [200 OK, 3.45KB, 10ms]
+  POST company-atk.herokuapp.com/ [200 OK, 3.54KB, 30ms]
   ✓  Status is 200
   ✓  Header content-type contains application/forms+json
   ✓  Meta property title contains BigCo Company Records
@@ -68,7 +68,7 @@ BigCo Company API
   ✓  Valid remove item link
 
 → Company Read
-  GET localhost:8484/3alrmqvd2p [200 OK, 6.48KB, 6ms]
+  GET company-atk.herokuapp.com/81ny4g3vzc0 [200 OK, 6.61KB, 24ms]
   ✓  Status is 200
   ✓  Header content-type contains application/forms+json
   ✓  Meta property title contains BigCo Company Records
@@ -83,13 +83,13 @@ BigCo Company API
   ✓  Valid update item link
   ✓  Valid status item link
   ✓  Valid remove item link
-  ✓  Item 3alrmqvd2p has a property companyName set to mike-co
-  ✓  Item 3alrmqvd2p has a property email set to mike-co@gmail.com
-  ✓  Item 3alrmqvd2p has a property telephone set to 123-456-7890
-  ✓  Item 3alrmqvd2p has a property status set to pending
+  ✓  Item 81ny4g3vzc0 has a property companyName set to mike-co
+  ✓  Item 81ny4g3vzc0 has a property email set to mike-co@gmail.com
+  ✓  Item 81ny4g3vzc0 has a property telephone set to 123-456-7890
+  ✓  Item 81ny4g3vzc0 has a property status set to pending
 
 → Company Update
-  PUT localhost:8484/3alrmqvd2p [200 OK, 6.54KB, 9ms]
+  PUT company-atk.herokuapp.com/81ny4g3vzc0 [200 OK, 6.67KB, 28ms]
   ✓  Status is 200
   ✓  Header content-type contains application/forms+json
   ✓  Meta property title contains BigCo Company Records
@@ -104,17 +104,17 @@ BigCo Company API
   ✓  Valid update item link
   ✓  Valid status item link
   ✓  Valid remove item link
-  ✓  Item 3alrmqvd2p has a property companyName set to mike-co
-  ✓  Item 3alrmqvd2p has a property email set to mike-co@gmail.com
-  ✓  Item 3alrmqvd2p has a property telephone set to 123-456-7890
-  ✓  Item 3alrmqvd2p has a property streetAddress set to 123 Main St
-  ✓  Item 3alrmqvd2p has a property city set to Byteville
-  ✓  Item 3alrmqvd2p has a property country set to USA
-  ✓  Item 3alrmqvd2p has a property postalCode set to 12345
-  5. Item 3alrmqvd2p has a property status set to active
+  ✓  Item 81ny4g3vzc0 has a property companyName set to mike-co
+  ✓  Item 81ny4g3vzc0 has a property email set to mike-co@gmail.com
+  ✓  Item 81ny4g3vzc0 has a property telephone set to 123-456-7890
+  ✓  Item 81ny4g3vzc0 has a property streetAddress set to 123 Main St
+  ✓  Item 81ny4g3vzc0 has a property city set to Byteville
+  ✓  Item 81ny4g3vzc0 has a property country set to USA
+  ✓  Item 81ny4g3vzc0 has a property postalCode set to 12345
+  5. Item 81ny4g3vzc0 has a property status set to active
 
 → Company Status
-  PATCH localhost:8484/status/3alrmqvd2p [200 OK, 6.54KB, 6ms]
+  PATCH company-atk.herokuapp.com/status/81ny4g3vzc0 [200 OK, 6.67KB, 26ms]
   ✓  Status is 200
   ✓  Header content-type contains application/forms+json
   ✓  Meta property title contains BigCo Company Records
@@ -129,7 +129,7 @@ BigCo Company API
   ✓  Valid update item link
   ✓  Valid status item link
   ✓  Valid remove item link
-  ✓  Item 3alrmqvd2p has a property telephone set to 123-456-7890
+  ✓  Item 81ny4g3vzc0 has a property telephone set to 123-456-7890
 
 ┌─────────────────────────┬──────────┬──────────┐
 │                         │ executed │   failed │
@@ -144,36 +144,36 @@ BigCo Company API
 ├─────────────────────────┼──────────┼──────────┤
 │              assertions │      108 │        5 │
 ├─────────────────────────┴──────────┴──────────┤
-│ total run duration: 1657ms                    │
+│ total run duration: 1579ms                    │
 ├───────────────────────────────────────────────┤
-│ total data received: 220.26KB (approx)        │
+│ total data received: 160.64KB (approx)        │
 ├───────────────────────────────────────────────┤
-│ average response time: 29ms                   │
+│ average response time: 59ms                   │
 └───────────────────────────────────────────────┘
 
-  #  failure         detail                                              
-                                                                         
- 1.  AssertionError  Valid filter page link                              
-                     Target cannot be null or undefined.                 
-                     at assertion:8 in test-script                       
-                     inside "Company Create"                             
-                                                                         
- 2.  AssertionError  Valid create page link                              
-                     Target cannot be null or undefined.                 
-                     at assertion:9 in test-script                       
-                     inside "Company Create"                             
-                                                                         
- 3.  AssertionError  Valid update item link                              
-                     Target cannot be null or undefined.                 
-                     at assertion:12 in test-script                      
-                     inside "Company Create"                             
-                                                                         
- 4.  AssertionError  Valid status item link                              
-                     Target cannot be null or undefined.                 
-                     at assertion:13 in test-script                      
-                     inside "Company Create"                             
-                                                                         
- 5.  AssertionError  Item 3alrmqvd2p has a property status set to active 
-                     expected 'pending' to include 'active'              
-                     at assertion:21 in test-script                      
-                     inside "Company Update"                             
+  #  failure         detail                                               
+                                                                          
+ 1.  AssertionError  Valid filter page link                               
+                     Target cannot be null or undefined.                  
+                     at assertion:8 in test-script                        
+                     inside "Company Create"                              
+                                                                          
+ 2.  AssertionError  Valid create page link                               
+                     Target cannot be null or undefined.                  
+                     at assertion:9 in test-script                        
+                     inside "Company Create"                              
+                                                                          
+ 3.  AssertionError  Valid update item link                               
+                     Target cannot be null or undefined.                  
+                     at assertion:12 in test-script                       
+                     inside "Company Create"                              
+                                                                          
+ 4.  AssertionError  Valid status item link                               
+                     Target cannot be null or undefined.                  
+                     at assertion:13 in test-script                       
+                     inside "Company Create"                              
+                                                                          
+ 5.  AssertionError  Item 81ny4g3vzc0 has a property status set to active 
+                     expected 'pending' to include 'active'               
+                     at assertion:21 in test-script                       
+                     inside "Company Update"                              

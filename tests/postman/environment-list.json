@@ -1,0 +1,28 @@
+{
+  "environments": [
+    {
+      "uid": "48501-2ddd8578-43f1-41a6-9a7f-6ba2bdd1c9e8",
+      "owner": "48501",
+      "name": "company-heroku",
+      "id": "2ddd8578-43f1-41a6-9a7f-6ba2bdd1c9e8"
+    },
+    {
+      "uid": "48501-3ed1e4f5-d531-42ef-a044-95ea24c8649f",
+      "owner": "48501",
+      "name": "company-localhost",
+      "id": "3ed1e4f5-d531-42ef-a044-95ea24c8649f"
+    },
+    {
+      "uid": "48501-e4a443b8-378f-e1f5-271d-72261fd5e84e",
+      "owner": "48501",
+      "name": "mamund:local",
+      "id": "e4a443b8-378f-e1f5-271d-72261fd5e84e"
+    },
+    {
+      "uid": "48501-e96d6719-5314-46fe-b80f-63e2896e7d66",
+      "owner": "48501",
+      "name": "Learning environment",
+      "id": "e96d6719-5314-46fe-b80f-63e2896e7d66"
+    }
+  ]
+}

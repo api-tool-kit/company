@@ -27,7 +27,13 @@ svr="https://api.getpostman.com"
 apikey=$POSTMAN_KEY
 
 collid="48501-e8b3b37c-13ab-4eb9-9070-466bd8552699"
-envid="48501-3ed1e4f5-d531-42ef-a044-95ea24c8649f"
+
+# localhost
+local_envid="48501-3ed1e4f5-d531-42ef-a044-95ea24c8649f"
+# heroku
+remote_envid="48501-2ddd8578-43f1-41a6-9a7f-6ba2bdd1c9e8"
+
+envid=$remote_envid
 
 testfile="test-collection.json"
 envfile="test-environment.json"
