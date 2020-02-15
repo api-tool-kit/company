@@ -1,47 +1,74 @@
 #!/bin/bash
 
 # **************************************
-# launch deployment run
+# launch : launch-test-deploy
 #
 # see "Design and Build Great Web APIs"
 # 2020-04 : @mamund
+# 
+# notes:
+#   - set up "npm run dev" in package.json
+#   - create test collection in postman (test-run.sh)
+#   - establish heroku app using git
 #
-# utility dependencies:
-#   - nopm/NodeJS
-#   - curl
-#   - jq
-#   - newman/postman
-#   - heroku cli (later)
+# assumes:
+#   - you have npm and package mgmt
+#   - you have postman collections
+#   - you have a heroku git remote
+#
+# direct dependencies:
+#   - npm
+#   - git
 #
 # **************************************
 
-# ************************************
+# **************************************
+# exit var
+ex=0
+
+# commands
+svc="npm run dev"
+test="./test-run.sh"
+deploy="git push heroku master"
+
+# **************************************
 # setup killing backgrounds when done
 trap "kill 0" EXIT 
 
-# ************************************
+# **************************************
 # start local instance of service
-npm run dev &
+$svc &
 
-# ************************************
+# **************************************
 # run test script
 cd tests/postman
-bash ./test-run.sh
+$test
 ex=$?
 
-# ************************************
+# **************************************
 # check test status
-if [ $ex -eq 0 ]
+if [ $ex -eq 1 ]
 then
-  echo "Success!"
-else
-  echo "Tests failed."
-fi
+  echo "*** TESTS FAILED - job cancelled. ***"
+  echo
+  exit $ex
+fi  
 
-# ************************************
-# exit and return results
-exit $ex
+# **************************************
+# use git push to heroku
+$deploy
+ex=$?
 
-# ************************************
+# **************************************
+# check heroku status
+if [ $ex -eq 1 ]
+then
+  echo "*** DEPLOY FAILED - job cancelled. ***"
+  echo
+  exit $ex
+fi  
+
+# **************************************
 # EOF
-# ************************************
+# **************************************
+
