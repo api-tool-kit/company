@@ -16,19 +16,16 @@ exports.stateValue = function(val, state, request, def) {
   var d = def||v;
   var x=0;
   req = request||{};
-  
-  // handle special macros
   var hst = "";
   var tyk = "";
   var aty = "";
-  tyk = (req.get && req.get("tyk-proxy") ? req.get("tyk-proxy") : "");
+
+  // compute HTTP authority & account for tyk-proxy  
+  tyk = (req.get && req.get("proxy-prefix") ? req.get("proxy-prefix") : "");
   hst = (req.get && req.get("host") ? req.get("host") : "");
   aty = (tyk !== "" ? tyk : hst);
    
-  console.log("tyk:"+tyk);
-  console.log("hst:"+hst);
-  console.log("aty:"+aty);
-   
+  // handle special macros
   if(v.indexOf("{makeid}")!==-1) {
     v = v.replace("{makeid}",makeId());
     x=1
