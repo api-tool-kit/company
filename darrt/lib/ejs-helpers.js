@@ -17,13 +17,13 @@ exports.stateValue = function(val, state, request, def) {
   var x=0;
   req = request||{};
   var hst = "";
-  var tyk = "";
+  var pxy = "";
   var aty = "";
 
   // compute HTTP authority & check for proxied requests  
-  tyk = (req.get && req.get("proxy-prefix") ? req.get("proxy-prefix") : "");
+  pxy = (req.get && req.get("proxy-prefix") ? req.get("proxy-prefix") : "");
   hst = (req.get && req.get("host") ? req.get("host") : "");
-  aty = (tyk !== "" ? tyk : hst);
+  aty = (pxy !== "" ? pxy : hst);
    
   // handle special macros
   if(v.indexOf("{makeid}")!==-1) {
