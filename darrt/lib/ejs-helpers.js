@@ -18,16 +18,23 @@ exports.stateValue = function(val, state, request, def) {
   req = request||{};
   
   // handle special macros
+  var hst = "";
+  var tyk = "";
+  var aty = "";
+  tyk = (req.get ? req.get("tyk-proxy") : "");
+  hst = (req.get ? req.get("host") : "");
+  aty = (tyk === "" ? tyk : hst);
+   
   if(v.indexOf("{makeid}")!==-1) {
     v = v.replace("{makeid}",makeId());
     x=1
   }
   if(v.indexOf("{fullurl}")!==-1) {
-    v = v.replace("{fullurl}",(req ? req.protocol : "http") + "://" + (req.get ? req.get("Host") : "") + (req ? req.originalUrl : "/"));
+    v = v.replace("{fullurl}",(req ? req.protocol : "http") + "://" + aty + (req ? req.originalUrl : "/"));
     x=1;
   }
   if(v.indexOf("{fullhost}")!==-1) {
-    v = v.replace("{fullhost}",(req ? req.protocol : "http") + "://"+ (req.get ? req.get("Host") : ""));  
+    v = v.replace("{fullhost}",(req ? req.protocol : "http") + "://"+ aty );  
     x=1;
   }
   
