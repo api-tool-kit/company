@@ -21,9 +21,13 @@ exports.stateValue = function(val, state, request, def) {
   var hst = "";
   var tyk = "";
   var aty = "";
-  tyk = (req.get ? req.get("tyk-proxy") : "");
-  hst = (req.get ? req.get("host") : "");
-  aty = (tyk === "" ? tyk : hst);
+  tyk = (req.get && req.get("tyk-proxy") ? req.get("tyk-proxy") : "");
+  hst = (req.get && req.get("host") ? req.get("host") : "");
+  aty = (tyk !== "" ? tyk : hst);
+   
+  console.log("tyk:"+tyk);
+  console.log("hst:"+hst);
+  console.log("aty:"+aty);
    
   if(v.indexOf("{makeid}")!==-1) {
     v = v.replace("{makeid}",makeId());
