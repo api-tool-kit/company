@@ -20,7 +20,7 @@ exports.stateValue = function(val, state, request, def) {
   var tyk = "";
   var aty = "";
 
-  // compute HTTP authority & account for tyk-proxy  
+  // compute HTTP authority & check for proxied requests  
   tyk = (req.get && req.get("proxy-prefix") ? req.get("proxy-prefix") : "");
   hst = (req.get && req.get("host") ? req.get("host") : "");
   aty = (tyk !== "" ? tyk : hst);
