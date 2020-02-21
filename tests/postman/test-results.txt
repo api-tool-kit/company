@@ -3,139 +3,128 @@ newman
 BigCo Company API
 
 → Company Home
-  GET localhost:8484/ [200 OK, 2KB, 102ms]
-  ✓  Status is 200
-  ✓  Header content-type contains application/forms+json
-  ✓  Meta property title contains BigCo Company Records
-  ✓  Meta property release contains 1.0.0
-  ✓  Meta property author contains Amundsen
-  ✓  Valid home page link
-  ✓  Page link home has a property id set to home
-  ✓  Valid self page link
-  ✓  Valid list page link
+  GET {{server}}/ [errored]
+     Invalid URI "http:///%7B%7Bserver%7D%7D/"
+  2⠄ JSONError in test-script
 
 → Company List
-  GET localhost:8484/list/ [200 OK, 15.53KB, 17ms]
-  ✓  Status is 200
-  ✓  Header content-type contains application/forms+json
-  ✓  Meta property title contains BigCo Company Records
-  ✓  Meta property release contains 1.0.0
-  ✓  Meta property author contains Amundsen
-  ✓  Valid home page link
-  ✓  Valid self page link
-  ✓  Valid list page link
-  ✓  Valid filter page link
-  ✓  Valid create page link
-  ✓  Valid items
-  ✓  Valid read item link
-  ✓  Valid update item link
-  ✓  Valid status item link
-  ✓  Valid remove item link
+  GET {{server}}/list/ [errored]
+     Invalid URI "http:///%7B%7Bserver%7D%7D/list/"
+  4⠄ JSONError in test-script
 
 → Company Create
-  POST localhost:8484/ [200 OK, 3.45KB, 125ms]
-  ✓  Status is 200
-  ✓  Header content-type contains application/forms+json
-  ✓  Meta property title contains BigCo Company Records
-  ✓  Meta property release contains 1.0.0
-  ✓  Meta property author contains Amundsen
-  ✓  Valid self page link
-  ✓  Valid items
-  ✓  Valid read item link
-  ✓  Valid remove item link
+  POST {{server}}/ [errored]
+     Invalid URI "http:///%7B%7Bserver%7D%7D/"
+  6⠄ JSONError in test-script
 
 → Company Read
-  GET localhost:8484/187o6o76un9 [200 OK, 6.49KB, 11ms]
-  ✓  Status is 200
-  ✓  Header content-type contains application/forms+json
-  ✓  Meta property title contains BigCo Company Records
-  ✓  Meta property release contains 1.0.0
-  ✓  Meta property author contains Amundsen
-  ✓  Valid home page link
-  ✓  Valid self page link
-  ✓  Valid list page link
-  ✓  Valid filter page link
-  ✓  Valid items
-  ✓  Valid read item link
-  ✓  Valid update item link
-  ✓  Valid status item link
-  ✓  Valid remove item link
+  GET {{server}}/2b6gp1xaufu [errored]
+     Invalid URI "http:///%7B%7Bserver%7D%7D/2b6gp1xaufu"
+  8⠄ JSONError in test-script
 
 → Company Update
-  PUT localhost:8484/187o6o76un9 [200 OK, 6.55KB, 17ms]
-  ✓  Status is 200
-  ✓  Header content-type contains application/forms+json
-  ✓  Meta property title contains BigCo Company Records
-  ✓  Meta property release contains 1.0.0
-  ✓  Meta property author contains Amundsen
-  ✓  Valid home page link
-  ✓  Valid self page link
-  ✓  Valid list page link
-  ✓  Valid filter page link
-  ✓  Valid items
-  ✓  Valid read item link
-  ✓  Valid update item link
-  ✓  Valid status item link
-  ✓  Valid remove item link
-  ✓  Item 187o6o76un9 has a property companyName set to mike-co
-  ✓  Item 187o6o76un9 has a property email set to mike-co@gmail.com
-  ✓  Item 187o6o76un9 has a property telephone set to 123-456-7890
-  ✓  Item 187o6o76un9 has a property streetAddress set to 123 Main St
-  ✓  Item 187o6o76un9 has a property city set to Byteville
-  ✓  Item 187o6o76un9 has a property country set to USA
-  ✓  Item 187o6o76un9 has a property postalCode set to 12345
-  ✓  Item 187o6o76un9 has a property status set to pending
+  PUT {{server}}/2b6gp1xaufu [errored]
+     Invalid URI "http:///%7B%7Bserver%7D%7D/2b6gp1xaufu"
+ 10⠄ JSONError in test-script
 
 → Company Status
-  PATCH localhost:8484/status/187o6o76un9 [200 OK, 6.56KB, 7ms]
-  ✓  Status is 200
-  ✓  Header content-type contains application/forms+json
-  ✓  Meta property title contains BigCo Company Records
-  ✓  Meta property release contains 1.0.0
-  ✓  Meta property author contains Amundsen
-  ✓  Valid home page link
-  ✓  Valid self page link
-  ✓  Valid list page link
-  ✓  Valid filter page link
-  ✓  Valid items
-  ✓  Valid read item link
-  ✓  Valid update item link
-  ✓  Valid status item link
-  ✓  Valid remove item link
+  PATCH {{server}}/status/2b6gp1xaufu [errored]
+     Invalid URI "http:///%7B%7Bserver%7D%7D/status/2b6gp1xaufu"
+ 12⠄ JSONError in test-script
 
 → Company Remove
-  DELETE localhost:8484/187o6o76un9 [200 OK, 14.41KB, 6ms]
-  ✓  Status is 200
-  ✓  Header content-type contains application/forms+json
-  ✓  Meta property title contains BigCo Company Records
-  ✓  Meta property release contains 1.0.0
-  ✓  Meta property author contains Amundsen
-  ✓  Valid home page link
-  ✓  Valid self page link
-  ✓  Valid list page link
-  ✓  Valid filter page link
-  ✓  Valid items
-  ✓  Valid read item link
-  ✓  Valid update item link
-  ✓  Valid status item link
-  ✓  Valid remove item link
+  DELETE {{server}}/2b6gp1xaufu [errored]
+     Invalid URI "http:///%7B%7Bserver%7D%7D/2b6gp1xaufu"
+ 14⠄ JSONError in test-script
 
 ┌─────────────────────────┬──────────┬──────────┐
 │                         │ executed │   failed │
 ├─────────────────────────┼──────────┼──────────┤
 │              iterations │        1 │        0 │
 ├─────────────────────────┼──────────┼──────────┤
-│                requests │        7 │        0 │
+│                requests │        7 │        7 │
 ├─────────────────────────┼──────────┼──────────┤
-│            test-scripts │       14 │        0 │
+│            test-scripts │       14 │        7 │
 ├─────────────────────────┼──────────┼──────────┤
 │      prerequest-scripts │       14 │        0 │
 ├─────────────────────────┼──────────┼──────────┤
-│              assertions │      102 │        0 │
+│              assertions │        0 │        0 │
 ├─────────────────────────┴──────────┴──────────┤
-│ total run duration: 943ms                     │
+│ total run duration: 426ms                     │
 ├───────────────────────────────────────────────┤
-│ total data received: 53.26KB (approx)         │
+│ total data received: 0B (approx)              │
 ├───────────────────────────────────────────────┤
-│ average response time: 40ms                   │
+│ average response time: 0ms                    │
 └───────────────────────────────────────────────┘
+
+   #  failure    detail                                                      
+                                                                             
+ 01.  Error                                                                  
+                 Invalid URI "http:///%7B%7Bserver%7D%7D/"                   
+                 at request                                                  
+                 inside "Company Home"                                       
+                                                                             
+ 02.  JSONError                                                              
+                 Unexpected token u in JSON at position 0                    
+                 at test-script                                              
+                 inside "Company Home"                                       
+                                                                             
+ 03.  Error                                                                  
+                 Invalid URI "http:///%7B%7Bserver%7D%7D/list/"              
+                 at request                                                  
+                 inside "Company List"                                       
+                                                                             
+ 04.  JSONError                                                              
+                 Unexpected token u in JSON at position 0                    
+                 at test-script                                              
+                 inside "Company List"                                       
+                                                                             
+ 05.  Error                                                                  
+                 Invalid URI "http:///%7B%7Bserver%7D%7D/"                   
+                 at request                                                  
+                 inside "Company Create"                                     
+                                                                             
+ 06.  JSONError                                                              
+                 Unexpected token u in JSON at position 0                    
+                 at test-script                                              
+                 inside "Company Create"                                     
+                                                                             
+ 07.  Error                                                                  
+                 Invalid URI "http:///%7B%7Bserver%7D%7D/2b6gp1xaufu"        
+                 at request                                                  
+                 inside "Company Read"                                       
+                                                                             
+ 08.  JSONError                                                              
+                 Unexpected token u in JSON at position 0                    
+                 at test-script                                              
+                 inside "Company Read"                                       
+                                                                             
+ 09.  Error                                                                  
+                 Invalid URI "http:///%7B%7Bserver%7D%7D/2b6gp1xaufu"        
+                 at request                                                  
+                 inside "Company Update"                                     
+                                                                             
+ 10.  JSONError                                                              
+                 Unexpected token u in JSON at position 0                    
+                 at test-script                                              
+                 inside "Company Update"                                     
+                                                                             
+ 11.  Error                                                                  
+                 Invalid URI "http:///%7B%7Bserver%7D%7D/status/2b6gp1xaufu" 
+                 at request                                                  
+                 inside "Company Status"                                     
+                                                                             
+ 12.  JSONError                                                              
+                 Unexpected token u in JSON at position 0                    
+                 at test-script                                              
+                 inside "Company Status"                                     
+                                                                             
+ 13.  Error                                                                  
+                 Invalid URI "http:///%7B%7Bserver%7D%7D/2b6gp1xaufu"        
+                 at request                                                  
+                 inside "Company Remove"                                     
+                                                                             
+ 14.  JSONError                                                              
+                 Unexpected token u in JSON at position 0                    
+                 at test-script                                              
+                 inside "Company Remove"                                     
