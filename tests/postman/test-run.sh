@@ -17,6 +17,12 @@
 
 # **************************************
 # load local env values
+if [ ! -f "postman.env" ]
+then
+  echo "Set POSTMAN_KEY in postman.env file first."
+  exit 1
+fi
+
 source postman.env
 
 # **************************************

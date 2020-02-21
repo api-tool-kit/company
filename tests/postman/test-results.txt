@@ -3,7 +3,7 @@ newman
 BigCo Company API
 
 → Company Home
-  GET localhost:8484/ [200 OK, 1.96KB, 372ms]
+  GET localhost:8484/ [200 OK, 2KB, 102ms]
   ✓  Status is 200
   ✓  Header content-type contains application/forms+json
   ✓  Meta property title contains BigCo Company Records
@@ -15,7 +15,7 @@ BigCo Company API
   ✓  Valid list page link
 
 → Company List
-  GET localhost:8484/list/ [200 OK, 15.3KB, 124ms]
+  GET localhost:8484/list/ [200 OK, 15.53KB, 17ms]
   ✓  Status is 200
   ✓  Header content-type contains application/forms+json
   ✓  Meta property title contains BigCo Company Records
@@ -33,7 +33,7 @@ BigCo Company API
   ✓  Valid remove item link
 
 → Company Create
-  POST localhost:8484/ [200 OK, 3.38KB, 207ms]
+  POST localhost:8484/ [200 OK, 3.45KB, 125ms]
   ✓  Status is 200
   ✓  Header content-type contains application/forms+json
   ✓  Meta property title contains BigCo Company Records
@@ -45,7 +45,7 @@ BigCo Company API
   ✓  Valid remove item link
 
 → Company Read
-  GET localhost:8484/1n5ngr9s2a1 [200 OK, 6.38KB, 11ms]
+  GET localhost:8484/187o6o76un9 [200 OK, 6.49KB, 11ms]
   ✓  Status is 200
   ✓  Header content-type contains application/forms+json
   ✓  Meta property title contains BigCo Company Records
@@ -60,13 +60,13 @@ BigCo Company API
   ✓  Valid update item link
   ✓  Valid status item link
   ✓  Valid remove item link
-  ✓  Item 1n5ngr9s2a1 has a property companyName set to mike-co
-  ✓  Item 1n5ngr9s2a1 has a property email set to mike-co@gmail.com
-  ✓  Item 1n5ngr9s2a1 has a property telephone set to 123-456-7890
-  ✓  Item 1n5ngr9s2a1 has a property status set to pending
+  ✓  Item 187o6o76un9 has a property companyName set to mike-co
+  ✓  Item 187o6o76un9 has a property email set to mike-co@gmail.com
+  ✓  Item 187o6o76un9 has a property telephone set to 123-456-7890
+  ✓  Item 187o6o76un9 has a property status set to pending
 
 → Company Update
-  PUT localhost:8484/1n5ngr9s2a1 [200 OK, 6.44KB, 9ms]
+  PUT localhost:8484/187o6o76un9 [200 OK, 6.55KB, 17ms]
   ✓  Status is 200
   ✓  Header content-type contains application/forms+json
   ✓  Meta property title contains BigCo Company Records
@@ -81,17 +81,17 @@ BigCo Company API
   ✓  Valid update item link
   ✓  Valid status item link
   ✓  Valid remove item link
-  ✓  Item 1n5ngr9s2a1 has a property companyName set to mike-co
-  ✓  Item 1n5ngr9s2a1 has a property email set to mike-co@gmail.com
-  ✓  Item 1n5ngr9s2a1 has a property telephone set to 123-456-7890
-  ✓  Item 1n5ngr9s2a1 has a property streetAddress set to 123 Main St
-  ✓  Item 1n5ngr9s2a1 has a property city set to Byteville
-  ✓  Item 1n5ngr9s2a1 has a property country set to USA
-  ✓  Item 1n5ngr9s2a1 has a property postalCode set to 12345
-  ✓  Item 1n5ngr9s2a1 has a property status set to pending
+  ✓  Item 187o6o76un9 has a property companyName set to mike-co
+  ✓  Item 187o6o76un9 has a property email set to mike-co@gmail.com
+  ✓  Item 187o6o76un9 has a property telephone set to 123-456-7890
+  ✓  Item 187o6o76un9 has a property streetAddress set to 123 Main St
+  ✓  Item 187o6o76un9 has a property city set to Byteville
+  ✓  Item 187o6o76un9 has a property country set to USA
+  ✓  Item 187o6o76un9 has a property postalCode set to 12345
+  ✓  Item 187o6o76un9 has a property status set to pending
 
 → Company Status
-  PATCH localhost:8484/status/1n5ngr9s2a1 [200 OK, 6.45KB, 6ms]
+  PATCH localhost:8484/status/187o6o76un9 [200 OK, 6.56KB, 7ms]
   ✓  Status is 200
   ✓  Header content-type contains application/forms+json
   ✓  Meta property title contains BigCo Company Records
@@ -106,10 +106,10 @@ BigCo Company API
   ✓  Valid update item link
   ✓  Valid status item link
   ✓  Valid remove item link
-  ✓  Item 1n5ngr9s2a1 has a property status set to active
+  ✓  Item 187o6o76un9 has a property status set to active
 
 → Company Remove
-  DELETE localhost:8484/1n5ngr9s2a1 [200 OK, 14.19KB, 8ms]
+  DELETE localhost:8484/187o6o76un9 [200 OK, 14.41KB, 6ms]
   ✓  Status is 200
   ✓  Header content-type contains application/forms+json
   ✓  Meta property title contains BigCo Company Records
@@ -138,9 +138,9 @@ BigCo Company API
 ├─────────────────────────┼──────────┼──────────┤
 │              assertions │      102 │        0 │
 ├─────────────────────────┴──────────┴──────────┤
-│ total run duration: 1457ms                    │
+│ total run duration: 943ms                     │
 ├───────────────────────────────────────────────┤
-│ total data received: 52.37KB (approx)         │
+│ total data received: 53.26KB (approx)         │
 ├───────────────────────────────────────────────┤
-│ average response time: 105ms                  │
+│ average response time: 40ms                   │
 └───────────────────────────────────────────────┘
