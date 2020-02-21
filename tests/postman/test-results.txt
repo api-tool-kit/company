@@ -60,10 +60,6 @@ BigCo Company API
   ✓  Valid update item link
   ✓  Valid status item link
   ✓  Valid remove item link
-  ✓  Item 187o6o76un9 has a property companyName set to mike-co
-  ✓  Item 187o6o76un9 has a property email set to mike-co@gmail.com
-  ✓  Item 187o6o76un9 has a property telephone set to 123-456-7890
-  ✓  Item 187o6o76un9 has a property status set to pending
 
 → Company Update
   PUT localhost:8484/187o6o76un9 [200 OK, 6.55KB, 17ms]
@@ -106,7 +102,6 @@ BigCo Company API
   ✓  Valid update item link
   ✓  Valid status item link
   ✓  Valid remove item link
-  ✓  Item 187o6o76un9 has a property status set to active
 
 → Company Remove
   DELETE localhost:8484/187o6o76un9 [200 OK, 14.41KB, 6ms]
