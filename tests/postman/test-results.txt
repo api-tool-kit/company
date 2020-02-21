@@ -3,7 +3,7 @@ newman
 BigCo Company API
 
 → Company Home
-  GET company-atk.herokuapp.com/ [200 OK, 2.06KB, 195ms]
+  GET localhost:8484/ [200 OK, 1.96KB, 372ms]
   ✓  Status is 200
   ✓  Header content-type contains application/forms+json
   ✓  Meta property title contains BigCo Company Records
@@ -15,7 +15,7 @@ BigCo Company API
   ✓  Valid list page link
 
 → Company List
-  GET company-atk.herokuapp.com/list/ [200 OK, 15.75KB, 64ms]
+  GET localhost:8484/list/ [200 OK, 15.3KB, 124ms]
   ✓  Status is 200
   ✓  Header content-type contains application/forms+json
   ✓  Meta property title contains BigCo Company Records
@@ -33,7 +33,7 @@ BigCo Company API
   ✓  Valid remove item link
 
 → Company Create
-  POST company-atk.herokuapp.com/ [200 OK, 3.54KB, 71ms]
+  POST localhost:8484/ [200 OK, 3.38KB, 207ms]
   ✓  Status is 200
   ✓  Header content-type contains application/forms+json
   ✓  Meta property title contains BigCo Company Records
@@ -45,7 +45,7 @@ BigCo Company API
   ✓  Valid remove item link
 
 → Company Read
-  GET company-atk.herokuapp.com/bolvy6wkkmw [200 OK, 6.61KB, 44ms]
+  GET localhost:8484/1n5ngr9s2a1 [200 OK, 6.38KB, 11ms]
   ✓  Status is 200
   ✓  Header content-type contains application/forms+json
   ✓  Meta property title contains BigCo Company Records
@@ -60,13 +60,9 @@ BigCo Company API
   ✓  Valid update item link
   ✓  Valid status item link
   ✓  Valid remove item link
-  ✓  Item bolvy6wkkmw has a property companyName set to mike-co
-  ✓  Item bolvy6wkkmw has a property email set to mike-co@gmail.com
-  ✓  Item bolvy6wkkmw has a property telephone set to 123-456-7890
-  ✓  Item bolvy6wkkmw has a property status set to pending
 
 → Company Update
-  PUT company-atk.herokuapp.com/bolvy6wkkmw [200 OK, 6.67KB, 39ms]
+  PUT localhost:8484/1n5ngr9s2a1 [200 OK, 6.44KB, 9ms]
   ✓  Status is 200
   ✓  Header content-type contains application/forms+json
   ✓  Meta property title contains BigCo Company Records
@@ -81,17 +77,17 @@ BigCo Company API
   ✓  Valid update item link
   ✓  Valid status item link
   ✓  Valid remove item link
-  ✓  Item bolvy6wkkmw has a property companyName set to mike-co
-  ✓  Item bolvy6wkkmw has a property email set to mike-co@gmail.com
-  ✓  Item bolvy6wkkmw has a property telephone set to 123-456-7890
-  ✓  Item bolvy6wkkmw has a property streetAddress set to 123 Main St
-  ✓  Item bolvy6wkkmw has a property city set to Byteville
-  ✓  Item bolvy6wkkmw has a property country set to USA
-  ✓  Item bolvy6wkkmw has a property postalCode set to 12345
-  ✓  Item bolvy6wkkmw has a property status set to pending
+  ✓  Item 1n5ngr9s2a1 has a property companyName set to mike-co
+  ✓  Item 1n5ngr9s2a1 has a property email set to mike-co@gmail.com
+  ✓  Item 1n5ngr9s2a1 has a property telephone set to 123-456-7890
+  ✓  Item 1n5ngr9s2a1 has a property streetAddress set to 123 Main St
+  ✓  Item 1n5ngr9s2a1 has a property city set to Byteville
+  ✓  Item 1n5ngr9s2a1 has a property country set to USA
+  ✓  Item 1n5ngr9s2a1 has a property postalCode set to 12345
+  ✓  Item 1n5ngr9s2a1 has a property status set to pending
 
 → Company Status
-  PATCH company-atk.herokuapp.com/status/bolvy6wkkmw [200 OK, 6.67KB, 33ms]
+  PATCH localhost:8484/status/1n5ngr9s2a1 [200 OK, 6.45KB, 6ms]
   ✓  Status is 200
   ✓  Header content-type contains application/forms+json
   ✓  Meta property title contains BigCo Company Records
@@ -106,10 +102,9 @@ BigCo Company API
   ✓  Valid update item link
   ✓  Valid status item link
   ✓  Valid remove item link
-  ✓  Item bolvy6wkkmw has a property status set to active
 
 → Company Remove
-  DELETE company-atk.herokuapp.com/bolvy6wkkmw [200 OK, 14.62KB, 35ms]
+  DELETE localhost:8484/1n5ngr9s2a1 [200 OK, 14.19KB, 8ms]
   ✓  Status is 200
   ✓  Header content-type contains application/forms+json
   ✓  Meta property title contains BigCo Company Records
@@ -125,22 +120,22 @@ BigCo Company API
   ✓  Valid status item link
   ✓  Valid remove item link
 
-┌─────────────────────────┬───────────────────┬───────────────────┐
-│                         │          executed │            failed │
-├─────────────────────────┼───────────────────┼───────────────────┤
-│              iterations │                 1 │                 0 │
-├─────────────────────────┼───────────────────┼───────────────────┤
-│                requests │                 7 │                 0 │
-├─────────────────────────┼───────────────────┼───────────────────┤
-│            test-scripts │                14 │                 0 │
-├─────────────────────────┼───────────────────┼───────────────────┤
-│      prerequest-scripts │                14 │                 0 │
-├─────────────────────────┼───────────────────┼───────────────────┤
-│              assertions │               102 │                 0 │
-├─────────────────────────┴───────────────────┴───────────────────┤
-│ total run duration: 1122ms                                      │
-├─────────────────────────────────────────────────────────────────┤
-│ total data received: 53.96KB (approx)                           │
-├─────────────────────────────────────────────────────────────────┤
-│ average response time: 68ms [min: 33ms, max: 195ms, s.d.: 53ms] │
-└─────────────────────────────────────────────────────────────────┘
+┌─────────────────────────┬──────────┬──────────┐
+│                         │ executed │   failed │
+├─────────────────────────┼──────────┼──────────┤
+│              iterations │        1 │        0 │
+├─────────────────────────┼──────────┼──────────┤
+│                requests │        7 │        0 │
+├─────────────────────────┼──────────┼──────────┤
+│            test-scripts │       14 │        0 │
+├─────────────────────────┼──────────┼──────────┤
+│      prerequest-scripts │       14 │        0 │
+├─────────────────────────┼──────────┼──────────┤
+│              assertions │      102 │        0 │
+├─────────────────────────┴──────────┴──────────┤
+│ total run duration: 1457ms                    │
+├───────────────────────────────────────────────┤
+│ total data received: 52.37KB (approx)         │
+├───────────────────────────────────────────────┤
+│ average response time: 105ms                  │
+└───────────────────────────────────────────────┘
