@@ -42,6 +42,7 @@ $svc &
 
 # **************************************
 # run pre-deploy test script
+echo "Running pre-deployment tests..."
 cd tests/postman
 $test_pre
 ex=$?
@@ -72,8 +73,9 @@ fi
 
 # **************************************
 # run post-deploy test script
+echo "Running post-deployment tests..."
 cd tests/postman
-$test_pre
+$test_post
 ex=$?
 
 # **************************************
