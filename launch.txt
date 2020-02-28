@@ -1,0 +1,153 @@
+Running pre-deployment tests...
+
+BigCo Company Tests
+====================================================
+Thu Feb 27 20:01:59 EST 2020
+Running local environment...
+Initializing...
+Pulling postman data...
+
+> company@1.0.0 dev /home/mca/Dropbox/Private/Projects/api-tool-kit/company
+> nodemon index
+
+Running tests...
+[33m[nodemon] 2.0.2[39m
+[33m[nodemon] to restart at any time, enter `rs`[39m
+[33m[nodemon] watching dir(s): *.*[39m
+[33m[nodemon] watching extensions: js,mjs,json[39m
+[32m[nodemon] starting `node index index.js`[39m
+listening on port 8484!
+Time:  1582851721881 : localhost:8484/
+Time:  1582851721986 : localhost:8484/list/
+Time:  1582851722154 : localhost:8484/
+Time:  1582851722240 : localhost:8484/1hkmsbkze1u
+Time:  1582851722326 : localhost:8484/1hkmsbkze1u
+Time:  1582851722406 : localhost:8484/status/1hkmsbkze1u
+Time:  1582851722486 : localhost:8484/1hkmsbkze1u
+newman
+
+BigCo Company API
+
+→ Company Home
+  GET localhost:8484/ Time:  1582851724117 : localhost:8484/
+[200 OK, 2KB, 85ms]
+
+→ Company List
+  GET localhost:8484/list/ Time:  1582851724208 : localhost:8484/list/
+[200 OK, 15.53KB, 10ms]
+
+→ Company Create
+  POST localhost:8484/ Time:  1582851724349 : localhost:8484/
+[200 OK, 3.45KB, 6ms]
+
+→ Company Read
+  GET localhost:8484/1vb1v2emifx Time:  1582851724417 : localhost:8484/1vb1v2emifx
+[200 OK, 6.49KB, 5ms]
+
+→ Company Update
+  PUT localhost:8484/1vb1v2emifx Time:  1582851724498 : localhost:8484/1vb1v2emifx
+[200 OK, 6.55KB, 7ms]
+
+→ Company Status
+  PATCH localhost:8484/status/1vb1v2emifx Time:  1582851724576 : localhost:8484/status/1vb1v2emifx
+[200 OK, 6.56KB, 7ms]
+
+→ Company Remove
+  DELETE localhost:8484/1vb1v2emifx Time:  1582851724649 : localhost:8484/1vb1v2emifx
+[200 OK, 14.41KB, 7ms]
+
+┌─────────────────────────┬──────────┬──────────┐
+│                         │ executed │   failed │
+├─────────────────────────┼──────────┼──────────┤
+│              iterations │        1 │        0 │
+├─────────────────────────┼──────────┼──────────┤
+│                requests │        7 │        0 │
+├─────────────────────────┼──────────┼──────────┤
+│            test-scripts │       14 │        0 │
+├─────────────────────────┼──────────┼──────────┤
+│      prerequest-scripts │       14 │        0 │
+├─────────────────────────┼──────────┼──────────┤
+│              assertions │      102 │        0 │
+├─────────────────────────┴──────────┴──────────┤
+│ total run duration: 740ms                     │
+├───────────────────────────────────────────────┤
+│ total data received: 53.26KB (approx)         │
+├───────────────────────────────────────────────┤
+│ average response time: 18ms                   │
+└───────────────────────────────────────────────┘
+All tests passed.
+
+Test run completed and saved to test-results.txt.
+
+Deploying to production...
+Running post-deployment tests...
+
+BigCo Company Tests
+====================================================
+Thu Feb 27 20:02:20 EST 2020
+Running remote environment...
+Initializing...
+Pulling postman data...
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node index index.js`[39m
+Running tests...
+[32m[nodemon] restarting due to changes...[39m
+listening on port 8484!
+[32m[nodemon] starting `node index index.js`[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node index index.js`[39m
+listening on port 8484!
+newman
+
+BigCo Company API
+
+→ Company Home
+  GET company-atk.herokuapp.com/ [200 OK, 2.06KB, 132ms]
+
+→ Company List
+  GET company-atk.herokuapp.com/list/ [200 OK, 15.75KB, 70ms]
+
+→ Company Create
+  POST company-atk.herokuapp.com/ [200 OK, 3.54KB, 28ms]
+
+→ Company Read
+  GET company-atk.herokuapp.com/1x5lnqb6nhj [200 OK, 6.61KB, 28ms]
+
+→ Company Update
+  PUT company-atk.herokuapp.com/1x5lnqb6nhj [200 OK, 6.67KB, 76ms]
+
+→ Company Status
+  PATCH company-atk.herokuapp.com/status/1x5lnqb6nhj [200 OK, 6.67KB, 33ms]
+
+→ Company Remove
+  DELETE company-atk.herokuapp.com/1x5lnqb6nhj [200 OK, 14.62KB, 40ms]
+
+┌─────────────────────────┬──────────┬──────────┐
+│                         │ executed │   failed │
+├─────────────────────────┼──────────┼──────────┤
+│              iterations │        1 │        0 │
+├─────────────────────────┼──────────┼──────────┤
+│                requests │        7 │        0 │
+├─────────────────────────┼──────────┼──────────┤
+│            test-scripts │       14 │        0 │
+├─────────────────────────┼──────────┼──────────┤
+│      prerequest-scripts │       14 │        0 │
+├─────────────────────────┼──────────┼──────────┤
+│              assertions │      102 │        0 │
+├─────────────────────────┴──────────┴──────────┤
+│ total run duration: 1064ms                    │
+├───────────────────────────────────────────────┤
+│ total data received: 53.96KB (approx)         │
+├───────────────────────────────────────────────┤
+│ average response time: 58ms                   │
+└───────────────────────────────────────────────┘
+All tests passed.
+
+Test run completed and saved to test-results.txt.
+
+
+*****************************
+*** DEPLOYMENT SUCCESSFUL ***
+*****************************
+Thu Feb 27 20:02:28 EST 2020

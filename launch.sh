@@ -74,7 +74,6 @@ fi
 # **********************************************
 # run post-deploy test script
 echo "Running post-deployment tests..."
-cd tests/postman
 $test_post
 ex=$?
 
