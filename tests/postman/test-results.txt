@@ -3,7 +3,7 @@ newman
 BigCo Company API
 
 → Company Home
-  GET company-atk.herokuapp.com/ [200 OK, 2.06KB, 144ms]
+  GET company-atk.herokuapp.com/ [200 OK, 2.06KB, 4.2s]
   ✓  Status is 200
   ✓  Header content-type contains application/forms+json
   ✓  Meta property title contains BigCo Company Records
@@ -15,7 +15,7 @@ BigCo Company API
   ✓  Valid list page link
 
 → Company List
-  GET company-atk.herokuapp.com/list/ [200 OK, 15.75KB, 50ms]
+  GET company-atk.herokuapp.com/list/ [200 OK, 15.75KB, 46ms]
   ✓  Status is 200
   ✓  Header content-type contains application/forms+json
   ✓  Meta property title contains BigCo Company Records
@@ -33,7 +33,7 @@ BigCo Company API
   ✓  Valid remove item link
 
 → Company Create
-  POST company-atk.herokuapp.com/ [200 OK, 3.54KB, 30ms]
+  POST company-atk.herokuapp.com/ [200 OK, 3.54KB, 39ms]
   ✓  Status is 200
   ✓  Header content-type contains application/forms+json
   ✓  Meta property title contains BigCo Company Records
@@ -45,7 +45,7 @@ BigCo Company API
   ✓  Valid remove item link
 
 → Company Read
-  GET company-atk.herokuapp.com/1jqdcege926 [200 OK, 6.61KB, 34ms]
+  GET company-atk.herokuapp.com/1nulufmht94 [200 OK, 6.61KB, 29ms]
   ✓  Status is 200
   ✓  Header content-type contains application/forms+json
   ✓  Meta property title contains BigCo Company Records
@@ -60,13 +60,13 @@ BigCo Company API
   ✓  Valid update item link
   ✓  Valid status item link
   ✓  Valid remove item link
-  ✓  Item 1jqdcege926 has a property companyName set to mike-co
-  ✓  Item 1jqdcege926 has a property email set to mike-co@gmail.com
-  ✓  Item 1jqdcege926 has a property telephone set to 123-456-7890
-  ✓  Item 1jqdcege926 has a property status set to pending
+  ✓  Item 1nulufmht94 has a property companyName set to mike-co
+  ✓  Item 1nulufmht94 has a property email set to mike-co@gmail.com
+  ✓  Item 1nulufmht94 has a property telephone set to 123-456-7890
+  ✓  Item 1nulufmht94 has a property status set to pending
 
 → Company Update
-  PUT company-atk.herokuapp.com/1jqdcege926 [200 OK, 6.67KB, 66ms]
+  PUT company-atk.herokuapp.com/1nulufmht94 [200 OK, 6.67KB, 26ms]
   ✓  Status is 200
   ✓  Header content-type contains application/forms+json
   ✓  Meta property title contains BigCo Company Records
@@ -81,17 +81,17 @@ BigCo Company API
   ✓  Valid update item link
   ✓  Valid status item link
   ✓  Valid remove item link
-  ✓  Item 1jqdcege926 has a property companyName set to mike-co
-  ✓  Item 1jqdcege926 has a property email set to mike-co@gmail.com
-  ✓  Item 1jqdcege926 has a property telephone set to 123-456-7890
-  ✓  Item 1jqdcege926 has a property streetAddress set to 123 Main St
-  ✓  Item 1jqdcege926 has a property city set to Byteville
-  ✓  Item 1jqdcege926 has a property country set to USA
-  ✓  Item 1jqdcege926 has a property postalCode set to 12345
-  ✓  Item 1jqdcege926 has a property status set to pending
+  ✓  Item 1nulufmht94 has a property companyName set to mike-co
+  ✓  Item 1nulufmht94 has a property email set to mike-co@gmail.com
+  ✓  Item 1nulufmht94 has a property telephone set to 123-456-7890
+  ✓  Item 1nulufmht94 has a property streetAddress set to 123 Main St
+  ✓  Item 1nulufmht94 has a property city set to Byteville
+  ✓  Item 1nulufmht94 has a property country set to USA
+  ✓  Item 1nulufmht94 has a property postalCode set to 12345
+  ✓  Item 1nulufmht94 has a property status set to pending
 
 → Company Status
-  PATCH company-atk.herokuapp.com/status/1jqdcege926 [200 OK, 6.67KB, 39ms]
+  PATCH company-atk.herokuapp.com/status/1nulufmht94 [200 OK, 6.67KB, 24ms]
   ✓  Status is 200
   ✓  Header content-type contains application/forms+json
   ✓  Meta property title contains BigCo Company Records
@@ -106,10 +106,10 @@ BigCo Company API
   ✓  Valid update item link
   ✓  Valid status item link
   ✓  Valid remove item link
-  ✓  Item 1jqdcege926 has a property status set to active
+  ✓  Item 1nulufmht94 has a property status set to active
 
 → Company Remove
-  DELETE company-atk.herokuapp.com/1jqdcege926 [200 OK, 14.62KB, 34ms]
+  DELETE company-atk.herokuapp.com/1nulufmht94 [200 OK, 14.62KB, 27ms]
   ✓  Status is 200
   ✓  Header content-type contains application/forms+json
   ✓  Meta property title contains BigCo Company Records
@@ -138,9 +138,9 @@ BigCo Company API
 ├─────────────────────────┼──────────┼──────────┤
 │              assertions │      102 │        0 │
 ├─────────────────────────┴──────────┴──────────┤
-│ total run duration: 1062ms                    │
+│ total run duration: 5s                        │
 ├───────────────────────────────────────────────┤
 │ total data received: 53.96KB (approx)         │
 ├───────────────────────────────────────────────┤
-│ average response time: 56ms                   │
+│ average response time: 623ms                  │
 └───────────────────────────────────────────────┘
