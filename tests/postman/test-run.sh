@@ -38,6 +38,7 @@ testfile="test-collection.json"
 envfile="test-environment.json"
 outfile="test-results.txt"
 
+# fixed the collection id and environment ids
 collid="48501-e8b3b37c-13ab-4eb9-9070-466bd8552699"
 # localhost
 local_envid="48501-3ed1e4f5-d531-42ef-a044-95ea24c8649f"
@@ -53,6 +54,8 @@ date
 
 # **************************************
 # parse environment selection
+# valid values:
+#   "local" or "remote"
 if [ -z "$1" ]
 then
   echo "*** missing environment - job cancelled. ***"

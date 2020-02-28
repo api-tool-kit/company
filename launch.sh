@@ -28,8 +28,9 @@ ex=0
 
 # commands
 svc="npm run dev"
-test="./test-run.sh"
+test_pre="./test-run.sh local"
 deploy="git push heroku master"
+test_post="./test-run.sh remote"
 
 # **************************************
 # setup killing backgrounds when done
@@ -40,16 +41,16 @@ trap "kill 0" EXIT
 $svc &
 
 # **************************************
-# run test script
+# run pre-deploy test script
 cd tests/postman
-$test
+$test_pre
 ex=$?
 
 # **************************************
 # check test status
 if [ $ex -eq 1 ]
 then
-  echo "*** TESTS FAILED - job cancelled. ***"
+  echo "*** PRE-DEPLOY TESTS FAILED - job cancelled. ***"
   echo
   exit $ex
 fi  
@@ -65,6 +66,21 @@ ex=$?
 if [ $ex -eq 1 ]
 then
   echo "*** DEPLOY FAILED - job cancelled. ***"
+  echo
+  exit $ex
+fi  
+
+# **************************************
+# run post-deploy test script
+cd tests/postman
+$test_pre
+ex=$?
+
+# **************************************
+# check test status
+if [ $ex -eq 1 ]
+then
+  echo "*** POST-DEPLOY TESTS FAILED - job cancelled. ***"
   echo
   exit $ex
 fi  
