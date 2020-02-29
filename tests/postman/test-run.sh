@@ -38,12 +38,15 @@ testfile="test-collection.json"
 envfile="test-environment.json"
 outfile="test-results.txt"
 
+#############################################################
 # fixed the collection id and environment ids
+# EDIT THESE VALUES TO MATCH YOUR TEST COLLECTION/ENV VALUES
 collid="48501-e8b3b37c-13ab-4eb9-9070-466bd8552699"
 # localhost
 local_envid="48501-3ed1e4f5-d531-42ef-a044-95ea24c8649f"
 # heroku
 remote_envid="48501-2ddd8578-43f1-41a6-9a7f-6ba2bdd1c9e8"
+#############################################################
 
 # **************************************
 # heading
@@ -108,6 +111,7 @@ curl -s -X GET $svr/environments/$envid -H "X-Api-Key:$apikey" \
 # run the tests
 echo "Running tests..."
 newman run $testfile -e $envfile --bail -r cli,html > $outfile
+
 # **************************************
 # check exist code
 if [ $? -eq 1 ]
