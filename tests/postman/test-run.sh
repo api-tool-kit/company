@@ -94,6 +94,8 @@ then
   rm $outfile
 fi
 
+rm newman/*
+
 # **************************************
 # pull collection 
 echo "Pulling postman data..."
@@ -105,11 +107,7 @@ curl -s -X GET $svr/environments/$envid -H "X-Api-Key:$apikey" \
 # **************************************
 # run the tests
 echo "Running tests..."
-newman run $testfile -e $envfile > $outfile
-newman run $testfile -e $envfile --bail newman \
-  -r cli,html --reporter-cli-no-failures \
-  --reporter-cli-no-assertions --reporter-cli-no-console
-
+newman run $testfile -e $envfile --bail -r cli,html > $outfile
 # **************************************
 # check exist code
 if [ $? -eq 1 ]
