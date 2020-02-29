@@ -10,7 +10,7 @@
 #   and available at environment's URL
 #
 # utility dependencies:
-#   - newman
+#   - newman w/ html reporter
 #   - curl
 #
 # **************************************
@@ -110,7 +110,7 @@ curl -s -X GET $svr/environments/$envid -H "X-Api-Key:$apikey" \
 # **************************************
 # run the tests
 echo "Running tests..."
-newman run $testfile -e $envfile --bail -r cli,html > $outfile
+newman run $testfile -e $envfile --bail -r cli,htmlextra > $outfile
 
 # **************************************
 # check exist code
