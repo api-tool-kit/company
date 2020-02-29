@@ -106,7 +106,8 @@ curl -s -X GET $svr/environments/$envid -H "X-Api-Key:$apikey" \
 # run the tests
 echo "Running tests..."
 newman run $testfile -e $envfile > $outfile
-newman run $testfile -e $envfile --bail newman  -r cli --reporter-cli-no-failures  \
+newman run $testfile -e $envfile --bail newman \
+  -r cli,html --reporter-cli-no-failures \
   --reporter-cli-no-assertions --reporter-cli-no-console
 
 # **************************************

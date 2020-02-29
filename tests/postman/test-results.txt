@@ -3,7 +3,7 @@ newman
 BigCo Company API
 
 → Company Home
-  GET localhost:8484/ [200 OK, 2KB, 101ms]
+  GET localhost:8484/ [200 OK, 2KB, 98ms]
   ✓  Status is 200
   ✓  Header content-type contains application/forms+json
   ✓  Meta property title contains BigCo Company Records
@@ -15,7 +15,7 @@ BigCo Company API
   ✓  Valid list page link
 
 → Company List
-  GET localhost:8484/list/ [200 OK, 26.9KB, 18ms]
+  GET localhost:8484/list/ [200 OK, 26.9KB, 17ms]
   ✓  Status is 200
   ✓  Header content-type contains application/forms+json
   ✓  Meta property title contains BigCo Company Records
@@ -33,7 +33,7 @@ BigCo Company API
   ✓  Valid remove item link
 
 → Company Create
-  POST localhost:8484/ [200 OK, 3.45KB, 23ms]
+  POST localhost:8484/ [200 OK, 3.45KB, 19ms]
   ✓  Status is 200
   ✓  Header content-type contains application/forms+json
   ✓  Meta property title contains BigCo Company Records
@@ -45,7 +45,7 @@ BigCo Company API
   ✓  Valid remove item link
 
 → Company Create (Duplicate Id)
-  POST localhost:8484/ [400 Bad Request, 448B, 4ms]
+  POST localhost:8484/ [400 Bad Request, 448B, 3ms]
   ✓  Status is 400
   ✓  Header content-type contains application/problem+json
   ✓  Body root is a valid error object
@@ -78,7 +78,7 @@ BigCo Company API
   ✓  Error property detail set to Record already exists
 
 → Company Read
-  GET localhost:8484/2cs90h7iv28 [200 OK, 6.49KB, 9ms]
+  GET localhost:8484/2iquu3usgik [200 OK, 6.49KB, 9ms]
   ✓  Status is 200
   ✓  Header content-type contains application/forms+json
   ✓  Meta property title contains BigCo Company Records
@@ -93,10 +93,10 @@ BigCo Company API
   ✓  Valid update item link
   ✓  Valid status item link
   ✓  Valid remove item link
-  ✓  Item 2cs90h7iv28 has a property companyName set to mike-co
-  ✓  Item 2cs90h7iv28 has a property email set to mike-co@gmail.com
-  ✓  Item 2cs90h7iv28 has a property telephone set to 123-456-7890
-  ✓  Item 2cs90h7iv28 has a property status set to pending
+  ✓  Item 2iquu3usgik has a property companyName set to mike-co
+  ✓  Item 2iquu3usgik has a property email set to mike-co@gmail.com
+  ✓  Item 2iquu3usgik has a property telephone set to 123-456-7890
+  ✓  Item 2iquu3usgik has a property status set to pending
 
 → Company Read (Bad Id)
   GET localhost:8484/xxx [400 Bad Request, 410B, 2ms]
@@ -120,7 +120,7 @@ BigCo Company API
   ✓  Error property status set to 400
 
 → Company Update
-  PUT localhost:8484/2cs90h7iv28 [200 OK, 6.55KB, 6ms]
+  PUT localhost:8484/2iquu3usgik [200 OK, 6.55KB, 6ms]
   ✓  Status is 200
   ✓  Header content-type contains application/forms+json
   ✓  Meta property title contains BigCo Company Records
@@ -135,17 +135,17 @@ BigCo Company API
   ✓  Valid update item link
   ✓  Valid status item link
   ✓  Valid remove item link
-  ✓  Item 2cs90h7iv28 has a property companyName set to mike-co
-  ✓  Item 2cs90h7iv28 has a property email set to mike-co@gmail.com
-  ✓  Item 2cs90h7iv28 has a property telephone set to 123-456-7890
-  ✓  Item 2cs90h7iv28 has a property streetAddress set to 123 Main St
-  ✓  Item 2cs90h7iv28 has a property city set to Byteville
-  ✓  Item 2cs90h7iv28 has a property country set to USA
-  ✓  Item 2cs90h7iv28 has a property postalCode set to 12345
-  ✓  Item 2cs90h7iv28 has a property status set to pending
+  ✓  Item 2iquu3usgik has a property companyName set to mike-co
+  ✓  Item 2iquu3usgik has a property email set to mike-co@gmail.com
+  ✓  Item 2iquu3usgik has a property telephone set to 123-456-7890
+  ✓  Item 2iquu3usgik has a property streetAddress set to 123 Main St
+  ✓  Item 2iquu3usgik has a property city set to Byteville
+  ✓  Item 2iquu3usgik has a property country set to USA
+  ✓  Item 2iquu3usgik has a property postalCode set to 12345
+  ✓  Item 2iquu3usgik has a property status set to pending
 
 → Company Status
-  PATCH localhost:8484/status/2cs90h7iv28 [200 OK, 6.56KB, 6ms]
+  PATCH localhost:8484/status/2iquu3usgik [200 OK, 6.56KB, 6ms]
   ✓  Status is 200
   ✓  Header content-type contains application/forms+json
   ✓  Meta property title contains BigCo Company Records
@@ -160,10 +160,10 @@ BigCo Company API
   ✓  Valid update item link
   ✓  Valid status item link
   ✓  Valid remove item link
-  ✓  Item 2cs90h7iv28 has a property status set to active
+  ✓  Item 2iquu3usgik has a property status set to active
 
 → Company Status (Bad Status)
-  PATCH localhost:8484/status/2cs90h7iv28 [400 Bad Request, 425B, 3ms]
+  PATCH localhost:8484/status/2iquu3usgik [400 Bad Request, 425B, 2ms]
   ✓  Status is 400
   ✓  Header content-type contains application/problem+json
   ┌
@@ -171,8 +171,8 @@ BigCo Company API
   │    [ { type: 'error',
   │        title: 'Error',
   │        status: '400',
-  │        instance: 'http://localhost:8484/status/2cs90h7
-  │ iv28' } ] }
+  │        instance: 'http://localhost:8484/status/2iquu3u
+  │ sgik' } ] }
   └
   ✓  Error property type set to error
   ┌
@@ -180,13 +180,13 @@ BigCo Company API
   │    [ { type: 'error',
   │        title: 'Error',
   │        status: '400',
-  │        instance: 'http://localhost:8484/status/2cs90h7
-  │ iv28' } ] }
+  │        instance: 'http://localhost:8484/status/2iquu3u
+  │ sgik' } ] }
   └
   ✓  Error property status set to 400
 
 → Company Remove
-  DELETE localhost:8484/2cs90h7iv28 [200 OK, 25.78KB, 14ms]
+  DELETE localhost:8484/2iquu3usgik [200 OK, 25.78KB, 12ms]
   ✓  Status is 200
   ✓  Header content-type contains application/forms+json
   ✓  Meta property title contains BigCo Company Records
@@ -215,9 +215,9 @@ BigCo Company API
 ├─────────────────────────┼──────────┼──────────┤
 │              assertions │      116 │        0 │
 ├─────────────────────────┴──────────┴──────────┤
-│ total run duration: 1100ms                    │
+│ total run duration: 1052ms                    │
 ├───────────────────────────────────────────────┤
 │ total data received: 76.49KB (approx)         │
 ├───────────────────────────────────────────────┤
-│ average response time: 18ms                   │
+│ average response time: 17ms                   │
 └───────────────────────────────────────────────┘
