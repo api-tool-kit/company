@@ -49,7 +49,8 @@ module.exports.create = function(req,res) {
           item:body,
           props:data.props,
           reqd:data.reqd, 
-          enums:data.enums
+          enums:data.enums,
+          defs:data.defs
         }
        )
      );
