@@ -8,7 +8,7 @@
 # 
 # notes:
 #   - set up "npm run dev" in package.json (uses nodemon)
-#   - create test collection in postman (calleld in test-run.sh)
+#   - create test collection in postman (called in test-run.sh)
 #   - establish heroku app using git (via heroku cli)
 #
 # assumes:
