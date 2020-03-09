@@ -10,7 +10,7 @@
 #   and available at environment's URL
 #
 # utility dependencies:
-#   - newman w/ html reporter
+#   - newman w/ htmlextra reporter
 #   - curl
 #
 # **************************************
@@ -26,27 +26,21 @@ fi
 source postman.env
 
 # **************************************
-# share vars
-title="BigCo Company Tests"
-
+# set up local args
 svr="https://api.getpostman.com"
 apikey=$POSTMAN_KEY
 envid="na"
 arg="na"
 
-testfile="test-collection.json"
-envfile="test-environment.json"
-outfile="test-results.txt"
+# **************************************
+# load loal config values
+if [ ! -f "test-run.config" ]
+then
+  echo "Missing test-run.config"
+  exit 1
+fi
 
-#############################################################
-# fixed the collection id and environment ids
-# EDIT THESE VALUES TO MATCH YOUR TEST COLLECTION/ENV VALUES
-collid="48501-e8b3b37c-13ab-4eb9-9070-466bd8552699"
-# localhost
-local_envid="48501-3ed1e4f5-d531-42ef-a044-95ea24c8649f"
-# heroku
-remote_envid="48501-2ddd8578-43f1-41a6-9a7f-6ba2bdd1c9e8"
-#############################################################
+source test-run.config
 
 # **************************************
 # heading
