@@ -29,7 +29,7 @@ ex=0
 # **********************************************
 # load config
 config="launch.config"
-if [ -f "$config" ]
+if [ ! -f "$config" ]
 then
   echo
   echo "Missing launch.config"
