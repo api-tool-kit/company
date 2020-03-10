@@ -2,8 +2,9 @@ newman
 
 BigCo Company API
 
-→ Company Home
-  GET localhost:8484/ [200 OK, 2KB, 90ms]
+❏ happy_path
+↳ Company Home
+  GET localhost:8484/ [200 OK, 2KB, 79ms]
   ✓  Status is 200
   ✓  Header content-type contains application/forms+json
   ✓  Meta property title contains BigCo Company Records
@@ -14,8 +15,8 @@ BigCo Company API
   ✓  Valid self page link
   ✓  Valid list page link
 
-→ Company List
-  GET localhost:8484/list/ [200 OK, 26.77KB, 16ms]
+↳ Company List
+  GET localhost:8484/list/ [200 OK, 23.04KB, 15ms]
   ✓  Status is 200
   ✓  Header content-type contains application/forms+json
   ✓  Meta property title contains BigCo Company Records
@@ -32,8 +33,230 @@ BigCo Company API
   ✓  Valid status item link
   ✓  Valid remove item link
 
-→ Company Create
-  POST localhost:8484/ [200 OK, 7.61KB, 22ms]
+↳ Company Create
+  POST localhost:8484/ [200 OK, 7.61KB, 25ms]
+  ✓  Status is 200
+  ✓  Header content-type contains application/forms+json
+  ✓  Meta property title contains BigCo Company Records
+  ✓  Meta property release contains 1.0.0
+  ✓  Meta property author contains Amundsen
+  ✓  Valid home page link
+  ✓  Valid self page link
+  ✓  Valid list page link
+  ✓  Valid filter page link
+  ✓  Valid create page link
+  ✓  Valid items
+  ✓  Valid read item link
+  ✓  Valid update item link
+  ✓  Valid status item link
+  ✓  Valid remove item link
+
+↳ Company Read
+  GET localhost:8484/68m6j2za5zc [200 OK, 6.49KB, 14ms]
+  ✓  Status is 200
+  ✓  Header content-type contains application/forms+json
+  ✓  Meta property title contains BigCo Company Records
+  ✓  Meta property release contains 1.0.0
+  ✓  Meta property author contains Amundsen
+  ✓  Valid home page link
+  ✓  Valid self page link
+  ✓  Valid list page link
+  ✓  Valid filter page link
+  ✓  Valid items
+  ✓  Valid read item link
+  ✓  Valid update item link
+  ✓  Valid status item link
+  ✓  Valid remove item link
+  ✓  Item 68m6j2za5zc has a property companyName set to mike-co
+  ✓  Item 68m6j2za5zc has a property email set to mike-co@gmail.com
+  ✓  Item 68m6j2za5zc has a property telephone set to 123-456-7890
+  ✓  Item 68m6j2za5zc has a property status set to pending
+
+↳ Company Update
+  PUT localhost:8484/68m6j2za5zc [200 OK, 6.55KB, 8ms]
+  ✓  Status is 200
+  ✓  Header content-type contains application/forms+json
+  ✓  Meta property title contains BigCo Company Records
+  ✓  Meta property release contains 1.0.0
+  ✓  Meta property author contains Amundsen
+  ✓  Valid home page link
+  ✓  Valid self page link
+  ✓  Valid list page link
+  ✓  Valid filter page link
+  ✓  Valid items
+  ✓  Valid read item link
+  ✓  Valid update item link
+  ✓  Valid status item link
+  ✓  Valid remove item link
+  ✓  Item 68m6j2za5zc has a property companyName set to mike-co
+  ✓  Item 68m6j2za5zc has a property email set to mike-co@gmail.com
+  ✓  Item 68m6j2za5zc has a property telephone set to 123-456-7890
+  ✓  Item 68m6j2za5zc has a property streetAddress set to 123 Main St
+  ✓  Item 68m6j2za5zc has a property city set to Byteville
+  ✓  Item 68m6j2za5zc has a property country set to USA
+  ✓  Item 68m6j2za5zc has a property postalCode set to 12345
+  ✓  Item 68m6j2za5zc has a property status set to pending
+
+↳ Company Status
+  PATCH localhost:8484/status/68m6j2za5zc [200 OK, 6.56KB, 9ms]
+  ✓  Status is 200
+  ✓  Header content-type contains application/forms+json
+  ✓  Meta property title contains BigCo Company Records
+  ✓  Meta property release contains 1.0.0
+  ✓  Meta property author contains Amundsen
+  ✓  Valid home page link
+  ✓  Valid self page link
+  ✓  Valid list page link
+  ✓  Valid filter page link
+  ✓  Valid items
+  ✓  Valid read item link
+  ✓  Valid update item link
+  ✓  Valid status item link
+  ✓  Valid remove item link
+  ✓  Item 68m6j2za5zc has a property status set to active
+
+↳ Company Remove
+  DELETE localhost:8484/68m6j2za5zc [200 OK, 21.92KB, 17ms]
+  ✓  Status is 200
+  ✓  Header content-type contains application/forms+json
+  ✓  Meta property title contains BigCo Company Records
+  ✓  Meta property release contains 1.0.0
+  ✓  Meta property author contains Amundsen
+  ✓  Valid home page link
+  ✓  Valid self page link
+  ✓  Valid list page link
+  ✓  Valid filter page link
+  ✓  Valid items
+  ✓  Valid read item link
+  ✓  Valid update item link
+  ✓  Valid status item link
+  ✓  Valid remove item link
+
+❏ sad_path
+↳ Company Read (Bad Id)
+  GET localhost:8484/xxx [400 Bad Request, 464B, 7ms]
+  ✓  Status is 400
+  ✓  Header content-type contains application/problem+json
+  ┌
+  │ { error:
+  │    [ { type: 'error',
+  │        title: 'SimpleStorage: [company]',
+  │        detail: 'Not Found [xxx]',
+  │        status: '400',
+  │        instance: 'http://localhost:8484/xxx' } ] }
+  └
+  ✓  Error property type set to error
+  ┌
+  │ { error:
+  │    [ { type: 'error',
+  │        title: 'SimpleStorage: [company]',
+  │        detail: 'Not Found [xxx]',
+  │        status: '400',
+  │        instance: 'http://localhost:8484/xxx' } ] }
+  └
+  ✓  Error property status set to 400
+
+→ Company Create (missing companyName)
+  POST localhost:8484/ [400 Bad Request, 462B, 6ms]
+  ✓  Status is 400
+  ✓  Header content-type contains application/problem+json
+  ✓  Body root is a valid error object
+  ┌
+  │ { error:
+  │    [ { type: 'error',
+  │        title: 'Missing companyName ',
+  │        detail: 'Missing companyName ',
+  │        status: '400',
+  │        instance: 'http://localhost:8484/' } ] }
+  └
+  ✓  Error property type set to error
+  ┌
+  │ { error:
+  │    [ { type: 'error',
+  │        title: 'Missing companyName ',
+  │        detail: 'Missing companyName ',
+  │        status: '400',
+  │        instance: 'http://localhost:8484/' } ] }
+  └
+  ✓  Error property status set to 400
+  ┌
+  │ { error:
+  │    [ { type: 'error',
+  │        title: 'Missing companyName ',
+  │        detail: 'Missing companyName ',
+  │        status: '400',
+  │        instance: 'http://localhost:8484/' } ] }
+  └
+  ✓  Error property detail set to Missing companyName
+
+→ Company Create (missing email)
+  POST localhost:8484/ [400 Bad Request, 450B, 4ms]
+  ✓  Status is 400
+  ✓  Header content-type contains application/problem+json
+  ✓  Body root is a valid error object
+  ┌
+  │ { error:
+  │    [ { type: 'error',
+  │        title: 'Missing email ',
+  │        detail: 'Missing email ',
+  │        status: '400',
+  │        instance: 'http://localhost:8484/' } ] }
+  └
+  ✓  Error property type set to error
+  ┌
+  │ { error:
+  │    [ { type: 'error',
+  │        title: 'Missing email ',
+  │        detail: 'Missing email ',
+  │        status: '400',
+  │        instance: 'http://localhost:8484/' } ] }
+  └
+  ✓  Error property status set to 400
+  ┌
+  │ { error:
+  │    [ { type: 'error',
+  │        title: 'Missing email ',
+  │        detail: 'Missing email ',
+  │        status: '400',
+  │        instance: 'http://localhost:8484/' } ] }
+  └
+  ✓  Error property detail set to Missing email
+
+→ Company Create (missing status)
+  POST localhost:8484/ [400 Bad Request, 452B, 5ms]
+  ✓  Status is 400
+  ✓  Header content-type contains application/problem+json
+  ✓  Body root is a valid error object
+  ┌
+  │ { error:
+  │    [ { type: 'error',
+  │        title: 'Missing status ',
+  │        detail: 'Missing status ',
+  │        status: '400',
+  │        instance: 'http://localhost:8484/' } ] }
+  └
+  ✓  Error property type set to error
+  ┌
+  │ { error:
+  │    [ { type: 'error',
+  │        title: 'Missing status ',
+  │        detail: 'Missing status ',
+  │        status: '400',
+  │        instance: 'http://localhost:8484/' } ] }
+  └
+  ✓  Error property status set to 400
+  ┌
+  │ { error:
+  │    [ { type: 'error',
+  │        title: 'Missing status ',
+  │        detail: 'Missing status ',
+  │        status: '400',
+  │        instance: 'http://localhost:8484/' } ] }
+  └
+  ✓  Error property detail set to Missing status
+
+→ Company Create (valid)
+  POST localhost:8484/ [200 OK, 7.58KB, 9ms]
   ✓  Status is 200
   ✓  Header content-type contains application/forms+json
   ✓  Meta property title contains BigCo Company Records
@@ -44,8 +267,8 @@ BigCo Company API
   ✓  Valid read item link
   ✓  Valid remove item link
 
-→ Company Create (Duplicate Id)
-  POST localhost:8484/ [400 Bad Request, 467B, 7ms]
+→ Company Create (duplicate Id)
+  POST localhost:8484/ [400 Bad Request, 467B, 5ms]
   ✓  Status is 400
   ✓  Header content-type contains application/problem+json
   ✓  Body root is a valid error object
@@ -77,95 +300,8 @@ BigCo Company API
   └
   ✓  Error property detail set to Record already exists
 
-→ Company Read
-  GET localhost:8484/1wk45844s94 [200 OK, 6.49KB, 17ms]
-  ✓  Status is 200
-  ✓  Header content-type contains application/forms+json
-  ✓  Meta property title contains BigCo Company Records
-  ✓  Meta property release contains 1.0.0
-  ✓  Meta property author contains Amundsen
-  ✓  Valid home page link
-  ✓  Valid self page link
-  ✓  Valid list page link
-  ✓  Valid filter page link
-  ✓  Valid items
-  ✓  Valid read item link
-  ✓  Valid update item link
-  ✓  Valid status item link
-  ✓  Valid remove item link
-  ✓  Item 1wk45844s94 has a property companyName set to mike-co
-  ✓  Item 1wk45844s94 has a property email set to mike-co@gmail.com
-  ✓  Item 1wk45844s94 has a property telephone set to 123-456-7890
-  ✓  Item 1wk45844s94 has a property status set to pending
-
-→ Company Read (Bad Id)
-  GET localhost:8484/xxx [400 Bad Request, 464B, 5ms]
-  ✓  Status is 400
-  ✓  Header content-type contains application/problem+json
-  ┌
-  │ { error:
-  │    [ { type: 'error',
-  │        title: 'SimpleStorage: [company]',
-  │        detail: 'Not Found [xxx]',
-  │        status: '400',
-  │        instance: 'http://localhost:8484/xxx' } ] }
-  └
-  ✓  Error property type set to error
-  ┌
-  │ { error:
-  │    [ { type: 'error',
-  │        title: 'SimpleStorage: [company]',
-  │        detail: 'Not Found [xxx]',
-  │        status: '400',
-  │        instance: 'http://localhost:8484/xxx' } ] }
-  └
-  ✓  Error property status set to 400
-
-→ Company Update
-  PUT localhost:8484/1wk45844s94 [200 OK, 6.55KB, 8ms]
-  ✓  Status is 200
-  ✓  Header content-type contains application/forms+json
-  ✓  Meta property title contains BigCo Company Records
-  ✓  Meta property release contains 1.0.0
-  ✓  Meta property author contains Amundsen
-  ✓  Valid home page link
-  ✓  Valid self page link
-  ✓  Valid list page link
-  ✓  Valid filter page link
-  ✓  Valid items
-  ✓  Valid read item link
-  ✓  Valid update item link
-  ✓  Valid status item link
-  ✓  Valid remove item link
-  ✓  Item 1wk45844s94 has a property companyName set to mike-co
-  ✓  Item 1wk45844s94 has a property email set to mike-co@gmail.com
-  ✓  Item 1wk45844s94 has a property telephone set to 123-456-7890
-  ✓  Item 1wk45844s94 has a property streetAddress set to 123 Main St
-  ✓  Item 1wk45844s94 has a property city set to Byteville
-  ✓  Item 1wk45844s94 has a property country set to USA
-  ✓  Item 1wk45844s94 has a property postalCode set to 12345
-  ✓  Item 1wk45844s94 has a property status set to pending
-
-→ Company Status
-  PATCH localhost:8484/status/1wk45844s94 [200 OK, 6.56KB, 10ms]
-  ✓  Status is 200
-  ✓  Header content-type contains application/forms+json
-  ✓  Meta property title contains BigCo Company Records
-  ✓  Meta property release contains 1.0.0
-  ✓  Meta property author contains Amundsen
-  ✓  Valid home page link
-  ✓  Valid self page link
-  ✓  Valid list page link
-  ✓  Valid filter page link
-  ✓  Valid items
-  ✓  Valid read item link
-  ✓  Valid update item link
-  ✓  Valid status item link
-  ✓  Valid remove item link
-  ✓  Item 1wk45844s94 has a property status set to active
-
 → Company Status (Bad Status)
-  PATCH localhost:8484/status/1wk45844s94 [400 Bad Request, 514B, 6ms]
+  PATCH localhost:8484/status/68m6j2za5zc [400 Bad Request, 514B, 6ms]
   ✓  Status is 400
   ✓  Header content-type contains application/problem+json
   ┌
@@ -175,8 +311,8 @@ BigCo Company API
   │        detail: 'Invalid enumerator [fred] for status '
   │ ,
   │        status: '400',
-  │        instance: 'http://localhost:8484/status/1wk4584
-  │ 4s94' } ] }
+  │        instance: 'http://localhost:8484/status/68m6j2z
+  │ a5zc' } ] }
   └
   ✓  Error property type set to error
   ┌
@@ -186,13 +322,24 @@ BigCo Company API
   │        detail: 'Invalid enumerator [fred] for status '
   │ ,
   │        status: '400',
-  │        instance: 'http://localhost:8484/status/1wk4584
-  │ 4s94' } ] }
+  │        instance: 'http://localhost:8484/status/68m6j2z
+  │ a5zc' } ] }
   └
   ✓  Error property status set to 400
+  ┌
+  │ { error:
+  │    [ { type: 'error',
+  │        title: 'Invalid enumerator [fred] for status ',
+  │        detail: 'Invalid enumerator [fred] for status '
+  │ ,
+  │        status: '400',
+  │        instance: 'http://localhost:8484/status/68m6j2z
+  │ a5zc' } ] }
+  └
+  ✓  Error property detail set to Invalid enumerator
 
-→ Company Remove
-  DELETE localhost:8484/1wk45844s94 [200 OK, 25.65KB, 17ms]
+→ Company Remove (valid)
+  DELETE localhost:8484/68m6j2za5zc [200 OK, 21.92KB, 14ms]
   ✓  Status is 200
   ✓  Header content-type contains application/forms+json
   ✓  Meta property title contains BigCo Company Records
@@ -213,17 +360,17 @@ BigCo Company API
 ├─────────────────────────┼──────────────────┼──────────────────┤
 │              iterations │                1 │                0 │
 ├─────────────────────────┼──────────────────┼──────────────────┤
-│                requests │               10 │                0 │
+│                requests │               15 │                0 │
 ├─────────────────────────┼──────────────────┼──────────────────┤
-│            test-scripts │               20 │                0 │
+│            test-scripts │               30 │                0 │
 ├─────────────────────────┼──────────────────┼──────────────────┤
-│      prerequest-scripts │               20 │                0 │
+│      prerequest-scripts │               30 │                0 │
 ├─────────────────────────┼──────────────────┼──────────────────┤
-│              assertions │              116 │                0 │
+│              assertions │              164 │                0 │
 ├─────────────────────────┴──────────────────┴──────────────────┤
-│ total run duration: 980ms                                     │
+│ total run duration: 1294ms                                    │
 ├───────────────────────────────────────────────────────────────┤
-│ total data received: 80.53KB (approx)                         │
+│ total data received: 102.65KB (approx)                        │
 ├───────────────────────────────────────────────────────────────┤
-│ average response time: 19ms [min: 5ms, max: 90ms, s.d.: 24ms] │
+│ average response time: 14ms [min: 4ms, max: 79ms, s.d.: 18ms] │
 └───────────────────────────────────────────────────────────────┘
