@@ -25,9 +25,7 @@
 # **********************************************
 # start title
 echo 
-echo "Launch script"
-echo "=========================================="
-echo date
+echo "Launching deployment..."
 
 # **********************************************
 # exit var
