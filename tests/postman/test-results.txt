@@ -4,7 +4,7 @@ BigCo Company API
 
 ❏ happy_path
 ↳ Company Home
-  GET company-atk.herokuapp.com/ [200 OK, 2.06KB, 8.2s]
+  GET company-atk.herokuapp.com/ [200 OK, 2.06KB, 3.2s]
   ✓  Status is 200
   ✓  Header content-type contains application/forms+json
   ✓  Meta property title contains BigCo Company Records
@@ -16,7 +16,7 @@ BigCo Company API
   ✓  Valid list page link
 
 ↳ Company List
-  GET company-atk.herokuapp.com/list/ [200 OK, 23.34KB, 64ms]
+  GET company-atk.herokuapp.com/list/ [200 OK, 23.34KB, 55ms]
   ✓  Status is 200
   ✓  Header content-type contains application/forms+json
   ✓  Meta property title contains BigCo Company Records
@@ -34,7 +34,7 @@ BigCo Company API
   ✓  Valid remove item link
 
 ↳ Company Create
-  POST company-atk.herokuapp.com/ [200 OK, 7.73KB, 50ms]
+  POST company-atk.herokuapp.com/ [200 OK, 7.73KB, 39ms]
   ✓  Status is 200
   ✓  Header content-type contains application/forms+json
   ✓  Meta property title contains BigCo Company Records
@@ -52,7 +52,7 @@ BigCo Company API
   ✓  Valid remove item link
 
 ↳ Company Read
-  GET company-atk.herokuapp.com/19y24kbxy7e [200 OK, 6.61KB, 33ms]
+  GET company-atk.herokuapp.com/1hmjurbdeyz [200 OK, 6.61KB, 27ms]
   ✓  Status is 200
   ✓  Header content-type contains application/forms+json
   ✓  Meta property title contains BigCo Company Records
@@ -67,13 +67,13 @@ BigCo Company API
   ✓  Valid update item link
   ✓  Valid status item link
   ✓  Valid remove item link
-  ✓  Item 19y24kbxy7e has a property companyName set to mike-co
-  ✓  Item 19y24kbxy7e has a property email set to mike-co@gmail.com
-  ✓  Item 19y24kbxy7e has a property telephone set to 123-456-7890
-  ✓  Item 19y24kbxy7e has a property status set to pending
+  ✓  Item 1hmjurbdeyz has a property companyName set to mike-co
+  ✓  Item 1hmjurbdeyz has a property email set to mike-co@gmail.com
+  ✓  Item 1hmjurbdeyz has a property telephone set to 123-456-7890
+  ✓  Item 1hmjurbdeyz has a property status set to pending
 
 ↳ Company Update
-  PUT company-atk.herokuapp.com/19y24kbxy7e [200 OK, 6.67KB, 32ms]
+  PUT company-atk.herokuapp.com/1hmjurbdeyz [200 OK, 6.67KB, 30ms]
   ✓  Status is 200
   ✓  Header content-type contains application/forms+json
   ✓  Meta property title contains BigCo Company Records
@@ -88,17 +88,17 @@ BigCo Company API
   ✓  Valid update item link
   ✓  Valid status item link
   ✓  Valid remove item link
-  ✓  Item 19y24kbxy7e has a property companyName set to mike-co
-  ✓  Item 19y24kbxy7e has a property email set to mike-co@gmail.com
-  ✓  Item 19y24kbxy7e has a property telephone set to 123-456-7890
-  ✓  Item 19y24kbxy7e has a property streetAddress set to 123 Main St
-  ✓  Item 19y24kbxy7e has a property city set to Byteville
-  ✓  Item 19y24kbxy7e has a property country set to USA
-  ✓  Item 19y24kbxy7e has a property postalCode set to 12345
-  ✓  Item 19y24kbxy7e has a property status set to pending
+  ✓  Item 1hmjurbdeyz has a property companyName set to mike-co
+  ✓  Item 1hmjurbdeyz has a property email set to mike-co@gmail.com
+  ✓  Item 1hmjurbdeyz has a property telephone set to 123-456-7890
+  ✓  Item 1hmjurbdeyz has a property streetAddress set to 123 Main St
+  ✓  Item 1hmjurbdeyz has a property city set to Byteville
+  ✓  Item 1hmjurbdeyz has a property country set to USA
+  ✓  Item 1hmjurbdeyz has a property postalCode set to 12345
+  ✓  Item 1hmjurbdeyz has a property status set to pending
 
 ↳ Company Status
-  PATCH company-atk.herokuapp.com/status/19y24kbxy7e [200 OK, 6.67KB, 26ms]
+  PATCH company-atk.herokuapp.com/status/1hmjurbdeyz [200 OK, 6.67KB, 28ms]
   ✓  Status is 200
   ✓  Header content-type contains application/forms+json
   ✓  Meta property title contains BigCo Company Records
@@ -113,10 +113,10 @@ BigCo Company API
   ✓  Valid update item link
   ✓  Valid status item link
   ✓  Valid remove item link
-  ✓  Item 19y24kbxy7e has a property status set to active
+  ✓  Item 1hmjurbdeyz has a property status set to active
 
 ↳ Company Remove
-  DELETE company-atk.herokuapp.com/19y24kbxy7e [200 OK, 22.21KB, 50ms]
+  DELETE company-atk.herokuapp.com/1hmjurbdeyz [200 OK, 22.21KB, 46ms]
   ✓  Status is 200
   ✓  Header content-type contains application/forms+json
   ✓  Meta property title contains BigCo Company Records
@@ -159,7 +159,7 @@ BigCo Company API
   ✓  Error property status set to 400
 
 → Company Create (missing companyName)
-  POST company-atk.herokuapp.com/ [400 Bad Request, 505B, 26ms]
+  POST company-atk.herokuapp.com/ [400 Bad Request, 505B, 24ms]
   ✓  Status is 400
   ✓  Header content-type contains application/problem+json
   ✓  Body root is a valid error object
@@ -195,7 +195,7 @@ BigCo Company API
   ✓  Error property detail set to Missing companyName
 
 → Company Create (missing email)
-  POST company-atk.herokuapp.com/ [400 Bad Request, 493B, 25ms]
+  POST company-atk.herokuapp.com/ [400 Bad Request, 493B, 23ms]
   ✓  Status is 400
   ✓  Header content-type contains application/problem+json
   ✓  Body root is a valid error object
@@ -231,7 +231,7 @@ BigCo Company API
   ✓  Error property detail set to Missing email
 
 → Company Create (missing status)
-  POST company-atk.herokuapp.com/ [400 Bad Request, 495B, 26ms]
+  POST company-atk.herokuapp.com/ [400 Bad Request, 495B, 27ms]
   ✓  Status is 400
   ✓  Header content-type contains application/problem+json
   ✓  Body root is a valid error object
@@ -267,7 +267,7 @@ BigCo Company API
   ✓  Error property detail set to Missing status
 
 → Company Create (valid)
-  POST company-atk.herokuapp.com/ [200 OK, 7.71KB, 29ms]
+  POST company-atk.herokuapp.com/ [200 OK, 7.71KB, 30ms]
   ✓  Status is 200
   ✓  Header content-type contains application/forms+json
   ✓  Meta property title contains BigCo Company Records
@@ -279,7 +279,7 @@ BigCo Company API
   ✓  Valid remove item link
 
 → Company Create (duplicate Id)
-  POST company-atk.herokuapp.com/ [400 Bad Request, 510B, 27ms]
+  POST company-atk.herokuapp.com/ [400 Bad Request, 510B, 28ms]
   ✓  Status is 400
   ✓  Header content-type contains application/problem+json
   ✓  Body root is a valid error object
@@ -315,7 +315,7 @@ BigCo Company API
   ✓  Error property detail set to Record already exists
 
 → Company Status (Bad Status)
-  PATCH company-atk.herokuapp.com/status/19y24kbxy7e [400 Bad Request, 558B, 24ms]
+  PATCH company-atk.herokuapp.com/status/1hmjurbdeyz [400 Bad Request, 558B, 23ms]
   ✓  Status is 400
   ✓  Header content-type contains application/problem+json
   ┌
@@ -326,8 +326,8 @@ BigCo Company API
   │ ,
   │        status: '400',
   │        instance:
-  │         'http://company-atk.herokuapp.com/status/19y24
-  │ kbxy7e' } ] }
+  │         'http://company-atk.herokuapp.com/status/1hmju
+  │ rbdeyz' } ] }
   └
   ✓  Error property type set to error
   ┌
@@ -338,8 +338,8 @@ BigCo Company API
   │ ,
   │        status: '400',
   │        instance:
-  │         'http://company-atk.herokuapp.com/status/19y24
-  │ kbxy7e' } ] }
+  │         'http://company-atk.herokuapp.com/status/1hmju
+  │ rbdeyz' } ] }
   └
   ✓  Error property status set to 400
   ┌
@@ -350,13 +350,13 @@ BigCo Company API
   │ ,
   │        status: '400',
   │        instance:
-  │         'http://company-atk.herokuapp.com/status/19y24
-  │ kbxy7e' } ] }
+  │         'http://company-atk.herokuapp.com/status/1hmju
+  │ rbdeyz' } ] }
   └
   ✓  Error property detail set to Invalid enumerator
 
 → Company Remove (valid)
-  DELETE company-atk.herokuapp.com/19y24kbxy7e [200 OK, 22.21KB, 40ms]
+  DELETE company-atk.herokuapp.com/1hmjurbdeyz [200 OK, 22.21KB, 30ms]
   ✓  Status is 200
   ✓  Header content-type contains application/forms+json
   ✓  Meta property title contains BigCo Company Records
@@ -385,9 +385,9 @@ BigCo Company API
 ├─────────────────────────┼──────────┼──────────┤
 │              assertions │      164 │        0 │
 ├─────────────────────────┴──────────┴──────────┤
-│ total run duration: 9.9s                      │
+│ total run duration: 4.9s                      │
 ├───────────────────────────────────────────────┤
 │ total data received: 103.98KB (approx)        │
 ├───────────────────────────────────────────────┤
-│ average response time: 576ms                  │
+│ average response time: 239ms                  │
 └───────────────────────────────────────────────┘
