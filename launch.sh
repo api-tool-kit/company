@@ -28,6 +28,7 @@ ex=0
 
 # commands
 svc="npm run dev"
+test_folder="test/postman"
 test_pre="./test-run.sh local"
 test_post="./test-run.sh remote"
 deploy="git push heroku master"
@@ -43,7 +44,7 @@ $svc &
 # **********************************************
 # run pre-deploy test script
 echo "Running pre-deployment tests..."
-cd tests/postman
+cd $test_folder
 $test_pre
 ex=$?
 
