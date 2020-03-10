@@ -51,7 +51,7 @@ ex=$?
 
 # **********************************************
 # check test status
-if [ $ex -eq 1 ]
+if [ $ex -gt 0 ]
 then
   echo "*** PRE-DEPLOY TESTS FAILED - job cancelled. ***"
   echo
@@ -60,14 +60,17 @@ fi
 
 # **********************************************
 # use git push to heroku
-ex=1
-echo "Deploying to production..."
-$deploy
-ex=$?
+if [ $ex -eq 0 ]
+then
+  ex=1
+  echo "Deploying to production..."
+  $deploy
+  ex=$?
+fi  
 
 # **********************************************
 # check heroku status
-if [ $ex -eq 1 ]
+if [ $ex -gt 0 ]
 then
   echo "*** DEPLOY FAILED - job cancelled. ***"
   echo
@@ -76,30 +79,30 @@ fi
 
 # **********************************************
 # run post-deploy test script
-ex=1
-echo "Running post-deployment tests..."
-$test_post
-ex=$?
+if [ $ex -eq 0 ]
+then	
+  ex=1
+  echo "Running post-deployment tests..."
+  $test_post
+  ex=$?
+fi
 
 # **********************************************
 # check test status
-if [ $ex -eq 1 ]
+if [ $ex -gt 0 ]
 then
   echo "*** POST-DEPLOY TESTS FAILED - job cancelled. ***"
   echo
   exit $ex
+else
+  echo 
+  echo "*****************************"
+  echo "*** DEPLOYMENT SUCCESSFUL ***"
+  echo "*****************************"
+  date
+  exit 0
 fi  
-
-# **********************************************
-# report successful run
-echo 
-echo "*****************************"
-echo "*** DEPLOYMENT SUCCESSFUL ***"
-echo "*****************************"
-date
-exit 0
 
 # **********************************************
 # EOF
 # **********************************************
-
