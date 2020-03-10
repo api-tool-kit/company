@@ -26,12 +26,18 @@
 # exit var
 ex=0
 
-# commands
-svc="npm run dev"
-test_folder="tests/postman"
-test_pre="./test-run.sh local"
-test_post="./test-run.sh remote"
-deploy="git push heroku master"
+# **********************************************
+# load config
+config="launch.config"
+if [ -f "$config" ]
+then
+  echo
+  echo "Missing launch.config"
+  echo
+  exit 1
+fi
+
+source $config
 
 # **********************************************
 # setup killing backgrounds when done
