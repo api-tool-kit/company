@@ -4,19 +4,18 @@ BigCo Company API
 
 ❏ happy_path
 ↳ Company Home
-  GET company-atk.herokuapp.com/ [200 OK, 2.06KB, 5.2s]
+  GET localhost:8484/ [200 OK, 2KB, 129ms]
   ✓  Status is 200
   ✓  Header content-type contains application/forms+json
   ✓  Meta property title contains BigCo Company Records
   ✓  Meta property release contains 1.0.0
   ✓  Meta property author contains Amundsen
   ✓  Valid home page link
-  ✓  Page link home has a property id set to home
   ✓  Valid self page link
   ✓  Valid list page link
 
 ↳ Company List
-  GET company-atk.herokuapp.com/list/ [200 OK, 23.34KB, 108ms]
+  GET localhost:8484/list/ [200 OK, 49.42KB, 34ms]
   ✓  Status is 200
   ✓  Header content-type contains application/forms+json
   ✓  Meta property title contains BigCo Company Records
@@ -34,7 +33,7 @@ BigCo Company API
   ✓  Valid remove item link
 
 ↳ Company Create
-  POST company-atk.herokuapp.com/ [200 OK, 7.73KB, 65ms]
+  POST localhost:8484/ [200 OK, 7.6KB, 44ms]
   ✓  Status is 200
   ✓  Header content-type contains application/forms+json
   ✓  Meta property title contains BigCo Company Records
@@ -52,7 +51,7 @@ BigCo Company API
   ✓  Valid remove item link
 
 ↳ Company Read
-  GET company-atk.herokuapp.com/7munr84v52 [200 OK, 6.6KB, 85ms]
+  GET localhost:8484/r0f9xy4qqf [200 OK, 6.48KB, 26ms]
   ✓  Status is 200
   ✓  Header content-type contains application/forms+json
   ✓  Meta property title contains BigCo Company Records
@@ -67,13 +66,13 @@ BigCo Company API
   ✓  Valid update item link
   ✓  Valid status item link
   ✓  Valid remove item link
-  ✓  Item 7munr84v52 has a property companyName set to mike-co
-  ✓  Item 7munr84v52 has a property email set to mike-co@gmail.com
-  ✓  Item 7munr84v52 has a property telephone set to 123-456-7890
-  ✓  Item 7munr84v52 has a property status set to pending
+  ✓  Item r0f9xy4qqf has a property companyName set to mike-co
+  ✓  Item r0f9xy4qqf has a property email set to mike-co@gmail.com
+  ✓  Item r0f9xy4qqf has a property telephone set to 123-456-7890
+  ✓  Item r0f9xy4qqf has a property status set to pending
 
 ↳ Company Update
-  PUT company-atk.herokuapp.com/7munr84v52 [200 OK, 6.66KB, 86ms]
+  PUT localhost:8484/r0f9xy4qqf [200 OK, 6.54KB, 14ms]
   ✓  Status is 200
   ✓  Header content-type contains application/forms+json
   ✓  Meta property title contains BigCo Company Records
@@ -88,17 +87,17 @@ BigCo Company API
   ✓  Valid update item link
   ✓  Valid status item link
   ✓  Valid remove item link
-  ✓  Item 7munr84v52 has a property companyName set to mike-co
-  ✓  Item 7munr84v52 has a property email set to mike-co@gmail.com
-  ✓  Item 7munr84v52 has a property telephone set to 123-456-7890
-  ✓  Item 7munr84v52 has a property streetAddress set to 123 Main St
-  ✓  Item 7munr84v52 has a property city set to Byteville
-  ✓  Item 7munr84v52 has a property country set to USA
-  ✓  Item 7munr84v52 has a property postalCode set to 12345
-  ✓  Item 7munr84v52 has a property status set to pending
+  ✓  Item r0f9xy4qqf has a property companyName set to mike-co
+  ✓  Item r0f9xy4qqf has a property email set to mike-co@gmail.com
+  ✓  Item r0f9xy4qqf has a property telephone set to 123-456-7890
+  ✓  Item r0f9xy4qqf has a property streetAddress set to 123 Main St
+  ✓  Item r0f9xy4qqf has a property city set to Byteville
+  ✓  Item r0f9xy4qqf has a property country set to USA
+  ✓  Item r0f9xy4qqf has a property postalCode set to 12345
+  ✓  Item r0f9xy4qqf has a property status set to pending
 
 ↳ Company Status
-  PATCH company-atk.herokuapp.com/status/7munr84v52 [200 OK, 6.66KB, 54ms]
+  PATCH localhost:8484/status/r0f9xy4qqf [200 OK, 6.54KB, 18ms]
   ✓  Status is 200
   ✓  Header content-type contains application/forms+json
   ✓  Meta property title contains BigCo Company Records
@@ -113,10 +112,10 @@ BigCo Company API
   ✓  Valid update item link
   ✓  Valid status item link
   ✓  Valid remove item link
-  ✓  Item 7munr84v52 has a property status set to active
+  ✓  Item r0f9xy4qqf has a property status set to active
 
 ↳ Company Remove
-  DELETE company-atk.herokuapp.com/7munr84v52 [200 OK, 22.21KB, 102ms]
+  DELETE localhost:8484/r0f9xy4qqf [200 OK, 48.3KB, 44ms]
   ✓  Status is 200
   ✓  Header content-type contains application/forms+json
   ✓  Meta property title contains BigCo Company Records
@@ -134,7 +133,7 @@ BigCo Company API
 
 ❏ sad_path
 ↳ Company Read (Bad Id)
-  GET company-atk.herokuapp.com/xxx [400 Bad Request, 507B, 41ms]
+  GET localhost:8484/xxx [400 Bad Request, 464B, 10ms]
   ✓  Status is 400
   ✓  Header content-type contains application/problem+json
   ┌
@@ -143,8 +142,7 @@ BigCo Company API
   │        title: 'SimpleStorage: [company]',
   │        detail: 'Not Found [xxx]',
   │        status: '400',
-  │        instance: 'http://company-atk.herokuapp.com/xxx
-  │ ' } ] }
+  │        instance: 'http://localhost:8484/xxx' } ] }
   └
   ✓  Error property type set to error
   ┌
@@ -153,210 +151,12 @@ BigCo Company API
   │        title: 'SimpleStorage: [company]',
   │        detail: 'Not Found [xxx]',
   │        status: '400',
-  │        instance: 'http://company-atk.herokuapp.com/xxx
-  │ ' } ] }
+  │        instance: 'http://localhost:8484/xxx' } ] }
   └
   ✓  Error property status set to 400
 
-→ Company Create (missing companyName)
-  POST company-atk.herokuapp.com/ [400 Bad Request, 505B, 37ms]
-  ✓  Status is 400
-  ✓  Header content-type contains application/problem+json
-  ✓  Body root is a valid error object
-  ┌
-  │ { error:
-  │    [ { type: 'error',
-  │        title: 'Missing companyName ',
-  │        detail: 'Missing companyName ',
-  │        status: '400',
-  │        instance: 'http://company-atk.herokuapp.com/' }
-  │  ] }
-  └
-  ✓  Error property type set to error
-  ┌
-  │ { error:
-  │    [ { type: 'error',
-  │        title: 'Missing companyName ',
-  │        detail: 'Missing companyName ',
-  │        status: '400',
-  │        instance: 'http://company-atk.herokuapp.com/' }
-  │  ] }
-  └
-  ✓  Error property status set to 400
-  ┌
-  │ { error:
-  │    [ { type: 'error',
-  │        title: 'Missing companyName ',
-  │        detail: 'Missing companyName ',
-  │        status: '400',
-  │        instance: 'http://company-atk.herokuapp.com/' }
-  │  ] }
-  └
-  ✓  Error property detail set to Missing companyName
-
-→ Company Create (missing email)
-  POST company-atk.herokuapp.com/ [400 Bad Request, 493B, 30ms]
-  ✓  Status is 400
-  ✓  Header content-type contains application/problem+json
-  ✓  Body root is a valid error object
-  ┌
-  │ { error:
-  │    [ { type: 'error',
-  │        title: 'Missing email ',
-  │        detail: 'Missing email ',
-  │        status: '400',
-  │        instance: 'http://company-atk.herokuapp.com/' }
-  │  ] }
-  └
-  ✓  Error property type set to error
-  ┌
-  │ { error:
-  │    [ { type: 'error',
-  │        title: 'Missing email ',
-  │        detail: 'Missing email ',
-  │        status: '400',
-  │        instance: 'http://company-atk.herokuapp.com/' }
-  │  ] }
-  └
-  ✓  Error property status set to 400
-  ┌
-  │ { error:
-  │    [ { type: 'error',
-  │        title: 'Missing email ',
-  │        detail: 'Missing email ',
-  │        status: '400',
-  │        instance: 'http://company-atk.herokuapp.com/' }
-  │  ] }
-  └
-  ✓  Error property detail set to Missing email
-
-→ Company Create (missing status)
-  POST company-atk.herokuapp.com/ [400 Bad Request, 495B, 44ms]
-  ✓  Status is 400
-  ✓  Header content-type contains application/problem+json
-  ✓  Body root is a valid error object
-  ┌
-  │ { error:
-  │    [ { type: 'error',
-  │        title: 'Missing status ',
-  │        detail: 'Missing status ',
-  │        status: '400',
-  │        instance: 'http://company-atk.herokuapp.com/' }
-  │  ] }
-  └
-  ✓  Error property type set to error
-  ┌
-  │ { error:
-  │    [ { type: 'error',
-  │        title: 'Missing status ',
-  │        detail: 'Missing status ',
-  │        status: '400',
-  │        instance: 'http://company-atk.herokuapp.com/' }
-  │  ] }
-  └
-  ✓  Error property status set to 400
-  ┌
-  │ { error:
-  │    [ { type: 'error',
-  │        title: 'Missing status ',
-  │        detail: 'Missing status ',
-  │        status: '400',
-  │        instance: 'http://company-atk.herokuapp.com/' }
-  │  ] }
-  └
-  ✓  Error property detail set to Missing status
-
-→ Company Create (valid)
-  POST company-atk.herokuapp.com/ [200 OK, 7.7KB, 58ms]
-  ✓  Status is 200
-  ✓  Header content-type contains application/forms+json
-  ✓  Meta property title contains BigCo Company Records
-  ✓  Meta property release contains 1.0.0
-  ✓  Meta property author contains Amundsen
-  ✓  Valid self page link
-  ✓  Valid items
-  ✓  Valid read item link
-  ✓  Valid remove item link
-
-→ Company Create (duplicate Id)
-  POST company-atk.herokuapp.com/ [400 Bad Request, 510B, 42ms]
-  ✓  Status is 400
-  ✓  Header content-type contains application/problem+json
-  ✓  Body root is a valid error object
-  ┌
-  │ { error:
-  │    [ { type: 'error',
-  │        title: 'SimpleStorage: [company]',
-  │        detail: 'Record already exists',
-  │        status: '400',
-  │        instance: 'http://company-atk.herokuapp.com/' }
-  │  ] }
-  └
-  ✓  Error property type set to error
-  ┌
-  │ { error:
-  │    [ { type: 'error',
-  │        title: 'SimpleStorage: [company]',
-  │        detail: 'Record already exists',
-  │        status: '400',
-  │        instance: 'http://company-atk.herokuapp.com/' }
-  │  ] }
-  └
-  ✓  Error property status set to 400
-  ┌
-  │ { error:
-  │    [ { type: 'error',
-  │        title: 'SimpleStorage: [company]',
-  │        detail: 'Record already exists',
-  │        status: '400',
-  │        instance: 'http://company-atk.herokuapp.com/' }
-  │  ] }
-  └
-  ✓  Error property detail set to Record already exists
-
-→ Company Status (Bad Status)
-  PATCH company-atk.herokuapp.com/status/7munr84v52 [400 Bad Request, 557B, 37ms]
-  ✓  Status is 400
-  ✓  Header content-type contains application/problem+json
-  ┌
-  │ { error:
-  │    [ { type: 'error',
-  │        title: 'Invalid enumerator [fred] for status ',
-  │        detail: 'Invalid enumerator [fred] for status '
-  │ ,
-  │        status: '400',
-  │        instance:
-  │         'http://company-atk.herokuapp.com/status/7munr
-  │ 84v52' } ] }
-  └
-  ✓  Error property type set to error
-  ┌
-  │ { error:
-  │    [ { type: 'error',
-  │        title: 'Invalid enumerator [fred] for status ',
-  │        detail: 'Invalid enumerator [fred] for status '
-  │ ,
-  │        status: '400',
-  │        instance:
-  │         'http://company-atk.herokuapp.com/status/7munr
-  │ 84v52' } ] }
-  └
-  ✓  Error property status set to 400
-  ┌
-  │ { error:
-  │    [ { type: 'error',
-  │        title: 'Invalid enumerator [fred] for status ',
-  │        detail: 'Invalid enumerator [fred] for status '
-  │ ,
-  │        status: '400',
-  │        instance:
-  │         'http://company-atk.herokuapp.com/status/7munr
-  │ 84v52' } ] }
-  └
-  ✓  Error property detail set to Invalid enumerator
-
-→ Company Remove (valid)
-  DELETE company-atk.herokuapp.com/7munr84v52 [200 OK, 22.21KB, 72ms]
+↳ Company Remove (valid)
+  DELETE localhost:8484/r0f9xy4qqf [200 OK, 48.3KB, 15ms]
   ✓  Status is 200
   ✓  Header content-type contains application/forms+json
   ✓  Meta property title contains BigCo Company Records
@@ -372,22 +172,204 @@ BigCo Company API
   ✓  Valid status item link
   ✓  Valid remove item link
 
-┌─────────────────────────┬────────────────────┬────────────────────┐
-│                         │           executed │             failed │
-├─────────────────────────┼────────────────────┼────────────────────┤
-│              iterations │                  1 │                  0 │
-├─────────────────────────┼────────────────────┼────────────────────┤
-│                requests │                 15 │                  0 │
-├─────────────────────────┼────────────────────┼────────────────────┤
-│            test-scripts │                 30 │                  0 │
-├─────────────────────────┼────────────────────┼────────────────────┤
-│      prerequest-scripts │                 30 │                  0 │
-├─────────────────────────┼────────────────────┼────────────────────┤
-│              assertions │                164 │                  0 │
-├─────────────────────────┴────────────────────┴────────────────────┤
-│ total run duration: 7.6s                                          │
-├───────────────────────────────────────────────────────────────────┤
-│ total data received: 103.92KB (approx)                            │
-├───────────────────────────────────────────────────────────────────┤
-│ average response time: 404ms [min: 30ms, max: 5.2s, s.d.: 1284ms] │
-└───────────────────────────────────────────────────────────────────┘
+↳ Company Create (missing email)
+  POST localhost:8484/ [400 Bad Request, 450B, 8ms]
+  ✓  Status is 400
+  ✓  Header content-type contains application/problem+json
+  ✓  Body root is a valid error object
+  ┌
+  │ { error:
+  │    [ { type: 'error',
+  │        title: 'Missing email ',
+  │        detail: 'Missing email ',
+  │        status: '400',
+  │        instance: 'http://localhost:8484/' } ] }
+  └
+  ✓  Error property type set to error
+  ┌
+  │ { error:
+  │    [ { type: 'error',
+  │        title: 'Missing email ',
+  │        detail: 'Missing email ',
+  │        status: '400',
+  │        instance: 'http://localhost:8484/' } ] }
+  └
+  ✓  Error property status set to 400
+  ┌
+  │ { error:
+  │    [ { type: 'error',
+  │        title: 'Missing email ',
+  │        detail: 'Missing email ',
+  │        status: '400',
+  │        instance: 'http://localhost:8484/' } ] }
+  └
+  ✓  Error property detail set to Missing email
+
+↳ Company Create (missing companyName)
+  POST localhost:8484/ [400 Bad Request, 462B, 25ms]
+  ✓  Status is 400
+  ✓  Header content-type contains application/problem+json
+  ✓  Body root is a valid error object
+  ┌
+  │ { error:
+  │    [ { type: 'error',
+  │        title: 'Missing companyName ',
+  │        detail: 'Missing companyName ',
+  │        status: '400',
+  │        instance: 'http://localhost:8484/' } ] }
+  └
+  ✓  Error property type set to error
+  ┌
+  │ { error:
+  │    [ { type: 'error',
+  │        title: 'Missing companyName ',
+  │        detail: 'Missing companyName ',
+  │        status: '400',
+  │        instance: 'http://localhost:8484/' } ] }
+  └
+  ✓  Error property status set to 400
+  ┌
+  │ { error:
+  │    [ { type: 'error',
+  │        title: 'Missing companyName ',
+  │        detail: 'Missing companyName ',
+  │        status: '400',
+  │        instance: 'http://localhost:8484/' } ] }
+  └
+  ✓  Error property detail set to Missing companyName
+
+↳ Company Create (missing status)
+  POST localhost:8484/ [400 Bad Request, 452B, 6ms]
+  ✓  Status is 400
+  ✓  Header content-type contains application/problem+json
+  ✓  Body root is a valid error object
+  ┌
+  │ { error:
+  │    [ { type: 'error',
+  │        title: 'Missing status ',
+  │        detail: 'Missing status ',
+  │        status: '400',
+  │        instance: 'http://localhost:8484/' } ] }
+  └
+  ✓  Error property type set to error
+  ┌
+  │ { error:
+  │    [ { type: 'error',
+  │        title: 'Missing status ',
+  │        detail: 'Missing status ',
+  │        status: '400',
+  │        instance: 'http://localhost:8484/' } ] }
+  └
+  ✓  Error property status set to 400
+  ┌
+  │ { error:
+  │    [ { type: 'error',
+  │        title: 'Missing status ',
+  │        detail: 'Missing status ',
+  │        status: '400',
+  │        instance: 'http://localhost:8484/' } ] }
+  └
+  ✓  Error property detail set to Missing status
+
+↳ Company Create (valid)
+  POST localhost:8484/ [200 OK, 7.57KB, 18ms]
+  ✓  Status is 200
+  ✓  Header content-type contains application/forms+json
+  ✓  Meta property title contains BigCo Company Records
+  ✓  Meta property release contains 1.0.0
+  ✓  Meta property author contains Amundsen
+  ✓  Valid self page link
+  ✓  Valid items
+  ✓  Valid read item link
+  ✓  Valid remove item link
+
+↳ Company Create (duplicate Id)
+  POST localhost:8484/ [400 Bad Request, 467B, 9ms]
+  ✓  Status is 400
+  ✓  Header content-type contains application/problem+json
+  ✓  Body root is a valid error object
+  ┌
+  │ { error:
+  │    [ { type: 'error',
+  │        title: 'SimpleStorage: [company]',
+  │        detail: 'Record already exists',
+  │        status: '400',
+  │        instance: 'http://localhost:8484/' } ] }
+  └
+  ✓  Error property type set to error
+  ┌
+  │ { error:
+  │    [ { type: 'error',
+  │        title: 'SimpleStorage: [company]',
+  │        detail: 'Record already exists',
+  │        status: '400',
+  │        instance: 'http://localhost:8484/' } ] }
+  └
+  ✓  Error property status set to 400
+  ┌
+  │ { error:
+  │    [ { type: 'error',
+  │        title: 'SimpleStorage: [company]',
+  │        detail: 'Record already exists',
+  │        status: '400',
+  │        instance: 'http://localhost:8484/' } ] }
+  └
+  ✓  Error property detail set to Record already exists
+
+↳ Company Status (Bad Status)
+  PATCH localhost:8484/status/r0f9xy4qqf [400 Bad Request, 513B, 10ms]
+  ✓  Status is 400
+  ✓  Header content-type contains application/problem+json
+  ┌
+  │ { error:
+  │    [ { type: 'error',
+  │        title: 'Invalid enumerator [fred] for status ',
+  │        detail: 'Invalid enumerator [fred] for status '
+  │ ,
+  │        status: '400',
+  │        instance: 'http://localhost:8484/status/r0f9xy4
+  │ qqf' } ] }
+  └
+  ✓  Error property type set to error
+  ┌
+  │ { error:
+  │    [ { type: 'error',
+  │        title: 'Invalid enumerator [fred] for status ',
+  │        detail: 'Invalid enumerator [fred] for status '
+  │ ,
+  │        status: '400',
+  │        instance: 'http://localhost:8484/status/r0f9xy4
+  │ qqf' } ] }
+  └
+  ✓  Error property status set to 400
+  ┌
+  │ { error:
+  │    [ { type: 'error',
+  │        title: 'Invalid enumerator [fred] for status ',
+  │        detail: 'Invalid enumerator [fred] for status '
+  │ ,
+  │        status: '400',
+  │        instance: 'http://localhost:8484/status/r0f9xy4
+  │ qqf' } ] }
+  └
+  ✓  Error property detail set to Invalid enumerator
+
+┌─────────────────────────┬───────────────────┬──────────────────┐
+│                         │          executed │           failed │
+├─────────────────────────┼───────────────────┼──────────────────┤
+│              iterations │                 1 │                0 │
+├─────────────────────────┼───────────────────┼──────────────────┤
+│                requests │                15 │                0 │
+├─────────────────────────┼───────────────────┼──────────────────┤
+│            test-scripts │                30 │                0 │
+├─────────────────────────┼───────────────────┼──────────────────┤
+│      prerequest-scripts │                30 │                0 │
+├─────────────────────────┼───────────────────┼──────────────────┤
+│              assertions │               163 │                0 │
+├─────────────────────────┴───────────────────┴──────────────────┤
+│ total run duration: 1787ms                                     │
+├────────────────────────────────────────────────────────────────┤
+│ total data received: 181.75KB (approx)                         │
+├────────────────────────────────────────────────────────────────┤
+│ average response time: 27ms [min: 6ms, max: 129ms, s.d.: 29ms] │
+└────────────────────────────────────────────────────────────────┘

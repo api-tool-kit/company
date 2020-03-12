@@ -1,0 +1,36 @@
+Not disabling GPU
+Main~createDefaultWorkingDir - Default working dir creation already attempted
+1583814785010 main info "Booting Postman 7.20.0, linux-4.19.79-07511-ge32b3719f26b on x64"
+1583814785011 main info "EventBus~initialize - Success"
+1583814785024 main info "UpdateHandler~init - Success"
+1583814785037 main info "RuntimeExecutionService~initialized: Success"
+1583814786085 main info "window-manager~newSharedWindow: Shell loaded"
+1583814787954 main info "LinuxAutoUpdater~Cleanup - Initial cleanup successful"
+1583814788939 main info "Bootstrap-models~bootstrap - Success"
+1583814791992 main info "Main~AppEvents - Received booted event for process shared"
+1583814796689 main info "UpdateHandler~app-update-events - Received event",{"name":"checkForElectronVersionUpdated","namespace":"appUpdate"}
+1583814796693 main info "@postman/app-updater: version Updated","7.19.1","7.20.0"
+1583814796694 main info "UpdateHandler~app-update-events - Received event",{"name":"electronVersionUpdated","namespace":"appUpdate","data":{"lastKnownVersion":"7.19.1","currentVersion":"7.20.0"}}
+INTERCEPTOR CONNECTIVITY: Connecting to Interceptor Bridge
+InterceptorBridge: Trying to connect Native App IPC~Interceptor Bridge
+1583814796709 main info "Main~AppEvents - Received booted event for process requester"
+Gtk-Message: GtkDialog mapped without a transient parent. This is discouraged.
+Gtk-Message: GtkDialog mapped without a transient parent. This is discouraged.
+1583816783168 main info "WindowManager~closeHandler - Closed Window (id: 3 )"
+1583816783276 main info "Quitting app"
+Not disabling GPU
+Main~createDefaultWorkingDir - Default working dir creation already attempted
+1583981402790 main info "Booting Postman 7.20.0, linux-4.19.79-07511-ge32b3719f26b on x64"
+1583981402791 main info "EventBus~initialize - Success"
+1583981402822 main info "UpdateHandler~init - Success"
+1583981402836 main info "RuntimeExecutionService~initialized: Success"
+1583981402844 main info "LinuxAutoUpdater~Cleanup - Initial cleanup successful"
+1583981403215 main info "Bootstrap-models~bootstrap - Success"
+1583981404268 main info "window-manager~newSharedWindow: Shell loaded"
+1583981407502 main info "Main~AppEvents - Received booted event for process shared"
+1583981414696 main info "UpdateHandler~app-update-events - Received event",{"name":"checkForElectronVersionUpdated","namespace":"appUpdate"}
+1583981414709 main info "Main~AppEvents - Received booted event for process requester"
+INTERCEPTOR CONNECTIVITY: Connecting to Interceptor Bridge
+InterceptorBridge: Trying to connect Native App IPC~Interceptor Bridge
+1583985374113 main info "WindowManager~closeHandler - Closed Window (id: 3 )"
+1583985374201 main info "Quitting app"

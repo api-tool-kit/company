@@ -104,7 +104,12 @@ curl -s -X GET $svr/environments/$envid -H "X-Api-Key:$apikey" \
 # **************************************
 # run the tests
 echo "Running tests..."
-newman run $testfile -e $envfile --bail -r cli,htmlextra > $outfile
+if [ -z "$outfile" ]
+then 
+  newman run $testfile -e $envfile --bail -r cli,htmlextra
+else
+  newman run $testfile -e $envfile --bail -r cli,htmlextra > $outfile
+fi
 
 # **************************************
 # check exist code
@@ -119,10 +124,23 @@ fi
 
 # **************************************
 # clean up
-echo
-echo "Test run completed and saved to $outfile."
-echo
+if [ -f "$envfile" ]
+then
+  rm $envfile
+fi
 
+if [ -f "$testfile" ]
+then
+  rm $testfile
+fi
+
+if [ ! -z "$outfile" ]
+then
+  echo
+  echo "Test run completed and saved to $outfile."
+fi
+
+echo
 exit $ex
 
 # **************************************
