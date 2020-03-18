@@ -34,3 +34,31 @@ INTERCEPTOR CONNECTIVITY: Connecting to Interceptor Bridge
 InterceptorBridge: Trying to connect Native App IPC~Interceptor Bridge
 1583985374113 main info "WindowManager~closeHandler - Closed Window (id: 3 )"
 1583985374201 main info "Quitting app"
+No protocol specified
+
+(_Postman:4087): Gtk-WARNING **: cannot open display: :0
+Not disabling GPU
+Main~createDefaultWorkingDir - Default working dir creation already attempted
+1584382054948 main info "Booting Postman 7.20.1, linux-4.19.87-07826-g55ab70aff690 on x64"
+1584382054949 main info "EventBus~initialize - Success"
+1584382054962 main info "UpdateHandler~init - Success"
+1584382054985 main info "RuntimeExecutionService~initialized: Success"
+1584382055084 main info "LinuxAutoUpdater~Cleanup - Initial cleanup successful"
+1584382055323 main info "Bootstrap-models~bootstrap - Success"
+1584382055704 main info "window-manager~newSharedWindow: Shell loaded"
+1584382058516 main info "Main~AppEvents - Received booted event for process shared"
+1584382063200 main info "UpdateHandler~app-update-events - Received event",{"name":"checkForElectronVersionUpdated","namespace":"appUpdate"}
+INTERCEPTOR CONNECTIVITY: Connecting to Interceptor Bridge
+InterceptorBridge: Trying to connect Native App IPC~Interceptor Bridge
+1584382063243 main info "Main~AppEvents - Received booted event for process requester"
+1584382213206 main info "Main~AppEvents - Received booted event for process runner"
+1584382214738 main info "WindowManager~closeHandler - Closed Window (id: 4 )"
+1584382221144 main info "Main~AppEvents - Received booted event for process runner"
+1584382237494 main info "WindowManager~closeHandler - Closed Window (id: 5 )"
+1584382366178 main info "Main~AppEvents - Received booted event for process runner"
+1584382379157 main info "WindowManager~closeHandler - Closed Window (id: 6 )"
+1584382388249 main info "Main~AppEvents - Received booted event for process runner"
+1584382399674 main info "WindowManager~closeHandler - Closed Window (id: 7 )"
+1584382408497 main info "Main~AppEvents - Received booted event for process runner"
+1584382425337 main info "WindowManager~closeHandler - Closed Window (id: 8 )"
+[4094:0316/151155.786270:FATAL:bus.cc(1151)] D-Bus connection was disconnected. Aborting.

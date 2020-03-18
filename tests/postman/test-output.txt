@@ -1,0 +1,233 @@
+newman
+
+BigCo Company API
+
+❏ happy_path
+↳ Company Home
+  GET localhost:8484/ [200 OK, 2KB, 89ms]
+  ✓  Status is 200
+  ✓  Header content-type contains application/forms+json
+  ✓  Meta property title contains BigCo Company Records
+  ✓  Meta property release contains 1.0.0
+  ✓  Meta property author contains Amundsen
+  ✓  Valid home page link
+  ✓  Valid self page link
+  ✓  Valid list page link
+
+↳ Company List
+  GET localhost:8484/list/ [200 OK, 105.93KB, 44ms]
+  ✓  Status is 200
+  ✓  Header content-type contains application/forms+json
+  ✓  Meta property title contains BigCo Company Records
+  ✓  Meta property release contains 1.0.0
+  ✓  Meta property author contains Amundsen
+  ✓  Valid home page link
+  ✓  Valid self page link
+  ✓  Valid list page link
+  ✓  Valid filter page link
+  ✓  Valid create page link
+  ✓  Valid items
+  ✓  Valid read item link
+  ✓  Valid update item link
+  ✓  Valid status item link
+  ✓  Valid remove item link
+
+↳ Company Create
+  POST localhost:8484/ [200 OK, 7.6KB, 28ms]
+  ✓  Status is 200
+  ✓  Header content-type contains application/forms+json
+  ✓  Meta property title contains BigCo Company Records
+  ✓  Meta property release contains 1.0.0
+  ✓  Meta property author contains Amundsen
+  ✓  Valid home page link
+  ✓  Valid self page link
+  ✓  Valid list page link
+  ✓  Valid filter page link
+  ✓  Valid create page link
+  ✓  Valid items
+  ✓  Valid read item link
+  ✓  Valid update item link
+  ✓  Valid status item link
+  ✓  Valid remove item link
+
+↳ Company Read
+  GET localhost:8484/56vvuu6m7r [200 OK, 6.48KB, 18ms]
+  ✓  Status is 200
+  ✓  Header content-type contains application/forms+json
+  ✓  Meta property title contains BigCo Company Records
+  ✓  Meta property release contains 1.0.0
+  ✓  Meta property author contains Amundsen
+  ✓  Valid home page link
+  ✓  Valid self page link
+  ✓  Valid list page link
+  ✓  Valid filter page link
+  ✓  Valid items
+  ✓  Valid read item link
+  ✓  Valid update item link
+  ✓  Valid status item link
+  ✓  Valid remove item link
+  ✓  Item 56vvuu6m7r has a property companyName set to mike-co
+  ✓  Item 56vvuu6m7r has a property email set to mike-co@gmail.com
+  ✓  Item 56vvuu6m7r has a property telephone set to 123-456-7890
+  ✓  Item 56vvuu6m7r has a property status set to pending
+
+↳ Company Update
+  PUT localhost:8484/56vvuu6m7r [200 OK, 6.54KB, 15ms]
+  ✓  Status is 200
+  ✓  Header content-type contains application/forms+json
+  ✓  Meta property title contains BigCo Company Records
+  ✓  Meta property release contains 1.0.0
+  ✓  Meta property author contains Amundsen
+  ✓  Valid home page link
+  ✓  Valid self page link
+  ✓  Valid list page link
+  ✓  Valid filter page link
+  ✓  Valid items
+  ✓  Valid read item link
+  ✓  Valid update item link
+  ✓  Valid status item link
+  ✓  Valid remove item link
+  ✓  Item 56vvuu6m7r has a property companyName set to mike-co
+  ✓  Item 56vvuu6m7r has a property email set to mike-co@gmail.com
+  ✓  Item 56vvuu6m7r has a property telephone set to 123-456-7890
+  ✓  Item 56vvuu6m7r has a property streetAddress set to 123 Main St
+  ✓  Item 56vvuu6m7r has a property city set to Byteville
+  ✓  Item 56vvuu6m7r has a property country set to USA
+  ✓  Item 56vvuu6m7r has a property postalCode set to 12345
+  ✓  Item 56vvuu6m7r has a property status set to pending
+
+↳ Company Status
+  PATCH localhost:8484/status/56vvuu6m7r [200 OK, 6.54KB, 15ms]
+  ✓  Status is 200
+  ✓  Header content-type contains application/forms+json
+  ✓  Meta property title contains BigCo Company Records
+  ✓  Meta property release contains 1.0.0
+  ✓  Meta property author contains Amundsen
+  ✓  Valid home page link
+  ✓  Valid self page link
+  ✓  Valid list page link
+  ✓  Valid filter page link
+  ✓  Valid items
+  ✓  Valid read item link
+  ✓  Valid update item link
+  ✓  Valid status item link
+  ✓  Valid remove item link
+  ✓  Item 56vvuu6m7r has a property status set to active
+
+↳ Company Remove
+  DELETE localhost:8484/56vvuu6m7r [200 OK, 104.81KB, 37ms]
+  ✓  Status is 200
+  ✓  Header content-type contains application/forms+json
+  ✓  Meta property title contains BigCo Company Records
+  ✓  Meta property release contains 1.0.0
+  ✓  Meta property author contains Amundsen
+  ✓  Valid home page link
+  ✓  Valid self page link
+  ✓  Valid list page link
+  ✓  Valid filter page link
+  ✓  Valid items
+  ✓  Valid read item link
+  ✓  Valid update item link
+  ✓  Valid status item link
+  ✓  Valid remove item link
+
+❏ sad_path
+↳ Company Read (Bad Id)
+  GET localhost:8484/xxx [400 Bad Request, 464B, 5ms]
+  ✓  Status is 400
+  ✓  Header content-type contains application/problem+json
+  ✓  Error property type set to error
+  ✓  Error property status set to 400
+
+↳ Company Remove (valid)
+  DELETE localhost:8484/56vvuu6m7r [200 OK, 104.81KB, 37ms]
+  ✓  Status is 200
+  ✓  Header content-type contains application/forms+json
+  ✓  Meta property title contains BigCo Company Records
+  ✓  Meta property release contains 1.0.0
+  ✓  Meta property author contains Amundsen
+  ✓  Valid home page link
+  ✓  Valid self page link
+  ✓  Valid list page link
+  ✓  Valid filter page link
+  ✓  Valid items
+  ✓  Valid read item link
+  ✓  Valid update item link
+  ✓  Valid status item link
+  ✓  Valid remove item link
+
+↳ Company Create (missing email)
+  POST localhost:8484/ [400 Bad Request, 450B, 8ms]
+  ✓  Status is 400
+  ✓  Header content-type contains application/problem+json
+  ✓  Body root is a valid error object
+  ✓  Error property type set to error
+  ✓  Error property status set to 400
+  ✓  Error property detail set to Missing email
+
+↳ Company Create (missing companyName)
+  POST localhost:8484/ [400 Bad Request, 462B, 6ms]
+  ✓  Status is 400
+  ✓  Header content-type contains application/problem+json
+  ✓  Body root is a valid error object
+  ✓  Error property type set to error
+  ✓  Error property status set to 400
+  ✓  Error property detail set to Missing companyName
+
+↳ Company Create (missing status)
+  POST localhost:8484/ [400 Bad Request, 452B, 4ms]
+  ✓  Status is 400
+  ✓  Header content-type contains application/problem+json
+  ✓  Body root is a valid error object
+  ✓  Error property type set to error
+  ✓  Error property status set to 400
+  ✓  Error property detail set to Missing status
+
+↳ Company Create (valid)
+  POST localhost:8484/ [200 OK, 7.57KB, 12ms]
+  ✓  Status is 200
+  ✓  Header content-type contains application/forms+json
+  ✓  Meta property title contains BigCo Company Records
+  ✓  Meta property release contains 1.0.0
+  ✓  Meta property author contains Amundsen
+  ✓  Valid self page link
+  ✓  Valid items
+  ✓  Valid read item link
+  ✓  Valid remove item link
+
+↳ Company Create (duplicate Id)
+  POST localhost:8484/ [400 Bad Request, 467B, 5ms]
+  ✓  Status is 400
+  ✓  Header content-type contains application/problem+json
+  ✓  Body root is a valid error object
+  ✓  Error property type set to error
+  ✓  Error property status set to 400
+  ✓  Error property detail set to Record already exists
+
+↳ Company Status (Bad Status)
+  PATCH localhost:8484/status/56vvuu6m7r [400 Bad Request, 513B, 5ms]
+  ✓  Status is 400
+  ✓  Header content-type contains application/problem+json
+  ✓  Error property type set to error
+  ✓  Error property status set to 400
+  ✓  Error property detail set to Invalid enumerator
+
+┌─────────────────────────┬──────────────────┬──────────────────┐
+│                         │         executed │           failed │
+├─────────────────────────┼──────────────────┼──────────────────┤
+│              iterations │                1 │                0 │
+├─────────────────────────┼──────────────────┼──────────────────┤
+│                requests │               15 │                0 │
+├─────────────────────────┼──────────────────┼──────────────────┤
+│            test-scripts │               30 │                0 │
+├─────────────────────────┼──────────────────┼──────────────────┤
+│      prerequest-scripts │               30 │                0 │
+├─────────────────────────┼──────────────────┼──────────────────┤
+│              assertions │              163 │                0 │
+├─────────────────────────┴──────────────────┴──────────────────┤
+│ total run duration: 1466ms                                    │
+├───────────────────────────────────────────────────────────────┤
+│ total data received: 351.27KB (approx)                        │
+├───────────────────────────────────────────────────────────────┤
+│ average response time: 21ms [min: 4ms, max: 89ms, s.d.: 22ms] │
+└───────────────────────────────────────────────────────────────┘
