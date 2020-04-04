@@ -62,3 +62,33 @@ InterceptorBridge: Trying to connect Native App IPC~Interceptor Bridge
 1584382408497 main info "Main~AppEvents - Received booted event for process runner"
 1584382425337 main info "WindowManager~closeHandler - Closed Window (id: 8 )"
 [4094:0316/151155.786270:FATAL:bus.cc(1151)] D-Bus connection was disconnected. Aborting.
+Not disabling GPU
+Main~createDefaultWorkingDir - Default working dir creation already attempted
+1584737957022 main info "Booting Postman 7.20.1, linux-4.19.87-07826-g55ab70aff690 on x64"
+1584737957023 main info "EventBus~initialize - Success"
+1584737957032 main info "UpdateHandler~init - Success"
+1584737957046 main info "RuntimeExecutionService~initialized: Success"
+1584737957064 main info "LinuxAutoUpdater~Cleanup - Initial cleanup successful"
+1584737957388 main info "Bootstrap-models~bootstrap - Success"
+1584737958127 main info "window-manager~newSharedWindow: Shell loaded"
+1584737962258 main info "Main~AppEvents - Received booted event for process shared"
+1584737969309 main info "UpdateHandler~app-update-events - Received event",{"name":"checkForElectronVersionUpdated","namespace":"appUpdate"}
+INTERCEPTOR CONNECTIVITY: Connecting to Interceptor Bridge
+InterceptorBridge: Trying to connect Native App IPC~Interceptor Bridge
+1584737969371 main info "Main~AppEvents - Received booted event for process requester"
+1584740402598 main info "Quitting app"
+Not disabling GPU
+Main~createDefaultWorkingDir - Default working dir creation already attempted
+1584837640109 main info "Booting Postman 7.20.1, linux-4.19.87-07826-g55ab70aff690 on x64"
+1584837640110 main info "EventBus~initialize - Success"
+1584837640124 main info "UpdateHandler~init - Success"
+1584837640129 main info "RuntimeExecutionService~initialized: Success"
+1584837640134 main info "LinuxAutoUpdater~Cleanup - Initial cleanup successful"
+1584837640539 main info "Bootstrap-models~bootstrap - Success"
+1584837641193 main info "window-manager~newSharedWindow: Shell loaded"
+1584837643730 main info "Main~AppEvents - Received booted event for process shared"
+1584837648896 main info "UpdateHandler~app-update-events - Received event",{"name":"checkForElectronVersionUpdated","namespace":"appUpdate"}
+1584837648904 main info "Main~AppEvents - Received booted event for process requester"
+INTERCEPTOR CONNECTIVITY: Connecting to Interceptor Bridge
+InterceptorBridge: Trying to connect Native App IPC~Interceptor Bridge
+1584839573056 main info "Quitting app"

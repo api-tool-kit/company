@@ -1,0 +1,4 @@
+heroku	https://git.heroku.com/company-atk.git (fetch)
+heroku	https://git.heroku.com/company-atk.git (push)
+origin	git@github.com:/api-tool-kit/company.git (fetch)
+origin	git@github.com:/api-tool-kit/company.git (push)

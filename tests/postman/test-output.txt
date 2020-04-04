@@ -4,7 +4,7 @@ BigCo Company API
 
 ❏ happy_path
 ↳ Company Home
-  GET localhost:8484/ [200 OK, 2KB, 89ms]
+  GET localhost:8484/ [200 OK, 2KB, 82ms]
   ✓  Status is 200
   ✓  Header content-type contains application/forms+json
   ✓  Meta property title contains BigCo Company Records
@@ -15,7 +15,7 @@ BigCo Company API
   ✓  Valid list page link
 
 ↳ Company List
-  GET localhost:8484/list/ [200 OK, 105.93KB, 44ms]
+  GET localhost:8484/list/ [200 OK, 113.47KB, 38ms]
   ✓  Status is 200
   ✓  Header content-type contains application/forms+json
   ✓  Meta property title contains BigCo Company Records
@@ -33,7 +33,7 @@ BigCo Company API
   ✓  Valid remove item link
 
 ↳ Company Create
-  POST localhost:8484/ [200 OK, 7.6KB, 28ms]
+  POST localhost:8484/ [200 OK, 7.61KB, 26ms]
   ✓  Status is 200
   ✓  Header content-type contains application/forms+json
   ✓  Meta property title contains BigCo Company Records
@@ -51,7 +51,7 @@ BigCo Company API
   ✓  Valid remove item link
 
 ↳ Company Read
-  GET localhost:8484/56vvuu6m7r [200 OK, 6.48KB, 18ms]
+  GET localhost:8484/3xhjclov2e6 [200 OK, 6.49KB, 19ms]
   ✓  Status is 200
   ✓  Header content-type contains application/forms+json
   ✓  Meta property title contains BigCo Company Records
@@ -66,13 +66,13 @@ BigCo Company API
   ✓  Valid update item link
   ✓  Valid status item link
   ✓  Valid remove item link
-  ✓  Item 56vvuu6m7r has a property companyName set to mike-co
-  ✓  Item 56vvuu6m7r has a property email set to mike-co@gmail.com
-  ✓  Item 56vvuu6m7r has a property telephone set to 123-456-7890
-  ✓  Item 56vvuu6m7r has a property status set to pending
+  ✓  Item 3xhjclov2e6 has a property companyName set to mike-co
+  ✓  Item 3xhjclov2e6 has a property email set to mike-co@gmail.com
+  ✓  Item 3xhjclov2e6 has a property telephone set to 123-456-7890
+  ✓  Item 3xhjclov2e6 has a property status set to pending
 
 ↳ Company Update
-  PUT localhost:8484/56vvuu6m7r [200 OK, 6.54KB, 15ms]
+  PUT localhost:8484/3xhjclov2e6 [200 OK, 6.55KB, 8ms]
   ✓  Status is 200
   ✓  Header content-type contains application/forms+json
   ✓  Meta property title contains BigCo Company Records
@@ -87,17 +87,17 @@ BigCo Company API
   ✓  Valid update item link
   ✓  Valid status item link
   ✓  Valid remove item link
-  ✓  Item 56vvuu6m7r has a property companyName set to mike-co
-  ✓  Item 56vvuu6m7r has a property email set to mike-co@gmail.com
-  ✓  Item 56vvuu6m7r has a property telephone set to 123-456-7890
-  ✓  Item 56vvuu6m7r has a property streetAddress set to 123 Main St
-  ✓  Item 56vvuu6m7r has a property city set to Byteville
-  ✓  Item 56vvuu6m7r has a property country set to USA
-  ✓  Item 56vvuu6m7r has a property postalCode set to 12345
-  ✓  Item 56vvuu6m7r has a property status set to pending
+  ✓  Item 3xhjclov2e6 has a property companyName set to mike-co
+  ✓  Item 3xhjclov2e6 has a property email set to mike-co@gmail.com
+  ✓  Item 3xhjclov2e6 has a property telephone set to 123-456-7890
+  ✓  Item 3xhjclov2e6 has a property streetAddress set to 123 Main St
+  ✓  Item 3xhjclov2e6 has a property city set to Byteville
+  ✓  Item 3xhjclov2e6 has a property country set to USA
+  ✓  Item 3xhjclov2e6 has a property postalCode set to 12345
+  ✓  Item 3xhjclov2e6 has a property status set to pending
 
 ↳ Company Status
-  PATCH localhost:8484/status/56vvuu6m7r [200 OK, 6.54KB, 15ms]
+  PATCH localhost:8484/status/3xhjclov2e6 [200 OK, 6.56KB, 13ms]
   ✓  Status is 200
   ✓  Header content-type contains application/forms+json
   ✓  Meta property title contains BigCo Company Records
@@ -112,10 +112,10 @@ BigCo Company API
   ✓  Valid update item link
   ✓  Valid status item link
   ✓  Valid remove item link
-  ✓  Item 56vvuu6m7r has a property status set to active
+  ✓  Item 3xhjclov2e6 has a property status set to active
 
 ↳ Company Remove
-  DELETE localhost:8484/56vvuu6m7r [200 OK, 104.81KB, 37ms]
+  DELETE localhost:8484/3xhjclov2e6 [200 OK, 112.35KB, 41ms]
   ✓  Status is 200
   ✓  Header content-type contains application/forms+json
   ✓  Meta property title contains BigCo Company Records
@@ -133,14 +133,14 @@ BigCo Company API
 
 ❏ sad_path
 ↳ Company Read (Bad Id)
-  GET localhost:8484/xxx [400 Bad Request, 464B, 5ms]
+  GET localhost:8484/xxx [400 Bad Request, 464B, 8ms]
   ✓  Status is 400
   ✓  Header content-type contains application/problem+json
   ✓  Error property type set to error
   ✓  Error property status set to 400
 
 ↳ Company Remove (valid)
-  DELETE localhost:8484/56vvuu6m7r [200 OK, 104.81KB, 37ms]
+  DELETE localhost:8484/3xhjclov2e6 [200 OK, 112.35KB, 26ms]
   ✓  Status is 200
   ✓  Header content-type contains application/forms+json
   ✓  Meta property title contains BigCo Company Records
@@ -157,7 +157,7 @@ BigCo Company API
   ✓  Valid remove item link
 
 ↳ Company Create (missing email)
-  POST localhost:8484/ [400 Bad Request, 450B, 8ms]
+  POST localhost:8484/ [400 Bad Request, 450B, 6ms]
   ✓  Status is 400
   ✓  Header content-type contains application/problem+json
   ✓  Body root is a valid error object
@@ -175,7 +175,7 @@ BigCo Company API
   ✓  Error property detail set to Missing companyName
 
 ↳ Company Create (missing status)
-  POST localhost:8484/ [400 Bad Request, 452B, 4ms]
+  POST localhost:8484/ [400 Bad Request, 452B, 6ms]
   ✓  Status is 400
   ✓  Header content-type contains application/problem+json
   ✓  Body root is a valid error object
@@ -184,7 +184,7 @@ BigCo Company API
   ✓  Error property detail set to Missing status
 
 ↳ Company Create (valid)
-  POST localhost:8484/ [200 OK, 7.57KB, 12ms]
+  POST localhost:8484/ [200 OK, 7.58KB, 8ms]
   ✓  Status is 200
   ✓  Header content-type contains application/forms+json
   ✓  Meta property title contains BigCo Company Records
@@ -196,7 +196,7 @@ BigCo Company API
   ✓  Valid remove item link
 
 ↳ Company Create (duplicate Id)
-  POST localhost:8484/ [400 Bad Request, 467B, 5ms]
+  POST localhost:8484/ [400 Bad Request, 467B, 11ms]
   ✓  Status is 400
   ✓  Header content-type contains application/problem+json
   ✓  Body root is a valid error object
@@ -205,7 +205,7 @@ BigCo Company API
   ✓  Error property detail set to Record already exists
 
 ↳ Company Status (Bad Status)
-  PATCH localhost:8484/status/56vvuu6m7r [400 Bad Request, 513B, 5ms]
+  PATCH localhost:8484/status/3xhjclov2e6 [400 Bad Request, 514B, 12ms]
   ✓  Status is 400
   ✓  Header content-type contains application/problem+json
   ✓  Error property type set to error
@@ -225,9 +225,9 @@ BigCo Company API
 ├─────────────────────────┼──────────────────┼──────────────────┤
 │              assertions │              163 │                0 │
 ├─────────────────────────┴──────────────────┴──────────────────┤
-│ total run duration: 1466ms                                    │
+│ total run duration: 1417ms                                    │
 ├───────────────────────────────────────────────────────────────┤
-│ total data received: 351.27KB (approx)                        │
+│ total data received: 373.93KB (approx)                        │
 ├───────────────────────────────────────────────────────────────┤
-│ average response time: 21ms [min: 4ms, max: 89ms, s.d.: 22ms] │
+│ average response time: 20ms [min: 6ms, max: 82ms, s.d.: 19ms] │
 └───────────────────────────────────────────────────────────────┘
