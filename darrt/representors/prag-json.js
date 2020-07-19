@@ -11,7 +11,9 @@ exports.template =
   view : 
   `
     { 
-        "type" : "<%=type%>",
+       "format" : "application/prag+json",
+       "version" : "1.0",
+       <%if(type) {%>    "type" : "<%=type%>",<%}%>
         "metadata" : 
         [
           <%var z=0;%>

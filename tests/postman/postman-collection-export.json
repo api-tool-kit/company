@@ -1,0 +1,352 @@
+{
+	"info": {
+		"_postman_id": "2eeaa3ea-9bdf-4305-b68a-b774c858cb5c",
+		"name": "Company API Home Tests",
+		"description": "This collection tests the HOME resource of BigCo's Company API.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Company Home  Starter",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "114f289b-656e-4c52-97d3-0671a5fb173a",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://company-atk.herokuapp.com\n",
+					"protocol": "http",
+					"host": [
+						"company-atk",
+						"herokuapp",
+						"com\n"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Company Home ",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "114f289b-656e-4c52-97d3-0671a5fb173a",
+						"exec": [
+							"/***********************",
+							" * COMPANY HOME",
+							" ***********************/",
+							"",
+							"// *****************************************",
+							"// PROTOCOL",
+							"// *****************************************",
+							"// 200 OK",
+							"pm.test('Status is 200', function() {",
+							"    pm.expect(pm.response.code).to.equal(200);",
+							"});",
+							"",
+							"// application/json",
+							"pm.test('Content-Type header is application/json', function() {",
+							"    var hdr = pm.response.headers.get('content-type');",
+							"    pm.expect(hdr).to.include('application/json');",
+							"});",
+							"",
+							"// ****************************************",
+							"// STRUCTURE",
+							"// ****************************************",
+							"",
+							"// collect the response body",
+							"var body = pm.response.json();",
+							"",
+							"// expect body be valid home object",
+							"pm.test('Response body contains a valid home object', function() {",
+							"    pm.expect(body.home).to.be.an('array'); ",
+							"    coll = body.home;",
+							"    coll.forEach(function(item) {",
+							"        pm.expect(item).to.have.property('id');",
+							"        pm.expect(item).to.have.property('name');",
+							"        pm.expect(item).to.have.property('rel');",
+							"        pm.expect(item).to.have.property('href');",
+							"    });",
+							"});",
+							"",
+							"// ****************************************",
+							"// VALUES",
+							"// ****************************************",
+							"",
+							"// check property values",
+							"var item = body.home.find(x => x.id = 'list');",
+							"",
+							"pm.test('home.id is set to list', function() {",
+							"   pm.expect(item.id).to.include('list');",
+							"});",
+							"",
+							"pm.test('home.name is set to company', function() {",
+							"   pm.expect(item.name).to.include('company');",
+							"});",
+							"",
+							"pm.test('home.rel contains company and collection', function() {",
+							"   pm.expect(item.rel).to.include('company');",
+							"   pm.expect(item.rel).to.include('collection');",
+							"});",
+							"",
+							"// EOF",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://company-atk.herokuapp.com\n",
+					"protocol": "http",
+					"host": [
+						"company-atk",
+						"herokuapp",
+						"com\n"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Company Home Utils",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "650fbe5f-afa4-42a6-a8ca-ea1baa01a836",
+						"exec": [
+							"/***********************",
+							" * COMPANY HOME UTILS",
+							" ***********************/",
+							"",
+							"var body = pm.response.json();",
+							"var utils = eval(globals.loadUtils);",
+							"",
+							"// PROTOCOL",
+							"utils.checkStatus(200);",
+							"utils.checkHeader({name:'content-type', value:'application/json'});",
+							"",
+							"// STRUCTURE",
+							"utils.checkObject({name:'home',has:['id','name','rel','href']});",
+							"",
+							"// VALUES",
+							"utils.checkObjectProperty({name:'home',property:'id',value:'list'});",
+							"utils.checkObjectProperty({name:'home',property:'name',value:'company'});",
+							"utils.checkObjectProperty({name:'home',property:'rel',value:'company'});",
+							"utils.checkObjectProperty({name:'home',property:'rel',value:'collection'});",
+							"",
+							"// EOF",
+							"",
+							"",
+							"",
+							"",
+							"",
+							"",
+							"",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://company-atk.herokuapp.com\n",
+					"protocol": "http",
+					"host": [
+						"company-atk",
+						"herokuapp",
+						"com\n"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "52a7862c-d97f-4219-9a82-b9f5e0ca39cd",
+				"type": "text/javascript",
+				"exec": [
+					"// SHARED FUNCTIONS for forms+json",
+					"// Utilities available for all tests in this collection",
+					"pm.globals.set('loadUtils', function loadUtils() {",
+					"    let utils = {};",
+					"    let obj = '';",
+					"    ",
+					"    // check status",
+					"    utils.checkStatus = function(value) {",
+					"        pm.test('Status is ' + value, function() {",
+					"           pm.expect(pm.response.code).to.equal(value); ",
+					"        });",
+					"    };",
+					"",
+					"    // check header",
+					"    utils.checkHeader = function(args) {",
+					"        pm.test('Header ' + args.name + ' contains ' + args.value, function() {",
+					"            var hdr = pm.response.headers.get(args.name);",
+					"            pm.expect(hdr).to.include(args.value);",
+					"        });",
+					"    };",
+					"",
+					"    // set shared object",
+					"    utils.setObject = function(args) {",
+					"        obj = args.object||'';",
+					"    };",
+					"",
+					"    // check item",
+					"    utils.checkObject = function(args) {",
+					"        pm.test('Valid ' + args.name + ' object', function() {",
+					"            var coll = body[args.name];",
+					"            coll.forEach(function(item) {",
+					"                var props = args.has||[];",
+					"                props.forEach(function(p) {",
+					"                   pm.expect(item).to.have.property(p); ",
+					"                });",
+					"            });",
+					"        });",
+					"    };",
+					"",
+					"    utils.checkObjectProperty = function(args) {",
+					"        pm.test(args.name + ' has property ' + args.property + ' set to ' + args.value, function() {",
+					"            var coll = body[args.name];",
+					"            coll.forEach(function(item) {",
+					"                pm.expect(item).to.have.property(args.property);",
+					"                pm.expect(item[args.property]).contains(args.value);",
+					"            });",
+					"        });",
+					"    };",
+					"        ",
+					"    // check metadata",
+					"    utils.checkMetaProperty = function(args) {",
+					"        pm.test('Meta property ' + args.name + ' contains ' + args.value, function() {",
+					"           var meta = body[obj].metadata.find( x => x.name === args.name);",
+					"           pm.expect(meta.value).to.include(args.value);",
+					"        });",
+					"    };",
+					"",
+					"    // check page link",
+					"    utils.checkPageLink = function(args) {",
+					"        pm.test('Valid ' + args.name + ' page link', function() {",
+					"            var link = body[obj].links.find(x => x.name === args.name);",
+					"            var coll = args.has||[];",
+					"            coll.forEach(function(p) {",
+					"                pm.expect(link).to.have.property(p);",
+					"            });",
+					"        });",
+					"    };",
+					"",
+					"    utils.checkPageLinkProperty = function(args) {",
+					"        pm.test('Page link ' + args.name + ' has a property ' + args.property + ' set to ' + args.value, function() {",
+					"            var link = body[obj].links.find(x => x.name === args.name);",
+					"            pm.expect(link).to.have.property(args.property);",
+					"            pm.expect(link[args.property]).to.include(args.value);            ",
+					"        });",
+					"    };",
+					"    ",
+					"    // check item",
+					"    utils.checkItem = function(args) {",
+					"        pm.test('Valid items', function() {",
+					"            var coll = body[obj].items;",
+					"            coll.forEach(function(item) {",
+					"                var props = args.has||[];",
+					"                props.forEach(function(p) {",
+					"                   pm.expect(item).to.have.property(p); ",
+					"                });",
+					"            });",
+					"        });",
+					"    };",
+					"",
+					"    // check item link",
+					"    utils.checkItemLink = function(args) {",
+					"        pm.test('Valid ' + args.name + ' item link', function() {",
+					"            coll = body[obj].items;",
+					"            coll.forEach(function(item) {",
+					"                var link = item.links.find(x => x.name === args.name);",
+					"                var props = args.has||[];",
+					"                props.forEach(function(p) {",
+					"                    pm.expect(link).to.have.property(p);",
+					"                });",
+					"            });",
+					"        });",
+					"    };",
+					"",
+					"    utils.checkItemLinkProperty = function(args) {",
+					"        pm.test('Link ' + args.name + ' for Item ' + args.id + ' has a property ' + args.property + ' set to ' + args.value, function() {",
+					"            var coll = body[obj].items;",
+					"            item = coll.find (x => x.id = args.id);",
+					"            link = item.links.find(x => x.name = args.name);",
+					"            pm.expect(link).to.have.property(args.property);",
+					"            pm.expect(link[args.property]).to.include(args.value);",
+					"        });    ",
+					"    };",
+					"        ",
+					"    utils.checkItemProperty = function(args) {",
+					"        pm.test('Item ' + args.id + ' has a property ' + args.property + ' set to ' + args.value, function() {",
+					"            coll - body[obj].items;",
+					"            item = coll.find (x => x.id = args.id);",
+					"            pm.expect(item).to.have.property(args.property);",
+					"            pm.expect(item[args.property]).to.include(args.value);",
+					"        });    ",
+					"    };",
+					"",
+					"    // check for errort",
+					"    utils.checkError = function() {",
+					"        pm.test('Body root is a valid error object', function() {",
+					"            pm.expect(body.error).to.be.an('array');",
+					"            pm.expect(body.error[0]).to.have.property('type');",
+					"            pm.expect(body.error[0]).to.have.property('title');",
+					"            pm.expect(body.error[0]).to.have.property('detail');",
+					"            pm.expect(body.error[0]).to.have.property('status');",
+					"            pm.expect(body.error[0]).to.have.property('instance');",
+					"        });    ",
+					"    };",
+					"    ",
+					"    utils.checkErrorProperty = function(args) {",
+					"        pm.test('Error property ' + args.property + ' set to ' + args.value, function() {",
+					"            error = body.error[0];",
+					"            pm.expect(error).to.have.property(args.property);",
+					"            pm.expect(error[args.property]).contains(args.value);",
+					"        });",
+					"    };",
+					"",
+					"    ",
+					"    return utils;",
+					"    ",
+					"} + '; loadUtils();');"
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "3091cdcf-2010-4f66-9828-36b33328c2e4",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
