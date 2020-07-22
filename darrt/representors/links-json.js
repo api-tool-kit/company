@@ -7,7 +7,7 @@
 // links-json response  
 exports.template =  
 {
-  format : "application/forms+json", 
+  format : "application/links+json", 
   view : 
   `
     { 
