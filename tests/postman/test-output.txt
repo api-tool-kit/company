@@ -2,232 +2,339 @@ newman
 
 BigCo Company API
 
-❏ happy_path
-↳ Company Home
-  GET company-atk.herokuapp.com/ [200 OK, 2.06KB, 3.2s]
-  ✓  Status is 200
-  ✓  Header content-type contains application/forms+json
-  ✓  Meta property title contains BigCo Company Records
-  ✓  Meta property release contains 1.0.0
-  ✓  Meta property author contains Amundsen
-  ✓  Valid home page link
-  ✓  Valid self page link
-  ✓  Valid list page link
+□ happy_path
+└ Company Home
+  POST https://undefined/oauth/token [errored]
+     getaddrinfo ENOTFOUND undefined
+  GET company-atk.herokuapp.com/ [200 OK, 2.06KB, 6.2s]
+  √  Status is 200
+  √  Header content-type contains application/forms+json
+  √  Meta property title contains BigCo Company Records
+  √  Meta property release contains 1.0.0
+  √  Meta property author contains Amundsen
+  √  Valid home page link
+  √  Valid self page link
+  √  Valid list page link
 
-↳ Company List
-  GET company-atk.herokuapp.com/list/ [200 OK, 133.88KB, 136ms]
-  ✓  Status is 200
-  ✓  Header content-type contains application/forms+json
-  ✓  Meta property title contains BigCo Company Records
-  ✓  Meta property release contains 1.0.0
-  ✓  Meta property author contains Amundsen
-  ✓  Valid home page link
-  ✓  Valid self page link
-  ✓  Valid list page link
-  ✓  Valid filter page link
-  ✓  Valid create page link
-  ✓  Valid items
-  ✓  Valid read item link
-  ✓  Valid update item link
-  ✓  Valid status item link
-  ✓  Valid remove item link
+└ Company List
+  POST https://undefined/oauth/token [errored]
+     getaddrinfo ENOTFOUND undefined
+  GET company-atk.herokuapp.com/list/ [200 OK, 137.69KB, 185ms]
+  √  Status is 200
+  √  Header content-type contains application/forms+json
+  √  Meta property title contains BigCo Company Records
+  √  Meta property release contains 1.0.0
+  √  Meta property author contains Amundsen
+  √  Valid home page link
+  √  Valid self page link
+  √  Valid list page link
+  √  Valid filter page link
+  √  Valid create page link
+  √  Valid items
+  √  Valid read item link
+  √  Valid update item link
+  √  Valid status item link
+  √  Valid remove item link
 
-↳ Company Create
-  POST company-atk.herokuapp.com/ [200 OK, 7.73KB, 55ms]
-  ✓  Status is 200
-  ✓  Header content-type contains application/forms+json
-  ✓  Meta property title contains BigCo Company Records
-  ✓  Meta property release contains 1.0.0
-  ✓  Meta property author contains Amundsen
-  ✓  Valid home page link
-  ✓  Valid self page link
-  ✓  Valid list page link
-  ✓  Valid filter page link
-  ✓  Valid create page link
-  ✓  Valid items
-  ✓  Valid read item link
-  ✓  Valid update item link
-  ✓  Valid status item link
-  ✓  Valid remove item link
+└ Company Create
+  POST https://undefined/oauth/token [errored]
+     getaddrinfo ENOTFOUND undefined
+  POST company-atk.herokuapp.com/ [200 OK, 7.74KB, 55ms]
+  √  Status is 200
+  √  Header content-type contains application/forms+json
+  √  Meta property title contains BigCo Company Records
+  √  Meta property release contains 1.0.0
+  √  Meta property author contains Amundsen
+  √  Valid home page link
+  √  Valid self page link
+  √  Valid list page link
+  √  Valid filter page link
+  √  Valid create page link
+  √  Valid items
+  √  Valid read item link
+  √  Valid update item link
+  √  Valid status item link
+  √  Valid remove item link
 
-↳ Company Read
-  GET company-atk.herokuapp.com/47goh86m4l4 [200 OK, 6.61KB, 33ms]
-  ✓  Status is 200
-  ✓  Header content-type contains application/forms+json
-  ✓  Meta property title contains BigCo Company Records
-  ✓  Meta property release contains 1.0.0
-  ✓  Meta property author contains Amundsen
-  ✓  Valid home page link
-  ✓  Valid self page link
-  ✓  Valid list page link
-  ✓  Valid filter page link
-  ✓  Valid items
-  ✓  Valid read item link
-  ✓  Valid update item link
-  ✓  Valid status item link
-  ✓  Valid remove item link
-  ✓  Item 47goh86m4l4 has a property companyName set to mike-co
-  ✓  Item 47goh86m4l4 has a property email set to mike-co@gmail.com
-  ✓  Item 47goh86m4l4 has a property telephone set to 123-456-7890
-  ✓  Item 47goh86m4l4 has a property status set to pending
+└ Company Read
+  POST https://undefined/oauth/token [errored]
+     getaddrinfo ENOTFOUND undefined
+  GET company-atk.herokuapp.com/51jqiklc18o [200 OK, 6.61KB, 49ms]
+  √  Status is 200
+  √  Header content-type contains application/forms+json
+  √  Meta property title contains BigCo Company Records
+  √  Meta property release contains 1.0.0
+  √  Meta property author contains Amundsen
+  √  Valid home page link
+  √  Valid self page link
+  √  Valid list page link
+  √  Valid filter page link
+  √  Valid items
+  √  Valid read item link
+  √  Valid update item link
+  √  Valid status item link
+  √  Valid remove item link
+  √  Item 51jqiklc18o has a property companyName set to mike-co
+  √  Item 51jqiklc18o has a property email set to mike-co@gmail.com
+  √  Item 51jqiklc18o has a property telephone set to 123-456-7890
+  √  Item 51jqiklc18o has a property status set to pending
 
-↳ Company Update
-  PUT company-atk.herokuapp.com/47goh86m4l4 [200 OK, 6.67KB, 50ms]
-  ✓  Status is 200
-  ✓  Header content-type contains application/forms+json
-  ✓  Meta property title contains BigCo Company Records
-  ✓  Meta property release contains 1.0.0
-  ✓  Meta property author contains Amundsen
-  ✓  Valid home page link
-  ✓  Valid self page link
-  ✓  Valid list page link
-  ✓  Valid filter page link
-  ✓  Valid items
-  ✓  Valid read item link
-  ✓  Valid update item link
-  ✓  Valid status item link
-  ✓  Valid remove item link
-  ✓  Item 47goh86m4l4 has a property companyName set to mike-co
-  ✓  Item 47goh86m4l4 has a property email set to mike-co@gmail.com
-  ✓  Item 47goh86m4l4 has a property telephone set to 123-456-7890
-  ✓  Item 47goh86m4l4 has a property streetAddress set to 123 Main St
-  ✓  Item 47goh86m4l4 has a property city set to Byteville
-  ✓  Item 47goh86m4l4 has a property country set to USA
-  ✓  Item 47goh86m4l4 has a property postalCode set to 12345
-  ✓  Item 47goh86m4l4 has a property status set to pending
+└ Company Update
+  POST https://undefined/oauth/token [errored]
+     getaddrinfo ENOTFOUND undefined
+  PUT company-atk.herokuapp.com/51jqiklc18o [200 OK, 6.67KB, 44ms]
+  √  Status is 200
+  √  Header content-type contains application/forms+json
+  √  Meta property title contains BigCo Company Records
+  √  Meta property release contains 1.0.0
+  √  Meta property author contains Amundsen
+  √  Valid home page link
+  √  Valid self page link
+  √  Valid list page link
+  √  Valid filter page link
+  √  Valid items
+  √  Valid read item link
+  √  Valid update item link
+  √  Valid status item link
+  √  Valid remove item link
+  √  Item 51jqiklc18o has a property companyName set to mike-co
+  √  Item 51jqiklc18o has a property email set to mike-co@gmail.com
+  √  Item 51jqiklc18o has a property telephone set to 123-456-7890
+  √  Item 51jqiklc18o has a property streetAddress set to 123 Main St
+  √  Item 51jqiklc18o has a property city set to Byteville
+  √  Item 51jqiklc18o has a property country set to USA
+  √  Item 51jqiklc18o has a property postalCode set to 12345
+  √  Item 51jqiklc18o has a property status set to pending
 
-↳ Company Status
-  PATCH company-atk.herokuapp.com/status/47goh86m4l4 [200 OK, 6.67KB, 39ms]
-  ✓  Status is 200
-  ✓  Header content-type contains application/forms+json
-  ✓  Meta property title contains BigCo Company Records
-  ✓  Meta property release contains 1.0.0
-  ✓  Meta property author contains Amundsen
-  ✓  Valid home page link
-  ✓  Valid self page link
-  ✓  Valid list page link
-  ✓  Valid filter page link
-  ✓  Valid items
-  ✓  Valid read item link
-  ✓  Valid update item link
-  ✓  Valid status item link
-  ✓  Valid remove item link
-  ✓  Item 47goh86m4l4 has a property status set to active
+└ Company Status
+  POST https://undefined/oauth/token [errored]
+     getaddrinfo ENOTFOUND undefined
+  PATCH company-atk.herokuapp.com/status/51jqiklc18o [200 OK, 6.67KB, 73ms]
+  √  Status is 200
+  √  Header content-type contains application/forms+json
+  √  Meta property title contains BigCo Company Records
+  √  Meta property release contains 1.0.0
+  √  Meta property author contains Amundsen
+  √  Valid home page link
+  √  Valid self page link
+  √  Valid list page link
+  √  Valid filter page link
+  √  Valid items
+  √  Valid read item link
+  √  Valid update item link
+  √  Valid status item link
+  √  Valid remove item link
+  √  Item 51jqiklc18o has a property status set to active
 
-↳ Company Remove
-  DELETE company-atk.herokuapp.com/47goh86m4l4 [200 OK, 132.75KB, 135ms]
-  ✓  Status is 200
-  ✓  Header content-type contains application/forms+json
-  ✓  Meta property title contains BigCo Company Records
-  ✓  Meta property release contains 1.0.0
-  ✓  Meta property author contains Amundsen
-  ✓  Valid home page link
-  ✓  Valid self page link
-  ✓  Valid list page link
-  ✓  Valid filter page link
-  ✓  Valid items
-  ✓  Valid read item link
-  ✓  Valid update item link
-  ✓  Valid status item link
-  ✓  Valid remove item link
+└ Company Remove
+  POST https://undefined/oauth/token [errored]
+     getaddrinfo ENOTFOUND undefined
+  DELETE company-atk.herokuapp.com/51jqiklc18o [200 OK, 136.56KB, 145ms]
+  √  Status is 200
+  √  Header content-type contains application/forms+json
+  √  Meta property title contains BigCo Company Records
+  √  Meta property release contains 1.0.0
+  √  Meta property author contains Amundsen
+  √  Valid home page link
+  √  Valid self page link
+  √  Valid list page link
+  √  Valid filter page link
+  √  Valid items
+  √  Valid read item link
+  √  Valid update item link
+  √  Valid status item link
+  √  Valid remove item link
 
-❏ sad_path
-↳ Company Read (Bad Id)
-  GET company-atk.herokuapp.com/xxx [400 Bad Request, 507B, 34ms]
-  ✓  Status is 400
-  ✓  Header content-type contains application/problem+json
-  ✓  Error property type set to error
-  ✓  Error property status set to 400
+□ sad_path
+└ Company Read (Bad Id)
+  POST https://undefined/oauth/token [errored]
+     getaddrinfo ENOTFOUND undefined
+  GET company-atk.herokuapp.com/xxx [400 Bad Request, 507B, 27ms]
+  √  Status is 400
+  √  Header content-type contains application/problem+json
+  √  Error property type set to error
+  √  Error property status set to 400
 
-↳ Company Remove (valid)
-  DELETE company-atk.herokuapp.com/47goh86m4l4 [200 OK, 132.75KB, 103ms]
-  ✓  Status is 200
-  ✓  Header content-type contains application/forms+json
-  ✓  Meta property title contains BigCo Company Records
-  ✓  Meta property release contains 1.0.0
-  ✓  Meta property author contains Amundsen
-  ✓  Valid home page link
-  ✓  Valid self page link
-  ✓  Valid list page link
-  ✓  Valid filter page link
-  ✓  Valid items
-  ✓  Valid read item link
-  ✓  Valid update item link
-  ✓  Valid status item link
-  ✓  Valid remove item link
+└ Company Remove (valid)
+  POST https://undefined/oauth/token [errored]
+     getaddrinfo ENOTFOUND undefined
+  DELETE company-atk.herokuapp.com/51jqiklc18o [200 OK, 136.56KB, 110ms]
+  √  Status is 200
+  √  Header content-type contains application/forms+json
+  √  Meta property title contains BigCo Company Records
+  √  Meta property release contains 1.0.0
+  √  Meta property author contains Amundsen
+  √  Valid home page link
+  √  Valid self page link
+  √  Valid list page link
+  √  Valid filter page link
+  √  Valid items
+  √  Valid read item link
+  √  Valid update item link
+  √  Valid status item link
+  √  Valid remove item link
 
-↳ Company Create (missing email)
-  POST company-atk.herokuapp.com/ [400 Bad Request, 493B, 28ms]
-  ✓  Status is 400
-  ✓  Header content-type contains application/problem+json
-  ✓  Body root is a valid error object
-  ✓  Error property type set to error
-  ✓  Error property status set to 400
-  ✓  Error property detail set to Missing email
+└ Company Create (missing email)
+  POST https://undefined/oauth/token [errored]
+     getaddrinfo ENOTFOUND undefined
+  POST company-atk.herokuapp.com/ [400 Bad Request, 493B, 27ms]
+  √  Status is 400
+  √  Header content-type contains application/problem+json
+  √  Body root is a valid error object
+  √  Error property type set to error
+  √  Error property status set to 400
+  √  Error property detail set to Missing email
 
-↳ Company Create (missing companyName)
-  POST company-atk.herokuapp.com/ [400 Bad Request, 505B, 28ms]
-  ✓  Status is 400
-  ✓  Header content-type contains application/problem+json
-  ✓  Body root is a valid error object
-  ✓  Error property type set to error
-  ✓  Error property status set to 400
-  ✓  Error property detail set to Missing companyName
+└ Company Create (missing companyName)
+  POST https://undefined/oauth/token [errored]
+     getaddrinfo ENOTFOUND undefined
+  POST company-atk.herokuapp.com/ [400 Bad Request, 505B, 33ms]
+  √  Status is 400
+  √  Header content-type contains application/problem+json
+  √  Body root is a valid error object
+  √  Error property type set to error
+  √  Error property status set to 400
+  √  Error property detail set to Missing companyName
 
-↳ Company Create (missing status)
-  POST company-atk.herokuapp.com/ [400 Bad Request, 495B, 35ms]
-  ✓  Status is 400
-  ✓  Header content-type contains application/problem+json
-  ✓  Body root is a valid error object
-  ✓  Error property type set to error
-  ✓  Error property status set to 400
-  ✓  Error property detail set to Missing status
+└ Company Create (missing status)
+  POST https://undefined/oauth/token [errored]
+     getaddrinfo ENOTFOUND undefined
+  POST company-atk.herokuapp.com/ [400 Bad Request, 495B, 38ms]
+  √  Status is 400
+  √  Header content-type contains application/problem+json
+  √  Body root is a valid error object
+  √  Error property type set to error
+  √  Error property status set to 400
+  √  Error property detail set to Missing status
 
-↳ Company Create (valid)
-  POST company-atk.herokuapp.com/ [200 OK, 7.71KB, 42ms]
-  ✓  Status is 200
-  ✓  Header content-type contains application/forms+json
-  ✓  Meta property title contains BigCo Company Records
-  ✓  Meta property release contains 1.0.0
-  ✓  Meta property author contains Amundsen
-  ✓  Valid self page link
-  ✓  Valid items
-  ✓  Valid read item link
-  ✓  Valid remove item link
+└ Company Create (valid)
+  POST https://undefined/oauth/token [errored]
+     getaddrinfo ENOTFOUND undefined
+  POST company-atk.herokuapp.com/ [200 OK, 7.71KB, 32ms]
+  √  Status is 200
+  √  Header content-type contains application/forms+json
+  √  Meta property title contains BigCo Company Records
+  √  Meta property release contains 1.0.0
+  √  Meta property author contains Amundsen
+  √  Valid self page link
+  √  Valid items
+  √  Valid read item link
+  √  Valid remove item link
 
-↳ Company Create (duplicate Id)
-  POST company-atk.herokuapp.com/ [400 Bad Request, 510B, 47ms]
-  ✓  Status is 400
-  ✓  Header content-type contains application/problem+json
-  ✓  Body root is a valid error object
-  ✓  Error property type set to error
-  ✓  Error property status set to 400
-  ✓  Error property detail set to Record already exists
+└ Company Create (duplicate Id)
+  POST https://undefined/oauth/token [errored]
+     getaddrinfo ENOTFOUND undefined
+  POST company-atk.herokuapp.com/ [400 Bad Request, 510B, 36ms]
+  √  Status is 400
+  √  Header content-type contains application/problem+json
+  √  Body root is a valid error object
+  √  Error property type set to error
+  √  Error property status set to 400
+  √  Error property detail set to Record already exists
 
-↳ Company Status (Bad Status)
-  PATCH company-atk.herokuapp.com/status/47goh86m4l4 [400 Bad Request, 558B, 29ms]
-  ✓  Status is 400
-  ✓  Header content-type contains application/problem+json
-  ✓  Error property type set to error
-  ✓  Error property status set to 400
-  ✓  Error property detail set to Invalid enumerator
+└ Company Status (Bad Status)
+  POST https://undefined/oauth/token [errored]
+     getaddrinfo ENOTFOUND undefined
+  PATCH company-atk.herokuapp.com/status/51jqiklc18o [400 Bad Request, 558B, 33ms]
+  √  Status is 400
+  √  Header content-type contains application/problem+json
+  √  Error property type set to error
+  √  Error property status set to 400
+  √  Error property detail set to Invalid enumerator
 
-┌─────────────────────────┬────────────────────┬───────────────────┐
-│                         │           executed │            failed │
-├─────────────────────────┼────────────────────┼───────────────────┤
-│              iterations │                  1 │                 0 │
-├─────────────────────────┼────────────────────┼───────────────────┤
-│                requests │                 15 │                 0 │
-├─────────────────────────┼────────────────────┼───────────────────┤
-│            test-scripts │                 30 │                 0 │
-├─────────────────────────┼────────────────────┼───────────────────┤
-│      prerequest-scripts │                 30 │                 0 │
-├─────────────────────────┼────────────────────┼───────────────────┤
-│              assertions │                163 │                 0 │
-├─────────────────────────┴────────────────────┴───────────────────┤
-│ total run duration: 6s                                           │
-├──────────────────────────────────────────────────────────────────┤
-│ total data received: 435.58KB (approx)                           │
-├──────────────────────────────────────────────────────────────────┤
-│ average response time: 263ms [min: 28ms, max: 3.2s, s.d.: 775ms] │
-└──────────────────────────────────────────────────────────────────┘
+┌─────────────────────────┬───────────────────┬───────────────────┐
+│                         │          executed │            failed │
+├─────────────────────────┼───────────────────┼───────────────────┤
+│              iterations │                 1 │                 0 │
+├─────────────────────────┼───────────────────┼───────────────────┤
+│                requests │                30 │                15 │
+├─────────────────────────┼───────────────────┼───────────────────┤
+│            test-scripts │                45 │                 0 │
+├─────────────────────────┼───────────────────┼───────────────────┤
+│      prerequest-scripts │                45 │                 0 │
+├─────────────────────────┼───────────────────┼───────────────────┤
+│              assertions │               163 │                 0 │
+├─────────────────────────┴───────────────────┴───────────────────┤
+│ total run duration: 41.9s                                       │
+├─────────────────────────────────────────────────────────────────┤
+│ total data received: 447.03KB (approx)                          │
+├─────────────────────────────────────────────────────────────────┤
+│ average response time: 955ms [min: 27ms, max: 6.2s, s.d.: 2.1s] │
+└─────────────────────────────────────────────────────────────────┘
+
+   #  failure  detail                          
+                                               
+ 01.  Error                                    
+               getaddrinfo ENOTFOUND undefined 
+               at request                      
+               inside ""                       
+                                               
+ 02.  Error                                    
+               getaddrinfo ENOTFOUND undefined 
+               at request                      
+               inside ""                       
+                                               
+ 03.  Error                                    
+               getaddrinfo ENOTFOUND undefined 
+               at request                      
+               inside ""                       
+                                               
+ 04.  Error                                    
+               getaddrinfo ENOTFOUND undefined 
+               at request                      
+               inside ""                       
+                                               
+ 05.  Error                                    
+               getaddrinfo ENOTFOUND undefined 
+               at request                      
+               inside ""                       
+                                               
+ 06.  Error                                    
+               getaddrinfo ENOTFOUND undefined 
+               at request                      
+               inside ""                       
+                                               
+ 07.  Error                                    
+               getaddrinfo ENOTFOUND undefined 
+               at request                      
+               inside ""                       
+                                               
+ 08.  Error                                    
+               getaddrinfo ENOTFOUND undefined 
+               at request                      
+               inside ""                       
+                                               
+ 09.  Error                                    
+               getaddrinfo ENOTFOUND undefined 
+               at request                      
+               inside ""                       
+                                               
+ 10.  Error                                    
+               getaddrinfo ENOTFOUND undefined 
+               at request                      
+               inside ""                       
+                                               
+ 11.  Error                                    
+               getaddrinfo ENOTFOUND undefined 
+               at request                      
+               inside ""                       
+                                               
+ 12.  Error                                    
+               getaddrinfo ENOTFOUND undefined 
+               at request                      
+               inside ""                       
+                                               
+ 13.  Error                                    
+               getaddrinfo ENOTFOUND undefined 
+               at request                      
+               inside ""                       
+                                               
+ 14.  Error                                    
+               getaddrinfo ENOTFOUND undefined 
+               at request                      
+               inside ""                       
+                                               
+ 15.  Error                                    
+               getaddrinfo ENOTFOUND undefined 
+               at request                      
+               inside ""                       
