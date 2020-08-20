@@ -4,7 +4,7 @@ BigCo Company API
 
 □ happy_path
 └ Company Home
-  GET localhost:8484/ [200 OK, 2KB, 129ms]
+  GET localhost:8484/ [200 OK, 2KB, 117ms]
   √  Status is 200
   √  Header content-type contains application/forms+json
   √  Meta property title contains BigCo Company Records
@@ -15,7 +15,7 @@ BigCo Company API
   √  Valid list page link
 
 └ Company List
-  GET localhost:8484/list/ [200 OK, 155KB, 62ms]
+  GET localhost:8484/list/ [200 OK, 155KB, 73ms]
   1⠄ JSONError in test-script
 
 ┌─────────────────────────┬───────────────────┬───────────────────┐
@@ -31,11 +31,11 @@ BigCo Company API
 ├─────────────────────────┼───────────────────┼───────────────────┤
 │              assertions │                 8 │                 0 │
 ├─────────────────────────┴───────────────────┴───────────────────┤
-│ total run duration: 533ms                                       │
+│ total run duration: 536ms                                       │
 ├─────────────────────────────────────────────────────────────────┤
 │ total data received: 156.5KB (approx)                           │
 ├─────────────────────────────────────────────────────────────────┤
-│ average response time: 95ms [min: 62ms, max: 129ms, s.d.: 33ms] │
+│ average response time: 95ms [min: 73ms, max: 117ms, s.d.: 22ms] │
 └─────────────────────────────────────────────────────────────────┘
 
   #  failure    detail                                
