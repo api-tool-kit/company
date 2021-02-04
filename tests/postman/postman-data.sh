@@ -61,13 +61,15 @@ fi
 # **************************************
 # pull collection & environment info
 echo "Pulling postman data..."
-curl -s -X GET $svr/collections/ -H "X-Api-Key:$apikey" \
+curl --verbose -X GET $svr/collections/ -H "X-Api-Key:$apikey" \
   -H "Cache-Control:no-cache" -o $temp
-cat $temp | jq "." > $collfile
+# cat $temp | jq "." > $collfile
+mv $temp $collfile
 
-curl -s -X GET $svr/environments/ -H "X-Api-Key:$apikey" \
+curl --verbose -X GET $svr/environments/ -H "X-Api-Key:$apikey" \
   -H "Cache-Control:no-cache" -o $temp
-cat $temp | jq "." > $envfile
+# cat $temp | jq "." > $envfile
+mv $temp $envfile
 
 # **************************************
 # clean up
