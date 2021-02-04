@@ -16,11 +16,11 @@
 http://localhost:8484/xxxx -X GET
 http://localhost:8484/12345 -X DELETE
 http://localhost:8484/ -X POST -d id=12345
-http://localhost:8484/ -X POST -d id=12345&companyName=BadRec,%20Inc.
-http://localhost:8484/ -X POST -d id=12345&companyName=BadRec,%20Inc.&email=badrec@example.org
-http://localhost:8484/ -X POST -d id=12345&companyName=BadRec,%20Inc.&email=badrec@example.org&status=broken
-http://localhost:8484/ -X POST -d id=12345&companyName=BadRec,%20Inc.&email=badrec@example.org&status=pending
-http://localhost:8484/ -X POST -d id=12345&companyName=BadRec,%20Inc.&email=badrec@example.org&status=pending
-http://localhost:8484/12345 -X PUT -d id=12345&companyName=BadRec,%20Inc.&email=badrec2@example.org&status=false
+http://localhost:8484/ -X POST -d id=12345&companyName=BadRec
+http://localhost:8484/ -X POST -d id=12345&companyName=BadRec&email=badrec@example.org
+http://localhost:8484/ -X POST -d id=12345&companyName=BadRec&email=badrec@example.org&status=broken
+http://localhost:8484/ -X POST -d id=12345&companyName=BadRec&email=badrec@example.org&status=pending
+http://localhost:8484/ -X POST -d id=12345&companyName=BadRec&email=badrec@example.org&status=pending
+http://localhost:8484/12345 -X PUT -d id=12345&companyName=BadRec&email=badrec2@example.org&status=false
 
 

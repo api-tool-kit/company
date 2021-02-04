@@ -2,10 +2,9 @@ newman
 
 BigCo Company API
 
-<<<<<<< HEAD
 ❏ happy_path
 ↳ Company Home
-  GET localhost:8484/ [200 OK, 2.02KB, 89ms]
+  GET localhost:8484/ [200 OK, 2.02KB, 70ms]
   ✓  Status is 200
   ✓  Header content-type contains application/forms+json
   ✓  Meta property title contains BigCo Company Records
@@ -16,265 +15,34 @@ BigCo Company API
   ✓  Valid list page link
 
 ↳ Company List
-  GET localhost:8484/list/ [200 OK, 139.9KB, 38ms]
-  ✓  Status is 200
-  ✓  Header content-type contains application/forms+json
-  ✓  Meta property title contains BigCo Company Records
-  ✓  Meta property release contains 1.0.0
-  ✓  Meta property author contains Amundsen
-  ✓  Valid home page link
-  ✓  Valid self page link
-  ✓  Valid list page link
-  ✓  Valid filter page link
-  ✓  Valid create page link
-  ✓  Valid items
-  ✓  Valid read item link
-  ✓  Valid update item link
-  ✓  Valid status item link
-  ✓  Valid remove item link
-
-↳ Company Create
-  POST localhost:8484/ [200 OK, 7.63KB, 196ms]
-  ✓  Status is 200
-  ✓  Header content-type contains application/forms+json
-  ✓  Meta property title contains BigCo Company Records
-  ✓  Meta property release contains 1.0.0
-  ✓  Meta property author contains Amundsen
-  ✓  Valid home page link
-  ✓  Valid self page link
-  ✓  Valid list page link
-  ✓  Valid filter page link
-  ✓  Valid create page link
-  ✓  Valid items
-  ✓  Valid read item link
-  ✓  Valid update item link
-  ✓  Valid status item link
-  ✓  Valid remove item link
-
-↳ Company Read
-  GET localhost:8484/1nhe0gb33m6 [200 OK, 6.52KB, 10ms]
-  ✓  Status is 200
-  ✓  Header content-type contains application/forms+json
-  ✓  Meta property title contains BigCo Company Records
-  ✓  Meta property release contains 1.0.0
-  ✓  Meta property author contains Amundsen
-  ✓  Valid home page link
-  ✓  Valid self page link
-  ✓  Valid list page link
-  ✓  Valid filter page link
-  ✓  Valid items
-  ✓  Valid read item link
-  ✓  Valid update item link
-  ✓  Valid status item link
-  ✓  Valid remove item link
-  ✓  Item 1nhe0gb33m6 has a property companyName set to mike-co
-  ✓  Item 1nhe0gb33m6 has a property email set to mike-co@gmail.com
-  ✓  Item 1nhe0gb33m6 has a property telephone set to 123-456-7890
-  ✓  Item 1nhe0gb33m6 has a property status set to pending
-
-↳ Company Update
-  PUT localhost:8484/1nhe0gb33m6 [200 OK, 6.57KB, 10ms]
-  ✓  Status is 200
-  ✓  Header content-type contains application/forms+json
-  ✓  Meta property title contains BigCo Company Records
-  ✓  Meta property release contains 1.0.0
-  ✓  Meta property author contains Amundsen
-  ✓  Valid home page link
-  ✓  Valid self page link
-  ✓  Valid list page link
-  ✓  Valid filter page link
-  ✓  Valid items
-  ✓  Valid read item link
-  ✓  Valid update item link
-  ✓  Valid status item link
-  ✓  Valid remove item link
-  ✓  Item 1nhe0gb33m6 has a property companyName set to mike-co
-  ✓  Item 1nhe0gb33m6 has a property email set to mike-co@gmail.com
-  ✓  Item 1nhe0gb33m6 has a property telephone set to 123-456-7890
-  ✓  Item 1nhe0gb33m6 has a property streetAddress set to 123 Main St
-  ✓  Item 1nhe0gb33m6 has a property city set to Byteville
-  ✓  Item 1nhe0gb33m6 has a property country set to USA
-  ✓  Item 1nhe0gb33m6 has a property postalCode set to 12345
-  ✓  Item 1nhe0gb33m6 has a property status set to pending
-
-↳ Company Status
-  PATCH localhost:8484/status/1nhe0gb33m6 [200 OK, 6.58KB, 10ms]
-  ✓  Status is 200
-  ✓  Header content-type contains application/forms+json
-  ✓  Meta property title contains BigCo Company Records
-  ✓  Meta property release contains 1.0.0
-  ✓  Meta property author contains Amundsen
-  ✓  Valid home page link
-  ✓  Valid self page link
-  ✓  Valid list page link
-  ✓  Valid filter page link
-  ✓  Valid items
-  ✓  Valid read item link
-  ✓  Valid update item link
-  ✓  Valid status item link
-  ✓  Valid remove item link
-  ✓  Item 1nhe0gb33m6 has a property status set to active
-
-↳ Company Remove
-  DELETE localhost:8484/1nhe0gb33m6 [200 OK, 138.78KB, 35ms]
-  ✓  Status is 200
-  ✓  Header content-type contains application/forms+json
-  ✓  Meta property title contains BigCo Company Records
-  ✓  Meta property release contains 1.0.0
-  ✓  Meta property author contains Amundsen
-  ✓  Valid home page link
-  ✓  Valid self page link
-  ✓  Valid list page link
-  ✓  Valid filter page link
-  ✓  Valid items
-  ✓  Valid read item link
-  ✓  Valid update item link
-  ✓  Valid status item link
-  ✓  Valid remove item link
-
-❏ sad_path
-↳ Company Read (Bad Id)
-  GET localhost:8484/xxx [400 Bad Request, 487B, 6ms]
-  ✓  Status is 400
-  ✓  Header content-type contains application/problem+json
-  ✓  Error property type set to error
-  ✓  Error property status set to 400
-
-↳ Company Remove (valid)
-  DELETE localhost:8484/1nhe0gb33m6 [200 OK, 138.78KB, 27ms]
-  ✓  Status is 200
-  ✓  Header content-type contains application/forms+json
-  ✓  Meta property title contains BigCo Company Records
-  ✓  Meta property release contains 1.0.0
-  ✓  Meta property author contains Amundsen
-  ✓  Valid home page link
-  ✓  Valid self page link
-  ✓  Valid list page link
-  ✓  Valid filter page link
-  ✓  Valid items
-  ✓  Valid read item link
-  ✓  Valid update item link
-  ✓  Valid status item link
-  ✓  Valid remove item link
-
-↳ Company Create (missing email)
-  POST localhost:8484/ [400 Bad Request, 473B, 5ms]
-  ✓  Status is 400
-  ✓  Header content-type contains application/problem+json
-  ✓  Body root is a valid error object
-  ✓  Error property type set to error
-  ✓  Error property status set to 400
-  ✓  Error property detail set to Missing email
-
-↳ Company Create (missing companyName)
-  POST localhost:8484/ [400 Bad Request, 485B, 5ms]
-  ✓  Status is 400
-  ✓  Header content-type contains application/problem+json
-  ✓  Body root is a valid error object
-  ✓  Error property type set to error
-  ✓  Error property status set to 400
-  ✓  Error property detail set to Missing companyName
-
-↳ Company Create (missing status)
-  POST localhost:8484/ [400 Bad Request, 475B, 5ms]
-  ✓  Status is 400
-  ✓  Header content-type contains application/problem+json
-  ✓  Body root is a valid error object
-  ✓  Error property type set to error
-  ✓  Error property status set to 400
-  ✓  Error property detail set to Missing status
-
-↳ Company Create (valid)
-  POST localhost:8484/ [200 OK, 7.61KB, 14ms]
-  ✓  Status is 200
-  ✓  Header content-type contains application/forms+json
-  ✓  Meta property title contains BigCo Company Records
-  ✓  Meta property release contains 1.0.0
-  ✓  Meta property author contains Amundsen
-  ✓  Valid self page link
-  ✓  Valid items
-  ✓  Valid read item link
-  ✓  Valid remove item link
-
-↳ Company Create (duplicate Id)
-  POST localhost:8484/ [400 Bad Request, 490B, 6ms]
-  ✓  Status is 400
-  ✓  Header content-type contains application/problem+json
-  ✓  Body root is a valid error object
-  ✓  Error property type set to error
-  ✓  Error property status set to 400
-  ✓  Error property detail set to Record already exists
-
-↳ Company Status (Bad Status)
-  PATCH localhost:8484/status/1nhe0gb33m6 [400 Bad Request, 537B, 5ms]
-  ✓  Status is 400
-  ✓  Header content-type contains application/problem+json
-  ✓  Error property type set to error
-  ✓  Error property status set to 400
-  ✓  Error property detail set to Invalid enumerator
+  GET localhost:8484/list/ [200 OK, 166.34KB, 42ms]
+  1⠄ JSONError in test-script
 
 ┌─────────────────────────┬───────────────────┬──────────────────┐
 │                         │          executed │           failed │
 ├─────────────────────────┼───────────────────┼──────────────────┤
 │              iterations │                 1 │                0 │
 ├─────────────────────────┼───────────────────┼──────────────────┤
-│                requests │                15 │                0 │
+│                requests │                 2 │                0 │
 ├─────────────────────────┼───────────────────┼──────────────────┤
-│            test-scripts │                45 │                0 │
+│            test-scripts │                 6 │                1 │
 ├─────────────────────────┼───────────────────┼──────────────────┤
-│      prerequest-scripts │                45 │                0 │
+│      prerequest-scripts │                 6 │                0 │
 ├─────────────────────────┼───────────────────┼──────────────────┤
-│              assertions │               163 │                0 │
+│              assertions │                 8 │                0 │
 ├─────────────────────────┴───────────────────┴──────────────────┤
-│ total run duration: 1822ms                                     │
+│ total run duration: 352ms                                      │
 ├────────────────────────────────────────────────────────────────┤
-│ total data received: 453.15KB (approx)                         │
+│ total data received: 167.82KB (approx)                         │
 ├────────────────────────────────────────────────────────────────┤
-│ average response time: 30ms [min: 5ms, max: 196ms, s.d.: 49ms] │
+│ average response time: 56ms [min: 42ms, max: 70ms, s.d.: 14ms] │
 └────────────────────────────────────────────────────────────────┘
-=======
-□ happy_path
-└ Company Home
-  GET localhost:8484/ [200 OK, 2KB, 117ms]
-  √  Status is 200
-  √  Header content-type contains application/forms+json
-  √  Meta property title contains BigCo Company Records
-  √  Meta property release contains 1.0.0
-  √  Meta property author contains Amundsen
-  √  Valid home page link
-  √  Valid self page link
-  √  Valid list page link
-
-└ Company List
-  GET localhost:8484/list/ [200 OK, 155KB, 73ms]
-  1⠄ JSONError in test-script
-
-┌─────────────────────────┬───────────────────┬───────────────────┐
-│                         │          executed │            failed │
-├─────────────────────────┼───────────────────┼───────────────────┤
-│              iterations │                 1 │                 0 │
-├─────────────────────────┼───────────────────┼───────────────────┤
-│                requests │                 2 │                 0 │
-├─────────────────────────┼───────────────────┼───────────────────┤
-│            test-scripts │                 6 │                 1 │
-├─────────────────────────┼───────────────────┼───────────────────┤
-│      prerequest-scripts │                 6 │                 0 │
-├─────────────────────────┼───────────────────┼───────────────────┤
-│              assertions │                 8 │                 0 │
-├─────────────────────────┴───────────────────┴───────────────────┤
-│ total run duration: 536ms                                       │
-├─────────────────────────────────────────────────────────────────┤
-│ total data received: 156.5KB (approx)                           │
-├─────────────────────────────────────────────────────────────────┤
-│ average response time: 95ms [min: 73ms, max: 117ms, s.d.: 22ms] │
-└─────────────────────────────────────────────────────────────────┘
 
   #  failure    detail                                
                                                       
  1.  JSONError                                        
-                Unexpected token '"' at 4230:38       
+                Unexpected token '"' at 4605:38       
                               ,"value" : "2345678901  
                                                     ^ 
                 at test-script                        
                 inside "happy_path / Company List"    
->>>>>>> 9e4681670cc344b05f31383233c62443b2241f8b
