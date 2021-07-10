@@ -1,0 +1,6 @@
+# company-list
+
+GOTO WITH-URL http://localhost:8484/
+GOTO WITH-PATH $..links.*[?(@property==='name'&&@.match(/list/i))]^.href
+# eof
+

@@ -205,7 +205,7 @@ function getQArgs(req) {
 
 // craft an internal exception object
 // based on RFC7807 (problem details
-exports.exception = function(name, message, code, type, url) {
+exports.exception = function(name, message, code, type, url, err, mamund) {
   var rtn = {};
 
   rtn.type = (type||"error");
@@ -213,19 +213,23 @@ exports.exception = function(name, message, code, type, url) {
   rtn.detail = (message||name);
   rtn.status = (code||400).toString();
   if(url) {rtn.instance = url};
+  if(err) {rtn.trace = err.stack};
+  if(mamund) {rtn.mamund = mamund};
 
   return rtn;
 }
 
 // local exeption routine
-function exception(name, message, code, type, url) {
+function exception(name, message, code, type, url, err, mamund) {
   var rtn = {};
 
-  rtn.type = (type||"error");
+  rtn.type = (type||"https://datatracker.ietf.org/doc/html/rfc7807#section-3");
   rtn.title = (name||"Error");
   rtn.detail = (message||rtn.title);
   rtn.status = (code||400).toString();
   if(url) {rtn.instance = url};
+  if(err) {rtn.trace = err.stack};
+  if(mamund) {rtn.mamund = mamund};
 
   return rtn;
 }
@@ -261,7 +265,9 @@ exports.handler = function(req, res, fn, type, representation){
           body[0].message||body[0].detail,
           body[0].code||body[0].status,
           body[0].oType,
-          'http://' + req.headers.host + req.url
+          'http://' + req.headers.host + req.url,
+          null,
+          {dt:new Date(), app:"bigco-company", server: "EYC-01"}
         ));
         rtn = xr;
         oType="error";

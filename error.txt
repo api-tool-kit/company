@@ -1,0 +1,16 @@
+{
+  "error": [
+    {
+      "type": "https://datatracker.ietf.org/doc/html/rfc7807#section-3",
+      "title": "SimpleStorage: [company]",
+      "detail": "Not Found [xxx]",
+      "status": "400",
+      "instance": "http://localhost:8484/xxx",
+      "mamund": {
+        "dt": "2021-06-01T16:55:52.481Z",
+        "app": "bigco-company",
+        "server": "EYC-01"
+      }
+    }
+  ]
+}
